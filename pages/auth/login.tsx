@@ -20,7 +20,7 @@ function Login() {
     } else {
     const redirect = location.origin + location.pathname
     window.location.href =
-        api.auth + '/?callback=' + encodeURIComponent("https://dash.laecloud.com/auth/login")
+        api.auth + '/?callback=' + encodeURIComponent(redirect)
     }
 }
 const router = useRouter(); 

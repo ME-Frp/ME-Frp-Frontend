@@ -1,5 +1,5 @@
 import config from '../../api.json';
-let current = config.dev;
+let current = config.prod;
 
 if (process.env.NODE_ENV === 'production') {
     current = config.prod;
