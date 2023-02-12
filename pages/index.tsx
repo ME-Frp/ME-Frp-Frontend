@@ -51,7 +51,7 @@ export default function Home() {
           PortIO 联合映射
         </Typography>
         <Typography variant="body" align="center" color="text.secondary" component="p">
-          由 <Link color="inherit" href="https://www.mcserverx.com">MirrorEdge Network<Link> 和 <Link color="inherit" href="https://www.locyan.cn">LoCyan Team </Link>联合提供的映射服务，基于 莱云 ，提供更加稳定的映射服务。
+          由 <Link color="inherit" href="https://www.mcserverx.com">MirrorEdge Network</Link> 和 <Link color="inherit" href="https://www.locyan.cn">LoCyan Team </Link>联合提供的映射服务，基于 莱云 ，提供更加稳定的映射服务。
         </Typography>
               <Box
         sx={{
