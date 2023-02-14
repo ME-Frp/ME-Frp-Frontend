@@ -52,7 +52,7 @@ function VerifyToken(token) {
 })
 }
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="sm">
       <Box
         sx={{
           my: 4,
