@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import { Typography, Link } from '@mui/material';
 import * as React from 'react';
 import { useState } from 'react';
 import Copyright from '../components/Copyright';
@@ -43,8 +43,8 @@ export default function Home() {
         >
           PortIO 联合映射
         </Typography>
-        <Typography variant="h5" align="center" color="text.secondary" component="p">
-          由 MirrorEdge Network 和 Locyan Team 联合提供的映射服务，基于 莱云 ，提供更加稳定的映射服务。
+        <Typography variant="body1" align="center" color="text.secondary" component="p">
+          由 <Link color="inherit" href="https://www.mcserverx.com">MirrorEdge Network</Link> 和 <Link color="inherit" href="https://www.locyan.cn">LoCyan Team </Link>联合提供的映射服务，基于 莱云 ，提供更加稳定的映射服务。
         </Typography>
               <Box
         sx={{

@@ -20,7 +20,8 @@ function Login() {
     } else {
     const redirect = location.origin + location.pathname
     window.location.href =
-        api.auth + '/?callback=' + encodeURIComponent(redirect)
+        //api.auth + '/?callback=' + encodeURIComponent(redirect)
+        api.auth + '/?callback=' + encodeURIComponent("https://panel.portio.cn/auth/login")
     }
 }
 const router = useRouter(); 
@@ -51,7 +52,7 @@ function VerifyToken(token) {
 })
 }
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="sm">
       <Box
         sx={{
           my: 4,
@@ -69,9 +70,19 @@ function VerifyToken(token) {
             去登录
           </Button>
         </Box>
-        <Copyright />
       </Box>
     </Container>
+<Container
+        maxWidth="md"
+        component="footer"
+        sx={{
+          borderTop: (theme) => `1px solid ${theme.palette.divider}`,
+          mt: 8,
+          py: [3, 6],
+        }}
+      >
+<Copyright />
+</Container>
   );
 
 }
