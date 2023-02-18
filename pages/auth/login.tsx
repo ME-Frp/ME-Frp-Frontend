@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { useRouter } from "next/router";
+import * as React from 'react';
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
 import api from '../../src/config/config';
@@ -20,8 +21,7 @@ function Login() {
     } else {
     const redirect = location.origin + location.pathname
     window.location.href =
-        //api.auth + '/?callback=' + encodeURIComponent(redirect)
-        api.auth + '/?callback=' + encodeURIComponent("https://panel.portio.cn/auth/login")
+        api.auth + '/?callback=' + encodeURIComponent(redirect)
     }
 }
 const router = useRouter(); 
@@ -52,7 +52,8 @@ function VerifyToken(token) {
 })
 }
   return (
-    <Container maxWidth="sm">
+    <React.Fragment>
+    <Container maxWidth="lg">
       <Box
         sx={{
           my: 4,
@@ -72,17 +73,19 @@ function VerifyToken(token) {
         </Box>
       </Box>
     </Container>
-<Container
-        maxWidth="md"
-        component="footer"
-        sx={{
-          borderTop: (theme) => `1px solid ${theme.palette.divider}`,
-          mt: 8,
-          py: [3, 6],
-        }}
-      >
-<Copyright />
-</Container>
+          <Container
+          maxWidth="md"
+          component="footer"
+          sx={{
+            borderTop: (theme) => `1px solid ${theme.palette.divider}`,
+            mt: 8,
+            py: [3, 6],
+          }}
+        >
+          <Copyright />
+        </Container>
+              {/* End footer */}
+              </React.Fragment>
   );
 
 }
