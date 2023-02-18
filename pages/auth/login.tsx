@@ -34,7 +34,7 @@ VerifyToken(token);
 // 验证代码：需要携带 token 进行验证 ？是否可以先存储 此处直接getitem验证？
 function VerifyToken(token) {
   localStorage.setItem('token', token);
-  http('get','/user',null)
+  http.get('/user')
   .then(res => {
     Message.success({content: "登录成功，正在重定向……", duration: 1000})
     setTimeout(() => {

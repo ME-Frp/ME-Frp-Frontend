@@ -7,19 +7,12 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Copyright from '../components/Copyright';
-import http from '../src/http/http';
 
 
 export default function Home() {
-  const task = useState()
-  useEffect(() => { 
-    http("get","/tasks", null)
-    .then((res) => {console.log("成功")})
-    .catch((error) => {
-      console.log("失败");
-})})
+  const task = useState();
   return (
      <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
