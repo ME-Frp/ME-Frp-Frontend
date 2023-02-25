@@ -27,5 +27,5 @@ export default function MyComponent() {
   }
 
   // use data here
-  return <div>Data: {JSON.stringify(data)}</div>;
+  return <div>用户名: {JSON.stringify(data.name)}</div>;
 }

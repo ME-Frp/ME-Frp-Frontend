@@ -17,7 +17,7 @@ import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
 import * as React from 'react';
 import Copyright from '../../components/Copyright';
 import { mainListItems, secondaryListItems } from '../../components/ListItem';
-import Dash from './home/index';
+import Profile from './home/index';
 
 
 
@@ -153,7 +153,7 @@ function DashboardContent() {
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
             </Grid>
-            <Dash />
+            <Profile />
             <Copyright />
           </Container>
         </Box>
