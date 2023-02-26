@@ -19,7 +19,10 @@ function Login() {
         VerifyToken(token)
       },1000)
     } else {
-    const redirect = location.origin + location.pathname
+    // const redirect = location.origin + location.pathname
+    // 正常版本
+    const redirect = "https://panel.portio.cn/auth/login"
+    // dev
     window.location.href =
         api.auth + '/?callback=' + encodeURIComponent(redirect)
     }
