@@ -18,14 +18,26 @@ export default function MyComponent() {
 
   if (error) {
     // handle error here
-    return <div>Error: {error.message}</div>;
+    return (
+    <Container maxWidth="lg">
+      <Typography>Error</Typography>
+    </Container>
+  );
   }
 
   if (!data) {
     // handle loading state here
-    return <div>Loading...</div>;
+    return (
+    <Container maxWidth="lg">
+      <Typography>Loading…</Typography>
+    </Container>
+  );
   }
 
   // use data here
-  return <div>用户名: {JSON.stringify(data.name)}</div>;
+  return (
+    <Container maxWidth="lg">
+      <Typography>用户名: {JSON.stringify(data.name)}</Typography>
+    </Container>
+  );
 }
