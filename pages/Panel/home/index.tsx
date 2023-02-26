@@ -1,3 +1,4 @@
+import { Container, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import apiClient from '../../../src/http/http';
 
@@ -41,4 +42,3 @@ export default function MyComponent() {
     </Container>
   );
  }
-}
