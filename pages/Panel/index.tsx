@@ -17,7 +17,7 @@ import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
 import * as React from 'react';
 import Copyright from '../../components/Copyright';
 import { mainListItems, secondaryListItems } from '../../components/ListItem';
-import Profile from './home/index';
+import Profile from './home/Profile';
 
 
 
