@@ -40,4 +40,5 @@ export default function MyComponent() {
       <Typography>用户名: {JSON.stringify(data.name)}</Typography>
     </Container>
   );
+ }
 }
