@@ -15,11 +15,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
 import * as React from 'react';
+import { Route, RouteProps, BrowserRouter as Router, Routes } from "react-router-dom";
 import Copyright from '../../components/Copyright';
-import { mainListItems, secondaryListItems } from '../../components/ListItem';
-import Profile from './home/Profile';
-
-
+import mainpages, { mainListItems, secondaryListItems } from "../../components/ListItem";
 
 const drawerWidth = 240;
 
@@ -73,13 +71,14 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-function DashboardContent() {
+function DashboardContent(props: RouteProps) {
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
     
   };
   return (
+    <Router>
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
@@ -153,12 +152,17 @@ function DashboardContent() {
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
             </Grid>
-            <Profile />
-            <Copyright />
+            <Routes>
+          {mainpages.map((page) => (
+            <Route exact key={page.title} path={page.path} component={page.component} {...props} />
+          ))}
+        </Routes>
+        <Copyright />
           </Container>
         </Box>
       </Box>
     </ThemeProvider>
+    </Router>
   );
 }
 
