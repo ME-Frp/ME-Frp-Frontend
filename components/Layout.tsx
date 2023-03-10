@@ -85,7 +85,6 @@ const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
   const { path } = router.query;
   return (
-    // <Router>
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
@@ -159,11 +158,7 @@ const Layout = ({ children }: LayoutProps) => {
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
             </Grid>
-           {/* <Routes>
-           {mainpages.map((page) => (
-            <Route exact key={page.title} path={page.path} component={page.component} {...props} />
-           ))}---!>
-        </Routes>*/}
+           {/*导入页面*/}
               <main>
         {path && <h1>{path}</h1>}
         {children}
@@ -173,7 +168,6 @@ const Layout = ({ children }: LayoutProps) => {
         </Box>
       </Box>
     </ThemeProvider>
-    // </Router>
   );
 }
 export default Layout;
