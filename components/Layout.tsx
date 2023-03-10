@@ -16,8 +16,11 @@ import Typography from '@mui/material/Typography';
 import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
 import * as React from 'react';
 // import { RouteProps, BrowserRouter as Router, Routes } from "react-router-dom";
-import Copyright from '../../components/Copyright';
-import { mainListItems, secondaryListItems } from "../../components/ListItem";
+import { useRouter } from 'next/router';
+import { ReactNode } from 'react';
+import Copyright from './Copyright';
+import { mainListItems, secondaryListItems } from "./ListItem";
+
 
 const drawerWidth = 240;
 
@@ -68,17 +71,19 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     },
   }),
 );
-
 const mdTheme = createTheme();
+interface LayoutProps {
+  children: ReactNode;
+}
 
-function DashboardContent(
-  //props: RouteProps
-  ) {
+const Layout = ({ children }: LayoutProps) => {
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
     
   };
+  const router = useRouter();
+  const { path } = router.query;
   return (
     // <Router>
     <ThemeProvider theme={mdTheme}>
@@ -159,6 +164,10 @@ function DashboardContent(
             <Route exact key={page.title} path={page.path} component={page.component} {...props} />
            ))}---!>
         </Routes>*/}
+              <main>
+        {path && <h1>{path}</h1>}
+        {children}
+      </main>
         <Copyright />
           </Container>
         </Box>
@@ -167,7 +176,4 @@ function DashboardContent(
     // </Router>
   );
 }
-
-export default function Dashboard(){
-  return <DashboardContent />;
-}
+export default Layout;

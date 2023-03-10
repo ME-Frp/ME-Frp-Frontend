@@ -1,7 +1,7 @@
 import { Dashboard } from '@mui/icons-material';
 import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import * as React from 'react';
-import Profile from '../pages/Panel/home/Profile';
+import Profile from '../pages/Panel/home';
 
 const mainpages = [
     {

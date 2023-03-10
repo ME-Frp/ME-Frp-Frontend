@@ -1,7 +1,7 @@
 import { Container, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import apiClient from '../../../src/http/http';
-
+import Layout from '../../components/Layout';
+import apiClient from '../../src/http/http';
 export default function MyComponent() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -37,8 +37,10 @@ export default function MyComponent() {
 
   // use data here
   return (
+    <Layout>
     <Container maxWidth="lg">
       <Typography>用户名: {JSON.stringify(data.name)}</Typography>
     </Container>
+    </Layout>
   );
  }
