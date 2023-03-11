@@ -20,18 +20,22 @@ export default function MyComponent() {
   if (error) {
     // handle error here
     return (
+      <Layout>
     <Container maxWidth="lg">
       <Typography>Error</Typography>
     </Container>
+    </Layout>
   );
   }
 
   if (!data) {
     // handle loading state here
     return (
+      <Layout>
     <Container maxWidth="lg">
       <Typography>Loading…</Typography>
     </Container>
+    </Layout>
   );
   }
 

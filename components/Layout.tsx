@@ -1,23 +1,13 @@
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import MenuIcon from '@mui/icons-material/Menu';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Badge from '@mui/material/Badge';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import MuiDrawer from '@mui/material/Drawer';
-import Grid from '@mui/material/Grid';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+// Material-UI
+import { ChevronLeft as ChevronLeftIcon, Menu as MenuIcon } from '@mui/icons-material';
+import { Box, Container, CssBaseline, Divider, Grid, IconButton, List, AppBar as MuiAppBar, AppBarProps as MuiAppBarProps, Drawer as MuiDrawer, Toolbar, Typography } from '@mui/material';
 import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
+// React
 import * as React from 'react';
-// import { RouteProps, BrowserRouter as Router, Routes } from "react-router-dom";
-import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
+// Next.js
+import { useRouter } from 'next/router';
+// Components
 import Copyright from './Copyright';
 import { mainListItems, secondaryListItems } from "./ListItem";
 
@@ -115,11 +105,6 @@ const Layout = ({ children }: LayoutProps) => {
             >
               Dashboard
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>

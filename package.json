@@ -19,9 +19,8 @@
     "@next/font": "latest",
     "axios": "^1.2.2",
     "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-router-dom": "5.2.0"
+    "react": "^18.2.0",
+    "react-dom": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",

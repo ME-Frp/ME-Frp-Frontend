@@ -1,12 +1,12 @@
 import { Alert, Snackbar } from "@mui/material";
 import React from "react";
 import { createRoot } from 'react-dom/client';
-function Message(props) {
+function Message(props: any) {
     const { content, duration, type }:any = {...props};
     // 开关控制：默认true,调用时会直接打开
     const [open, setOpen] = React.useState(true);
     // 关闭消息提示
-    const handleClose = (event, reason) => {
+    const handleClose = (event: any, reason: any) => {
         setOpen(false);
     };
     return <Snackbar

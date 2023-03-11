@@ -29,7 +29,6 @@ function Login() {
 }
 const router = useRouter(); 
 const query = router.query
-
 // Token 获取：从 回调 url 中检测 Token 非 null 时将 Token 定义为 token 字段，并传递 Token 进行验证
 if (query.token != null) {
 const token = query.token as string
