@@ -6,7 +6,7 @@ import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
 import * as React from 'react';
 import { ReactNode } from 'react';
 // Next.js
-import { useRouter } from 'next/router';
+import useRouter from 'next/router';
 // Components
 import Copyright from './Copyright';
 import { mainListItems, secondaryListItems } from "./ListItem";
