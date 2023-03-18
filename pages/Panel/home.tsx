@@ -2,6 +2,7 @@ import { Avatar, Button, Card, CardActions, CardContent, CardHeader, Container, 
 import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import apiClient from '../../src/http/http';
+
 export default function MyComponent() {
   const [user, setUser] = useState(null);
   const [traffic, setTraffic] = useState(null);
