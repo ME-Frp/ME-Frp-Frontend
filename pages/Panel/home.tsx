@@ -1,81 +1,71 @@
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, Container, Typography } from '@mui/material';
+import { Avatar, Card, CardContent, CardHeader, Container, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import apiClient from '../../src/http/http';
 
-export default function MyComponent() {
+export default function UserProfileCard() {
   const [user, setUser] = useState(null);
-  const [traffic, setTraffic] = useState(null);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    apiClient
-      .get('/users')
-      .then((response) => {
+    async function fetchData() {
+      try {
+        const response = await apiClient.get('/v2/user');
         setUser(response);
-      })
-      .catch((error) => {
+      } catch (error) {
         setError(error);
-      });
-    apiClient
-      .get('/modules/frp/traffic')
-      .then((response) => {
-        setTraffic(response);
-      })
-      .catch((error) => {
-        setError(error);
-      });
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchData();
   }, []);
 
   if (error) {
     // handle error here
     return (
       <Layout>
-    <Container maxWidth="lg">
-      <Typography>Error</Typography>
-    </Container>
-    </Layout>
-  );
+        <Container maxWidth="lg">
+          <Typography>Error</Typography>
+        </Container>
+      </Layout>
+    );
   }
-// 如果用户或traffic不存在 则显示加载中
-  if (!user || !traffic) {
+
+  if (isLoading || !user) {
     // handle loading state here
     return (
       <Layout>
-    <Container maxWidth="lg">
-      <Typography>Loading…</Typography>
-    </Container>
-    </Layout>
-  );
+        <Container maxWidth="lg">
+          <Typography>Loading…</Typography>
+        </Container>
+      </Layout>
+    );
   }
 
-  // use data here
+  const { email_md5, username, id, group, outbound, traffic, email } = user;
+
   return (
     <Layout>
-    <Card sx={{ display: 'flex', flexDirection: 'column' }}>
-      <CardHeader 
-      color="text.secondary"
-      avatar={
-        <Avatar src={"https://dn-qiniu-avatar.qbox.me/avatar/?email=" + JSON.parse(JSON.stringify(user.email_md5)) } />
-      }
-      title={JSON.parse(JSON.stringify(user.name))}
-      />
-      <CardContent>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        用户名: {JSON.parse(JSON.stringify(user.name))}<br />
-        用户 ID : {JSON.parse(JSON.stringify(user.id))}<br />
-        用户组: {JSON.parse(JSON.stringify(user.user_group.name))}<br />
-        剩余流量: {JSON.parse(JSON.stringify(traffic.free_traffic))} GB<br />
-        邮箱: {JSON.parse(JSON.stringify(user.email))}<br />
-        账户余额: {JSON.parse(JSON.stringify(user.balance))} 元<br />
-
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button href={"https://api.laecloud.com/balances"}>充值余额</Button>
-        <Button href={"https://api.laecloud.com/transactions"}>交易记录</Button>
-      </CardActions>
-    </Card>
+      <Card sx={{ display: 'flex', flexDirection: 'column' }}>
+        <CardHeader
+          color="text.secondary"
+          avatar={<Avatar src={`https://dn-qiniu-avatar.qbox.me/avatar/?email=${email_md5}`} />}
+          title={username}
+        />
+        <CardContent>
+          <Typography sx={{ mb: 1.5 }} color="text.secondary">
+            用户名: {username}<br />
+            用户 ID : {id}<br />
+            用户组: {group}<br />
+            出网带宽: {(outbound / 1024) * 8}Mbps<br />
+            剩余流量: {traffic / 1024} GB<br />
+            邮箱: {email}<br />
+          </Typography>
+        </CardContent>
+      </Card>
     </Layout>
   );
- }
+}

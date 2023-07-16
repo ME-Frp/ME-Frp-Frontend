@@ -1,5 +1,5 @@
 {
-  "name": "portio",
+  "name": "mefrp",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,12 @@
     "lint": "next lint",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
+  "swc": {
+    "sourceMap": true
+  },
   "dependencies": {
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
     "@emotion/cache": "latest",
     "@emotion/react": "^11.10.5",
     "@emotion/server": "^11.10.0",
@@ -21,9 +26,15 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-router-dom": "5.2.0"
+    "react-router-dom": "5.2.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "refractor": "^4.8.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-typescript": "^7.22.5",
+    "@swc/core": "^1.3.69",
+    "@swc/jest": "^0.2.26",
     "@types/node": "latest",
     "@types/react": "latest",
     "eslint": "latest",

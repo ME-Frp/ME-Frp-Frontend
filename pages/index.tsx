@@ -1,4 +1,4 @@
-import { Link, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -24,7 +24,7 @@ export default function Home() {
       >
         <Toolbar sx={{ flexWrap: 'wrap' }}> 
           <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-            PortIO 联合映射
+            ME Frp 镜缘映射
           </Typography>
           <Button href="auth/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
             注册
@@ -40,10 +40,10 @@ export default function Home() {
           color="text.primary"
           gutterBottom
         >
-          PortIO 联合映射
+          ME Frp 镜缘映射
         </Typography>
         <Typography variant="body1" align="center" color="text.secondary" component="p">
-          由 <Link color="inherit" href="https://www.mcserverx.com">MirrorEdge Network</Link> 和 <Link color="inherit" href="https://www.locyan.cn">LoCyan Team </Link>联合提供的映射服务，基于 莱云 ，提供更加稳定的映射服务。
+        免费 公益 好用 低延迟 稳定的Frp内网穿透
         </Typography>
               <Box
         sx={{

@@ -50,7 +50,7 @@ class ApiClient {
       }
     }
   } else if (error.response.status === 404) {
-    Message.error({content: "LaeCloud API Error 404",duration: 2000})
+    Message.error({content: "ME Frp API Error 404",duration: 2000})
   }
   return Promise.reject(error);
   };
