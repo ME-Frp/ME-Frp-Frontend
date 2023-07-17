@@ -16,13 +16,14 @@ class ApiClient {
       baseURL,
     });
     this.axios.interceptors.request.use(
-      this.handleRequest,
+      this.handleRequest.bind(this), // 绑定 this 上下文
     );
     this.axios.interceptors.response.use(
-      this.handleSuccessResponse,
-      this.handleErrorResponse
+      this.handleSuccessResponse.bind(this), // 绑定 this 上下文
+      this.handleErrorResponse.bind(this) // 绑定 this 上下文
     );
   }
+  
   private handleRequest = (config: AxiosRequestConfig) => {
     const token = localStorage.getItem('token');
     if (token) {
