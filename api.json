@@ -3,6 +3,6 @@
         "api": "http://127.0.0.1:8080/api/"
     },
     "prod": {
-        "api": "https://frp.api.mcserverx.com/api/"
+        "api": "https://frp.aqinco.cn/api/"
     }
 }
