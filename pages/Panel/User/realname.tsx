@@ -1,4 +1,4 @@
-import { Button, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Box, Button, Grid, Paper, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import Message from '../../../components/Message';
@@ -25,11 +25,20 @@ export default function RealnamePage()  {
       // Replace `idcardValue` and `nameValue` with the actual field values entered by the user
       event.preventDefault();
       const { name, idcard } = event.currentTarget;
+
+      if (!name.value) {
+        Message.error({ content: "姓名不能为空", duration: 1000 });
+        return;
+      }
+      if (!idcard.value) {
+        Message.error({ content: "身份证号码不能为空", duration: 1000 });
+        return;
+      }
   
       try {
         const formData = new FormData();
-        formData.append('idcard', idcard);
-        formData.append('name', name);
+        formData.append('idcard', idcard.value.toString());
+        formData.append('name', name.value.toString());
   
         const response = await apiClient.post('/v2/realname/post', formData);
         Message.success({ content: "实名认证成功，自动刷新页面…", duration: 1000 });
@@ -55,15 +64,15 @@ export default function RealnamePage()  {
       {isAuthenticated ? (
         <Grid>
           <Typography variant="h6">您已实名认证</Typography>
-          <Typography variant="body1">实名认证时间：{new Date(status.time).toLocaleString()}</Typography>
+          <Typography variant="body1">实名认证时间：{new Date(status.time * 1000).toLocaleString()}</Typography>
           </Grid>
       ) : (
-        <Grid>
+        <Box onSubmit={handleRealnamePost} component="form">
           <Typography variant="h6">未实名认证</Typography>
-          <TextField label="身份证号码" fullWidth />
-          <TextField label="姓名" fullWidth />
-          <Button variant="contained" onClick={handleRealnamePost}>提交</Button>
-          </Grid>
+          <TextField id="name" label="姓名" fullWidth />
+          <TextField id="idcard" label="身份证号码" fullWidth />
+          <Button variant="contained" type="submit">提交</Button>
+          </Box>
       )}
     </Paper>
     </Layout>
