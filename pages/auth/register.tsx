@@ -76,9 +76,9 @@ const SignUp: NextPage = () => {
     } catch (error) {
       setIsDisabled(false);
       if (error.response && error.response.status == 500) {
-        Message.error({ content: '验证码发送失败，请检查邮箱地址是否正确！', duration: 1000 });
+        Message.error({ content: '验证码发送失败，' + error.response.data.message , duration: 1000 });
       } else {
-        Message.error({ content: '验证码发送失败，请稍后再试！', duration: 1000 });
+        Message.error({ content: '验证码发送失败，请稍后再试！' + error.response.data.message, duration: 1000 });
       }
     }
   };
