@@ -1,93 +1,90 @@
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import SendIcon from '@mui/icons-material/Send';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+import { LockOutlined, Send } from '@mui/icons-material';
+import { Avatar, Box, Button, Container, CssBaseline, Grid, Link, TextField, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import * as React from 'react';
+import { NextPage } from 'next';
 import { useState } from 'react';
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
 import http from '../../src/http/http';
 
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
+const theme = createTheme();
 
-export default function SignUp() {
+const SignUp: NextPage = () => {
   const [isDisabled, setIsDisabled] = useState(false);
-  const [coderes, setcoderes] = useState(null);
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const [submitDisabled, setSubmitDisabled] = useState(false);
+  const [coderes, setCoderes] = useState(null);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    // 防止重复点击
+    setSubmitDisabled(true);
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // 识别点击的按钮 通过id
-    // 获取两个按钮元素
-const sendCodeButton = document.getElementById('sendcode');
-const registerButton = document.getElementById('reg');
 
-// 给发送验证码按钮绑定点击事件监听
-sendCodeButton.addEventListener('click', function() {
-// 获取输入的邮箱地址
-const email = data.get('email');
-// 设定为表单数据
-if (email == "") {
-Message.error({content: "邮箱地址不能为空！", duration: 1000})
-} else {
-const formData = new FormData();
-formData.append('email', email.toString());
-// 发送请求
-http.post('/v1/auth/reg/email', formData)
-.then(res => {
-setcoderes(res);
-Message.success({content: "验证码发送成功！", duration: 1000})
-// 将按钮设置为不可用
-setIsDisabled(true);
-}).catch(err => {
-  if (err.response.status == 500) {
-    Message.error({content: "验证码发送失败，请检查邮箱地址是否正确！", duration: 1000})
-    setIsDisabled(true);
-    }});
-  }
-});
+    try {
+      const email = data.get('email');
+      const username = data.get('username');
+      const password = data.get('password');
+      const code = data.get('code');
 
-// 给注册按钮绑定点击事件监听
-registerButton.addEventListener('click', function() {
-  // 获取输入的邮箱地址
-  const email = data.get('email');
-  // 获取输入的用户名
-  const username = data.get('username');
-  // 获取输入的密码
-  const password = data.get('password');
-  // 获取输入的验证码
-  const code = data.get('code');
-  // 设定为表单数据
-  if (email == "" || username == "" || password == "" || code == "") {
-  Message.error({content: "请填写完整信息！", duration: 1000})
-  } else {
-  const formData = new FormData();
-  formData.append('email', email.toString());
-  formData.append('username', username.toString());
-  formData.append('password', password.toString());
-  formData.append('code', code.toString());
-  // 发送请求
-  http.post('/v1/auth/register', formData)
-  .then(res => {
-  Message.success({content: "注册成功！", duration: 1000})
-  }).catch(err => {
-    if (err.response.status == 400) {
-      Message.error({content: "注册失败，请检查信息是否正确！", duration: 1000})
-      }});
+      if (!email || !username || !password || !code) {
+        Message.error({ content: '请填写完整信息！', duration: 1000 });
+        setSubmitDisabled(false);
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('email', email.toString());
+      formData.append('username', username.toString());
+      formData.append('password', password.toString());
+      formData.append('code', code.toString());
+
+      // 发送注册请求
+      const res = await http.post('/v1/auth/register', formData);
+      Message.success({ content: '注册成功！', duration: 1000 });
+    } catch (error) {
+      setSubmitDisabled(false);
+      if (error.response && error.response.status == 400) {
+        Message.error({ content: '注册失败，请检查信息是否正确！', duration: 1000 });
+      } else {
+        Message.error({ content: '注册失败，请稍后再试！', duration: 1000 });
+      }
     }
-  });
-
   };
+
+  const handleSendCode = async () => {
+    // 防止重复点击
+    setIsDisabled(true);
+    // 获取邮箱地址
+    const data = new FormData(document.getElementById('form') as HTMLFormElement);
+    const email = data.get('email');
+
+    if (!email) {
+      Message.error({ content: '邮箱地址不能为空！', duration: 1000 });
+      setIsDisabled(false);
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+      formData.append('email', email.toString());
+
+      // 发送验证码请求
+      const res = await http.post('/v1/auth/reg/email', formData);
+      setCoderes(res);
+      setIsDisabled(true);
+      Message.success({ content: '验证码发送成功！', duration: 1000 });
+    } catch (error) {
+      setIsDisabled(false);
+      if (error.response && error.response.status == 500) {
+        Message.error({ content: '验证码发送失败，请检查邮箱地址是否正确！', duration: 1000 });
+      } else {
+        Message.error({ content: '验证码发送失败，请稍后再试！', duration: 1000 });
+      }
+    }
+  };
+
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -99,13 +96,12 @@ registerButton.addEventListener('click', function() {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            <LockOutlined />
           </Avatar>
           <Typography component="h1" variant="h5">
             注册 ME Frp 账号
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 3 }} onSubmit={handleSubmit}
-          >
+          <Box component="form" id="form" noValidate sx={{ mt: 3 }} onSubmit={handleSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -128,46 +124,40 @@ registerButton.addEventListener('click', function() {
                   autoComplete="email"
                 />
               </Grid>
-                <Grid item xs={12}>
-                 <TextField
-                  required
-                  id="code"
-                  label="验证码"
-                  name="code"
-                  sx={{width: "50%" }}
-                />
-                {/* 使得二者在同一行 并空开一部分 */}
-                <Button
-                type="submit"
-                    variant="contained"
-                    id="sendcode"
-                    disabled={isDisabled}
-                    sx={{width: "50%", height: "100%"}}
-                    endIcon={<SendIcon/>}
-                    // 使按钮靠右
-                    >
-                    发送验证码
-                </Button>
+              <Grid item xs={12}>
+  <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px', height: '48px' }}>
+    <TextField
+      required
+      id="code"
+      label="验证码"
+      name="code"
+      sx={{ flex: 1, height: '100%' }}
+    />
+    <Button
+      type="button"
+      variant="contained"
+      disabled={isDisabled}
+      onClick={handleSendCode}
+      sx={{ flex: 1, height: '100%' }}
+      endIcon={<Send />}
+    >
+      发送验证码
+    </Button>
+  </Box>
 </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="密码"
                   type="password"
                   id="password"
                   autoComplete="new-password"
                 />
               </Grid>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              id="reg"
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
+            <Button disabled={submitDisabled} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               注册
             </Button>
             <Grid container justifyContent="flex-end">
@@ -179,8 +169,10 @@ registerButton.addEventListener('click', function() {
             </Grid>
           </Box>
         </Box>
-        <Copyright/>
+        <Copyright />
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default SignUp;
