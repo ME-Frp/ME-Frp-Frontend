@@ -1,4 +1,4 @@
-import { AccountCircle, AddCircle, AssignmentTurnedIn, List, TextSnippet } from '@mui/icons-material';
+import { AccountCircle, AddCircle, AssignmentTurnedIn, Download, List, TextSnippet } from '@mui/icons-material';
 import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import * as React from 'react';
 import Profile from '../pages/Panel/home';
@@ -34,6 +34,12 @@ const secondarypages = [
       title:  "配置文件",
       path: "/Panel/Tunnel/config",
       icon: <TextSnippet />,
+    },
+    {
+      title: "文件下载",
+      path: "/Panel/Tunnel/Download",
+      icon: <Download />,
+
     }
   ];
 export const mainListItems = (
