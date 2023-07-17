@@ -1,15 +1,8 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+import { Avatar, Box, Button, Container, CssBaseline, Grid, Link, TextField, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import * as React from 'react';
+import React from 'react';
+
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
 import http from '../../src/http/http';
@@ -18,32 +11,36 @@ import http from '../../src/http/http';
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-  // 获取输入的邮箱地址
-  const email = data.get('email');
-  // 获取输入的用户名
-  const username = data.get('username');
-  // 设定为表单数据
-  if (email == "" || username == "" ) {
-  Message.error({content: "请填写完整信息！", duration: 1000})
-  } else {
-  const formData = new FormData();
-  formData.append('email', email.toString());
-  formData.append('username', username.toString());
-  // 发送请求
-  http.post('/v1/auth/forgot_password', formData)
-  .then(res => {
-  Message.success({content: "重置链接发送成功！", duration: 1000})
-  }).catch(err => {
-    if (err.response.status == 400) {
-      Message.error({content: "发送失败，请检查信息是否正确！", duration: 1000})
-      }});
-    };
-
+    // 获取输入的邮箱地址
+    const email = data.get('email');
+    // 获取输入的用户名
+    const username = data.get('username');
+  
+    // 设定为表单数据
+    if (email == '' || username == '') {
+      Message.error({ content: '请填写完整信息！', duration: 1000 });
+    } else {
+      const formData = new FormData();
+      formData.append('email', email.toString());
+      formData.append('username', username.toString());
+      try {
+        // 发送请求
+        const res = await http.post('/v1/auth/forgot_password', formData);
+        Message.success({ content: '重置链接发送成功！', duration: 1000 });
+      } catch (err) {
+        if (err.response) {
+          Message.error({ content: '发送失败，请检查信息是否正确！' + err.response.data.message, duration: 1000 });
+        } else {
+          Message.error({ content: '发送失败，请检查信息是否正确！' + err, duration: 1000 });
+        }
+      }
+    }
   };
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">

@@ -1,14 +1,17 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import {
+  Avatar,
+  Box,
+  Button,
+  Container,
+  CssBaseline,
+  Grid,
+  Link,
+  TextField,
+  ThemeProvider,
+  Typography,
+  createTheme,
+} from '@mui/material';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { useState } from 'react';
@@ -24,32 +27,35 @@ export default function SignUp() {
   const [coderes, setcoderes] = useState(null);
   const router = useRouter();
   const query = router.query;
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-
+  
     // 获取输入的密码
     const password = data.get('password');
     // 获取地址栏中的参数token
     const token = query.token;
-  // 设定为表单数据
-  if (password == "" || token == "" ) {
-  Message.error({content: "请填写完整信息！", duration: 1000})
-  } else {
-  const formData = new FormData();
-  formData.append('password', password.toString());
-  // 发送请求
-  http.post('/v1/auth/reset_password/' + token, formData)
-  .then(res => {
-  Message.success({content: "重置成功！", duration: 1000})
-  }).catch(err => {
-    if (err.response.status != null) {
-    if (err.response.status == 400) {
-      Message.error({content: "重置失败，请检查信息是否正确！", duration: 1000})
+  
+    // 表单验证
+    if (password === '' || token === '') {
+      Message.error({ content: '请填写完整信息！', duration: 1000 });
+      return;
+    }
+  
+    try {
+      const formData = new FormData();
+      formData.append('password', password.toString());
+  
+      // 发送异步请求
+      const response = await http.post(`/v1/auth/reset_password/${token}`, formData);
+      Message.success({ content: '重置成功！', duration: 1000 });
+    } catch (error) {
+      if (error.response) {
+        Message.error({ content: '重置失败，请检查信息是否正确！' + error.response.data.message, duration: 1000 });
+      } else {
+        Message.error({ content: '重置失败，请稍后再试！' + error, duration: 1000 });
       }
-  }});
-    };
-
+    }
   };
   return (
     <ThemeProvider theme={defaultTheme}>

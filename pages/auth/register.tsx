@@ -43,10 +43,10 @@ const SignUp: NextPage = () => {
       Message.success({ content: '注册成功！', duration: 1000 });
     } catch (error) {
       setSubmitDisabled(false);
-      if (error.response && error.response.status == 400) {
-        Message.error({ content: '注册失败，请检查信息是否正确！', duration: 1000 });
+      if (error.response) {
+        Message.error({ content: '注册失败' + error.response.data.message, duration: 1000 });
       } else {
-        Message.error({ content: '注册失败，请稍后再试！', duration: 1000 });
+        Message.error({ content: '注册失败，请稍后再试！' + error, duration: 1000 });
       }
     }
   };
@@ -75,10 +75,10 @@ const SignUp: NextPage = () => {
       Message.success({ content: '验证码发送成功！', duration: 1000 });
     } catch (error) {
       setIsDisabled(false);
-      if (error.response && error.response.status == 500) {
+      if (error.response) {
         Message.error({ content: '验证码发送失败，' + error.response.data.message , duration: 1000 });
       } else {
-        Message.error({ content: '验证码发送失败，请稍后再试！' + error.response.data.message, duration: 1000 });
+        Message.error({ content: '验证码发送失败，请稍后再试！' + error, duration: 1000 });
       }
     }
   };
