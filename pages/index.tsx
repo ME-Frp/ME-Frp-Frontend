@@ -26,7 +26,7 @@ export default function Home() {
           <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
             ME Frp 镜缘映射
           </Typography>
-          <Button href="auth/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+          <Button href="auth/register" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
             注册
           </Button>
         </Toolbar>

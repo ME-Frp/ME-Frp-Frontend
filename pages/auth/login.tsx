@@ -130,7 +130,7 @@ function VerifyToken(token) {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/auth/reg" variant="body2">
+                <Link href="/auth/register" variant="body2">
                   {"没有账号？ 去注册"}
                 </Link>
               </Grid>

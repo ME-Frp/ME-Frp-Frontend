@@ -37,7 +37,7 @@ const secondarypages = [
     },
     {
       title: "文件下载",
-      path: "/Panel/Tunnel/Download",
+      path: "/Panel/Download",
       icon: <Download />,
 
     }
