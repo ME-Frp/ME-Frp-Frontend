@@ -1,5 +1,5 @@
 // Material-UI
-import { ChevronLeft as ChevronLeftIcon, Menu as MenuIcon } from '@mui/icons-material';
+import { ChevronLeft as ChevronLeftIcon, Logout, Menu as MenuIcon } from '@mui/icons-material';
 import { Box, Container, CssBaseline, Divider, Grid, IconButton, List, AppBar as MuiAppBar, AppBarProps as MuiAppBarProps, Drawer as MuiDrawer, Toolbar, Typography } from '@mui/material';
 import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
 // React
@@ -105,6 +105,16 @@ const Layout = ({ children }: LayoutProps) => {
             >
               Dashboard
             </Typography>
+            <IconButton 
+            color="inherit"
+            onClick={()=>{
+              localStorage.removeItem('token');
+              router.push('/auth/login')
+                         }
+                    }
+            >
+              <Logout />
+            </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>

@@ -1,4 +1,4 @@
-import { AccountCircle, AddCircle, AssignmentTurnedIn, Download, List, TextSnippet } from '@mui/icons-material';
+import { AccountCircle, AddCircle, AssignmentTurnedIn, Download, HowToReg, List, TextSnippet } from '@mui/icons-material';
 import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import * as React from 'react';
 import Profile from '../pages/Panel/home';
@@ -15,7 +15,13 @@ const mainpages = [
       path: "/Panel/User/sign",
       icon: <AssignmentTurnedIn />,
       component: Profile,
-    }
+    },
+    {
+      title: "实名认证",
+      path: "/Panel/User/realname",
+      icon: <HowToReg />,
+      component: Profile,
+    },
   ];
 export default mainpages;
 const secondarypages = [
