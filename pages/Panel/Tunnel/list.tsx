@@ -41,10 +41,9 @@ export default function MyComponent() {
   const handleClickOpen = async (id: number) => {
     setSelectedTunnelId(id);
     try {
+      setEasy_start("./frpc -t " + localStorage.getItem("token") + " -i " + id)
       const response = await apiClient.get('/v2/tunnel/info/' + id);
       setInfo(response);
-          // 设定 easy_start 
-    setEasy_start("./frpc -t " + localStorage.getItem("token") + " -i " + info.id)
     } catch (error) {
       console.log(error);
     }
