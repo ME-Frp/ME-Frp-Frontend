@@ -1,0 +1,4 @@
+.animation-container {
+    position: relative;
+    z-index: -1; /* 设置一个较低的z-index值 */
+  }

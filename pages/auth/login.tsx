@@ -16,6 +16,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
+import ProTip from '../../components/ProTip';
 import http from '../../src/http/http';
 
 function verifyToken(token, router) {
@@ -154,6 +155,7 @@ export default function About() {
             py: [3, 6],
           }}
         >
+          <ProTip />
           <Copyright />
         </Container>
               {/* End footer */}

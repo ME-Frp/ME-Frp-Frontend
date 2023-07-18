@@ -5,6 +5,7 @@ import { NextPage } from 'next';
 import { useState } from 'react';
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
+import ProTip from '../../components/ProTip';
 import http from '../../src/http/http';
 
 const theme = createTheme();
@@ -169,6 +170,7 @@ const SignUp: NextPage = () => {
             </Grid>
           </Box>
         </Box>
+        <ProTip />
         <Copyright />
       </Container>
     </ThemeProvider>

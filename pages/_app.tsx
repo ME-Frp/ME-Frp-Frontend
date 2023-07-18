@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import api from '../src/config/config';
 import createEmotionCache from '../src/createEmotionCache';
 import theme from '../src/theme';
+import "../src/ts.css";
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
