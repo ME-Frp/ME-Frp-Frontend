@@ -1,4 +1,4 @@
-import { Avatar, Card, CardContent, CardHeader, Container, Typography } from '@mui/material';
+import { Avatar, Box, Card, CardContent, CardHeader, Container, Paper, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import apiClient from '../../src/http/http';
@@ -49,6 +49,8 @@ export default function UserProfileCard() {
 
   return (
     <Layout>
+                        <Box display="flex">
+            <Box flex={1} mr={1}>
       <Card sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardHeader
           color="text.secondary"
@@ -66,6 +68,29 @@ export default function UserProfileCard() {
           </Typography>
         </CardContent>
       </Card>
+      </Box>
+      <Box flex={1} ml={1}>
+      <Card sx={{ display: 'flex', flexDirection: 'column' }}>
+        <CardHeader
+          color="text.secondary"
+          title="公告"
+        />
+        <CardContent>
+          <Typography sx={{ mb: 1.5 }} color="text.secondary">
+            <br />
+            </Typography>
+        </CardContent>
+      </Card>
+      </Box>
+      </Box>
+      <Paper elevation={3} sx={{ p: 2 }}>
+        <Typography variant="h5" component="h1" gutterBottom>
+          广告位招租
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          请联系管理员
+        </Typography>
+      </Paper>
     </Layout>
   );
 }

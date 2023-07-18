@@ -1,4 +1,4 @@
-import { Button, Paper, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import apiclient from '../../../src/http/http';
@@ -55,6 +55,8 @@ function SignInPage() {
 
   return (
     <Layout>
+                  <Box display="flex">
+            <Box flex={1} mr={1}>
     <Paper elevation={3} sx={{ p: 2 }}>
       <Typography variant="h6">签到</Typography>
       <Typography>ID: {signInfo.id}</Typography>
@@ -71,6 +73,18 @@ function SignInPage() {
       )}
 
       {signInError && <Typography>{signInError}</Typography>}
+    </Paper>
+    </Box>
+    <Box flex={1} ml={1}>
+    <Paper elevation={3} sx={{ p: 2 }}>
+      <Typography variant="h6">广告</Typography>
+      <Typography>广告位招租</Typography>
+    </Paper>
+    </Box>
+    </Box>
+    <Paper elevation={3} sx={{ p: 2 }}>
+      <Typography variant="h6">广告</Typography>
+      <Typography>广告位招租</Typography>
     </Paper>
     </Layout>
   );
