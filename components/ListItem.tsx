@@ -18,7 +18,7 @@ const mainpages = [
     },
     {
       title: "赞助我们",
-      path: "/Panel/User/sponsor",
+      path: "/Panel/sponsor",
       icon: <VolunteerActivism />,
       component: Profile,
     },
