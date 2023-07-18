@@ -41,7 +41,7 @@ export default function MyComponent() {
   const handleClickOpen = async (id: number) => {
     setSelectedTunnelId(id);
     try {
-      setEasy_start("./frpc -t " + localStorage.getItem("token") + " -i " + id)
+      setEasy_start("frpc -t " + localStorage.getItem("token") + " -i " + id)
       const response = await apiClient.get('/v2/tunnel/info/' + id);
       setInfo(response);
     } catch (error) {
@@ -144,7 +144,8 @@ export default function MyComponent() {
                   <p>本地IP：{info.local_ip}</p>
                   <p>远程端口：{info.remote_port}</p>
                   <p>节点主机名：{info.node_hostname}</p>
-                  <p>简单启动命令: {easy_start}</p>
+                  <p>简单启动命令:  ./ {easy_start}</p>
+                  <p>Windows 用户请使用: .\ {easy_start}</p>
                 </>
               ) : null}
             </div>

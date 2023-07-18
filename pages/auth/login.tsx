@@ -60,16 +60,16 @@ export default function About() {
     formData.append('username', username.value.toString());
     formData.append('password', password.value.toString());
 
+    // 重置loginres的值
+    setLoginres(null);
+
     try {
       const response = await http.post('/v1/auth/login', formData);
       setLoginres(response);
-      const token = Loginres.access_token;
       Message.success({ content: "获取到 Token , 正在对其有效性进行验证", duration: 1000 });
-      setTimeout(() => {
-        verifyToken(token, router).then(() => {
+        verifyToken(Loginres.access_token, router).then(() => {
           console.log("登录成功！");
         });
-      }, 1000);
     } catch (err) {
       if (err.response?.status === 401) {
         Message.error({ content: "登录失败，用户名或密码错误！" + err.response.data.message, duration: 1000 });
@@ -123,6 +123,7 @@ export default function About() {
             />
             <Button
               type="submit"
+              name="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
