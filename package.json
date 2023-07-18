@@ -26,10 +26,8 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-particles": "^2.11.0",
     "react-router-dom": "5.2.0",
     "react-syntax-highlighter": "^15.5.0",
-    "react-tsparticles": "^2.11.0",
     "refractor": "^4.8.1",
     "three": "^0.154.0"
   },
