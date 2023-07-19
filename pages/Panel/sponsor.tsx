@@ -30,8 +30,8 @@ const SponsorPage = () => {
   return (
     <Layout>
             <Box display="flex">
-            <Box flex={1} mr={1}>
-      <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
+            <Box flex={1} mr={1} style={{ height: "100%" }}>
+      <Paper elevation={3} style={{ padding: '20px', height: "100%", marginBottom: '20px' }}>
         <Typography variant="h5" gutterBottom>
           赞助我们
         </Typography>
@@ -43,8 +43,8 @@ const SponsorPage = () => {
         <Button href="https://qm.qq.com/q/Ob3I1Gu52y" variant="contained" >QQ(节点赞助/合作需求)</Button>
       </Paper>
       </Box>
-      <Box flex={1} ml={1}>
-      <Card sx={{ minWidth: 275 }}>
+      <Box flex={1} ml={1} style={{ height: "100%" }}>
+      <Card  style={{ padding: '20px', height: "100%", marginBottom: '20px' }}>
       <CardContent>
         <Typography variant="h5" component="div">官方推荐</Typography>
         <br />

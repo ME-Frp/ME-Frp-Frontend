@@ -1,4 +1,4 @@
-import { Avatar, Box, Card, CardContent, CardHeader, Container, Paper, Typography } from '@mui/material';
+import { Avatar, Box, Card, CardContent, CardHeader, Container, Link, Paper, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import apiClient from '../../src/http/http';
@@ -50,8 +50,8 @@ export default function UserProfileCard() {
   return (
     <Layout>
                         <Box display="flex">
-            <Box flex={1} mr={1}>
-      <Card sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Box flex={1} mr={1} style={{ height: "100%" }}>
+      <Card  style={{ padding: '20px', height: "100%", marginBottom: '20px' }}>
         <CardHeader
           color="text.secondary"
           avatar={<Avatar src={`https://dn-qiniu-avatar.qbox.me/avatar/?email=${email_md5}`} />}
@@ -69,14 +69,14 @@ export default function UserProfileCard() {
         </CardContent>
       </Card>
       </Box>
-      <Box flex={1} ml={1}>
-      <Card sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box flex={1} ml={1} style={{ height: "100%" }}>
+      <Card style={{ padding: '20px', height: "100%", marginBottom: '20px' }}>
         <CardHeader
           color="text.secondary"
           title="公告"
         />
         <CardContent>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          <Typography color="text.secondary">
               如果您还未实名认证，将只能使用境外节点
               实名认证后，您将可以使用境内节点 且 带宽限制将提升至 30Mbps <br />
               我们的服务完全免费，但是我们需要您的支持，如果您愿意，可以到左侧的 赞助我们 页面来支持我们
@@ -87,14 +87,18 @@ export default function UserProfileCard() {
       </Card>
       </Box>
       </Box>
-      <Paper elevation={3} sx={{ p: 2 }}>
+      <Box flex={1} mr={1} style={{ height: "100%" }}>
+      <Paper elevation={3} style={{ padding: '20px' }}>
         <Typography variant="h5" component="h1" gutterBottom>
-          广告位招租
+          广告
         </Typography>
         <Typography variant="body1" gutterBottom>
-          请联系管理员
+        阿金塔云 香港 CN2 GIA 2H2G 仅需要 24 元每月 测试 IP: <Link href="https://www.itdog.cn/ping/107.151.250.1"> 107.151.250.1</Link>  <Link href="https://cloud.aqinco.cn/cart?action=configureproduct&pid=139"> 立即购买</Link> <br />
+        美国 AS9929 高防云服务器 仅需 47.88 元每月 <Link href="https://cloud.aqinco.cn/cart?action=configureproduct&pid=14"> 立即购买</Link> <br />
+        更多国内外云服务器 物理机 等，请访问 <Link href="https://cloud.aqinco.cn"> 阿金塔云</Link> <br />
         </Typography>
       </Paper>
+      </Box>
     </Layout>
   );
 }
