@@ -172,7 +172,7 @@ export default function Home() {
               节点线路优质
             </Typography>
             <Typography variant="body1" gutterBottom>
-              境内服务器多为高防 BGP 线路，境外服务器多为 CN2 线路，带宽高，均为优质线路。
+              服务器线路优质。
               部分节点支持 IPv6，可用于 IPv6 环境下的内网穿透。
             </Typography>
           </CardContent>
