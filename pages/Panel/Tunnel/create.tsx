@@ -97,6 +97,10 @@ const TunnelCreationPage = () => {
       <Grid container justifyContent="center">
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 3 }}>
+            <Typography variant="h5" gutterBottom>
+              如果您还未实名认证，将只能使用境外节点
+              实名认证后，您将可以使用境内节点 且 带宽限制将提升至 30Mbps
+            </Typography>
             <form onSubmit={handleSubmit}>
               <FormControl fullWidth sx={{ mb: 2 }}>
                 <InputLabel>选择节点</InputLabel>

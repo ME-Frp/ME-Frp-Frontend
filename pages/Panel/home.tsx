@@ -77,7 +77,11 @@ export default function UserProfileCard() {
         />
         <CardContent>
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            <br />
+              如果您还未实名认证，将只能使用境外节点
+              实名认证后，您将可以使用境内节点 且 带宽限制将提升至 30Mbps <br />
+              我们的服务完全免费，但是我们需要您的支持，如果您愿意，可以到左侧的 赞助我们 页面来支持我们
+              如果您拥有服务器资源，可以联系我们进行节点赞助。也可以进行资金支持，谢谢大家。<br />
+              官方 QQ 群: 772054227<br />
             </Typography>
         </CardContent>
       </Card>
