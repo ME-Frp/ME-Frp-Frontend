@@ -5,94 +5,94 @@ import NoSSR from '../../components/NoSSR';
 export default function DownloadPage() {
   const files = [
     {
-        name: 'MirrorEdgeFrp_0.46.1_windows_386.zip',
+        name: 'MirrorEdgeFrp_0.51.3_windows_386.zip',
         architecture: '386',
         system: 'windows',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_windows_386.zip'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_windows_386.zip'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_windows_amd64.zip',
+        name: 'MirrorEdgeFrp_0.51.3_windows_amd64.zip',
         architecture: 'amd64',
         system: 'windows',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_windows_amd64.zip'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_windows_amd64.zip'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_linux_386.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_linux_386.tar.gz',
         architecture: '386',
         system: 'linux',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_linux_386.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_linux_386.tar.gz'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_linux_amd64.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_linux_amd64.tar.gz',
         architecture: 'amd64',
         system: 'linux',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_linux_amd64.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_linux_amd64.tar.gz'
     },
     {
-      name: 'MirrorEdgeFrp_0.46.1_darwin_amd64.tar.gz',
+      name: 'MirrorEdgeFrp_0.51.3_darwin_amd64.tar.gz',
       architecture: 'amd64',
       system: 'darwin',
-      link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_darwin_amd64.tar.gz'
+      link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_darwin_amd64.tar.gz'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_linux_arm.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_linux_arm.tar.gz',
         architecture: 'arm',
         system: 'linux',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_linux_arm.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_linux_arm.tar.gz'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_linux_arm64.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_linux_arm64.tar.gz',
         architecture: 'arm64',
         system: 'linux',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_linux_arm64.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_linux_arm64.tar.gz'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_linux_mips64.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_linux_mips64.tar.gz',
         architecture: 'mips64',
         system: 'linux',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_linux_mips64.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_linux_mips64.tar.gz'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_linux_mips64le.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_linux_mips64le.tar.gz',
         architecture: 'mips64le',
         system: 'linux',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_linux_mips64le.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_linux_mips64le.tar.gz'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_linux_mips.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_linux_mips.tar.gz',
         architecture: 'mips',
         system: 'linux',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_linux_mips.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_linux_mips.tar.gz'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_linux_mipsle.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_linux_mipsle.tar.gz',
         architecture: 'mipsle',
         system: 'linux',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_linux_mipsle.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_linux_mipsle.tar.gz'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_darwin_arm64.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_darwin_arm64.tar.gz',
         architecture: 'arm64',
         system: 'darwin',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_darwin_arm64.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_darwin_arm64.tar.gz'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_freebsd_386.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_freebsd_386.tar.gz',
         architecture: '386',
         system: 'freebsd',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_freebsd_386.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_freebsd_386.tar.gz'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_freebsd_amd64.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_freebsd_amd64.tar.gz',
         architecture: 'amd64',
         system: 'freebsd',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_freebsd_amd64.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_freebsd_amd64.tar.gz'
     },
     {
-        name: 'MirrorEdgeFrp_0.46.1_linux_riscv64.tar.gz',
+        name: 'MirrorEdgeFrp_0.51.3_linux_riscv64.tar.gz',
         architecture: 'riscv64',
         system: 'linux',
-        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.46.1_linux_riscv64.tar.gz'
+        link: 'https://download.mefrp.com/MirrorEdgeFrp_0.51.3_linux_riscv64.tar.gz'
     },
   ];
 

@@ -7,6 +7,7 @@ export default function UserProfileCard() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -19,7 +20,8 @@ export default function UserProfileCard() {
         setIsLoading(false);
       }
     }
-
+    // 获取 localStorage 中的 token 
+    setToken(localStorage.getItem('token'));
     fetchData();
   }, []);
 
@@ -65,6 +67,7 @@ export default function UserProfileCard() {
             出网带宽: {(outbound / 1024) * 8}Mbps<br />
             剩余流量: {traffic / 1024} GB<br />
             邮箱: {email}<br />
+            token: {token}<br />
           </Typography>
         </CardContent>
       </Card>
@@ -94,8 +97,8 @@ export default function UserProfileCard() {
         </Typography>
         <Typography variant="body1" gutterBottom>
         阿金塔云 香港 CN2 GIA 2H2G 仅需要 24 元每月 测试 IP: <Link href="https://www.itdog.cn/ping/107.151.250.1"> 107.151.250.1</Link>  <Link href="https://cloud.aqinco.cn/cart?action=configureproduct&pid=139"> 立即购买</Link> <br />
-        美国 AS9929 高防云服务器 仅需 47.88 元每月 <Link href="https://cloud.aqinco.cn/cart?action=configureproduct&pid=14"> 立即购买</Link> <br />
-        更多国内外云服务器 物理机 等，请访问 <Link href="https://cloud.aqinco.cn"> 阿金塔云</Link> <br />
+        美国 AS9929 高防云服务器 仅需 47.88 元每月 <Link href="https://cloud.aqinco.com/cart?action=configureproduct&pid=14"> 立即购买</Link> <br />
+        更多国内外云服务器 物理机 等，请访问 <Link href="https://cloud.aqinco.com"> 阿金塔云</Link> <br />
         </Typography>
       </Paper>
       </Box>

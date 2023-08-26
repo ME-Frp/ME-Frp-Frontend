@@ -67,10 +67,12 @@ export default function About() {
     try {
       const response = await http.post('/v1/auth/login', formData);
       setLoginres(response);
+      if (response) {
       Message.success({ content: "获取到 Token , 正在对其有效性进行验证", duration: 1000 });
         verifyToken(Loginres.access_token, router).then(() => {
           console.log("登录成功！");
         });
+      }
     } catch (err) {
       if (err.response?.status === 401) {
         Message.error({ content: "登录失败，用户名或密码错误！" + err.response.data.message, duration: 1000 });
