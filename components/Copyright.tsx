@@ -1,11 +1,3 @@
-/*
- * @Author: Aehxy ahmrcxy@gmail.com
- * @Date: 2023-07-12 20:53:54
- * @LastEditors: Aehxy ahmrcxy@gmail.com
- * @LastEditTime: 2023-08-30 00:28:02
- * @FilePath: \ME-Frp-Frontend\components\Copyright.tsx
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
 import { Link as MuiLink, Typography } from '@mui/material';
 
 export default function Copyright() {
