@@ -38,6 +38,7 @@ function verifyToken(token, router) {
       });
   });
 }
+// 准备废除登录校验
 
 export default function About() {
   const [Loginres, setLoginres] = useState(null);
@@ -69,9 +70,9 @@ export default function About() {
       setLoginres(response);
       if (response) {
       Message.success({ content: "获取到 Token , 正在对其有效性进行验证", duration: 1000 });
-        verifyToken(Loginres.access_token, router).then(() => {
+          localStorage.setItem('token', Loginres.access_token);
           console.log("登录成功！");
-        });
+          router.push('/Panel/home');
       }
     } catch (err) {
       if (err.response?.status === 401) {
