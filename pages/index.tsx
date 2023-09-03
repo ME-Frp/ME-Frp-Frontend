@@ -101,7 +101,8 @@ export default function Home() {
           <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
             ME Frp 镜缘映射
           </Typography>
-          <Link href="https://qm.qq.com/q/rWsYtraZ1e">QQ 群</Link>
+          <Link href="https://qm.qq.com/q/rWsYtraZ1e" sx={{ my: 1, mx: 1.5 }}>QQ 群</Link>
+          <Link href="console/home" sx={{ my: 1, mx: 1.5 }}>控制面板</Link>
           <Button href="auth/register" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
             注册
           </Button>

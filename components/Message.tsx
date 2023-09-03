@@ -25,7 +25,11 @@ const message = {
         // 创建一个dom
         this.dom = document.createElement('div');
         // 定义组件， 
-        const JSXdom = (<Message content={content} duration={duration} type='success'></Message>);
+        const JSXdom = (
+        <Message content={content} duration={duration} type='success'>
+
+        </Message>
+        );
         const root = createRoot(this.dom);
         // 渲染DOM
         root.render(JSXdom)

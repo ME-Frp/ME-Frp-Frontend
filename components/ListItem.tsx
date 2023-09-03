@@ -1,30 +1,30 @@
 import { AccountCircle, AddCircle, AssignmentTurnedIn, Download, HowToReg, List, TextSnippet, VolunteerActivism } from '@mui/icons-material';
 import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import * as React from 'react';
-import Profile from '../pages/Panel/home';
+import Profile from '../pages/console/home';
 
 const mainpages = [
     {
       title: "用户信息",
-      path: "/Panel/home",
+      path: "/console/home",
       icon: <AccountCircle />,
       component: Profile,
     },
     {
       title: " 每日签到",
-      path: "/Panel/User/sign",
+      path: "/console/user/sign",
       icon: <AssignmentTurnedIn />,
       component: Profile,
     },
     {
       title: "赞助我们",
-      path: "/Panel/sponsor",
+      path: "/console/sponsor",
       icon: <VolunteerActivism />,
       component: Profile,
     },
     {
       title: "实名认证",
-      path: "/Panel/User/realname",
+      path: "/console/user/realname",
       icon: <HowToReg />,
       component: Profile,
     },
@@ -33,23 +33,23 @@ export default mainpages;
 const secondarypages = [
     {
       title: "隧道列表",
-      path: "/Panel/Tunnel/list",
+      path: "/console/tunnel/list",
       icon: <List />,
       component: Profile,
     },
     {
       title: "创建隧道",
-      path: "/Panel/Tunnel/create",
+      path: "/console/tunnel/create",
       icon: <AddCircle />,
     },
     {
       title:  "配置文件",
-      path: "/Panel/Tunnel/config",
+      path: "/console/tunnel/config",
       icon: <TextSnippet />,
     },
     {
       title: "文件下载",
-      path: "/Panel/Download",
+      path: "/console/download",
       icon: <Download />,
 
     }

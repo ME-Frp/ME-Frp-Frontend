@@ -8,8 +8,15 @@ const BASE_URL = api.api;
 if (typeof window !== 'undefined') {
   var token = localStorage.getItem('token');
 }
+declare module 'axios' {
+  interface AxiosInstance {
+    (config: AxiosRequestConfig): Promise<any>
+  }
+}
 class ApiClient {
   private axios: AxiosInstance;
+
+
 
   constructor(baseURL: string) {
     this.axios = axios.create({
@@ -56,19 +63,19 @@ class ApiClient {
   return Promise.reject(error);
   };
 
-  get<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  get<T>(url: string, config?: AxiosRequestConfig): Promise<any> {
     return this.axios.get<T>(url, config);
   }
 
-  post<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  post<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
     return this.axios.post<T>(url, data, config);
   }
 
-  put<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  put<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<any> {
     return this.axios.put<T>(url, data, config);
   }
 
-  delete<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  delete<T>(url: string, config?: AxiosRequestConfig): Promise<any> {
     return this.axios.delete<T>(url, config);
   }
 }
