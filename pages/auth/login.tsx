@@ -24,7 +24,7 @@ export default function About() {
 
   // 如果已经登录，直接跳转到主页
   if (typeof window !== 'undefined' && localStorage.getItem('token')) {
-    router.push('/Panel/home');
+    router.push('/console/home');
   }
 
   const handleLogin = async (event) => {
