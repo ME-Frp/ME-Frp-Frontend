@@ -19,33 +19,12 @@ import Message from '../../components/Message';
 import ProTip from '../../components/ProTip';
 import http from '../../src/http/http';
 
-function verifyToken(token, router) {
-  return new Promise<void>((resolve, reject) => {
-    localStorage.setItem('token', token);
-    http.get('/v2/user')
-      .then(res => {
-        Message.success({ content: "登录成功，正在重定向……", duration: 1000 });
-        setTimeout(() => {
-          router.push('/Panel/home');
-        }, 1000);
-        console.log("登录成功！");
-        resolve(); // 令牌验证成功
-      })
-      .catch(err => {
-        localStorage.removeItem('token');
-        Message.error({ content: '登录遇到问题，密钥可能过期，请重新登录！' + err, duration: 1000 });
-        reject(err); // 令牌验证失败
-      });
-  });
-}
-
 export default function About() {
-  const [Loginres, setLoginres] = useState(null);
   const router = useRouter();
 
   // 如果已经登录，直接跳转到主页
   if (typeof window !== 'undefined' && localStorage.getItem('token')) {
-    router.push('/Panel/home');
+    router.push('/console/home');
   }
 
   const handleLogin = async (event) => {
@@ -61,23 +40,14 @@ export default function About() {
     formData.append('username', username.value.toString());
     formData.append('password', password.value.toString());
 
-    // 重置loginres的值
-    setLoginres(null);
-
     try {
       const response = await http.post('/v1/auth/login', formData);
-      setLoginres(response);
-      if (response) {
-      Message.success({ content: "获取到 Token , 正在对其有效性进行验证", duration: 1000 });
-        verifyToken(Loginres.access_token, router).then(() => {
-          console.log("登录成功！");
-        });
-      }
-    } catch (err) {
-      if (err.response?.status === 401) {
-        Message.error({ content: "登录失败，用户名或密码错误！" + err.response.data.message, duration: 1000 });
-        console.log(err)
-      }
+      // console.log((JSON.parse(JSON.stringify(response.access_token))))
+      localStorage.setItem("token", response.access_token)
+      router.push('/console/home');
+      Message.success({ content: "登录成功,欢迎使用 ME Frp !", duration: 1000})
+      } catch (err) {
+      Message.error({ content: "失败" + err , duration: 1000 })
     }
   };
 
@@ -119,10 +89,6 @@ export default function About() {
               type="password"
               id="password"
               autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="记住密码"
             />
             <Button
               type="submit"

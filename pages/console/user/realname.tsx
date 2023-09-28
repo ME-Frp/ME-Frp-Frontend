@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import Message from '../../../components/Message';
@@ -53,7 +53,14 @@ export default function RealnamePage()  {
       }
     };
     if (!status) {
-        return <div>Loading...</div>;
+    // handle loading state here
+    return (
+      <Layout>
+        <Container maxWidth="lg">
+          <Typography>Loading…</Typography>
+        </Container>
+      </Layout>
+    );
       }
       // 判断status.view是否为realname，如果是则给isAuthenticated赋值true，否则赋值false
       const isAuthenticated = status.view === 'realname';

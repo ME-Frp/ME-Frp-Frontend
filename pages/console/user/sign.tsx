@@ -1,4 +1,4 @@
-import { Box, Button, Paper, Typography } from '@mui/material';
+import { Box, Button, Container, Paper, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import apiclient from '../../../src/http/http';
@@ -46,7 +46,14 @@ function SignInPage() {
   }
 
   if (!signInfo) {
-    return <div>Loading...</div>;
+    // handle loading state here
+    return (
+      <Layout>
+        <Container maxWidth="lg">
+          <Typography>Loading…</Typography>
+        </Container>
+      </Layout>
+    );
   }
 
   const currentTime = Math.floor(Date.now() / 1000);
