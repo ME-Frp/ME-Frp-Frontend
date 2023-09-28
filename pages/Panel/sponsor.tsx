@@ -1,3 +1,11 @@
+/*
+ * @Author: Aehxy ahmrcxy@gmail.com
+ * @Date: 2023-07-18 15:21:52
+ * @LastEditors: Aehxy ahmrcxy@gmail.com
+ * @LastEditTime: 2023-09-28 12:36:03
+ * @FilePath: \ME-Frp-Frontend\pages\Panel\sponsor.tsx
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { Box, Button, Card, CardContent, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
@@ -48,7 +56,7 @@ const SponsorPage = () => {
       <CardContent>
         <Typography variant="h5" component="div">官方推荐</Typography>
         <br />
-        <Typography variant="body1"> 阿金塔云，安全领域的领导者。我们提供丰富、安全、稳定的产品及服务，领导并支持客户的云，提供中英文控制面板， 安全组策略，CC/DDOS隔离，网站入侵自动化监测，人工7*24小时服务。</Typography>
+        <Typography variant="body1"> 樱雨云，安全领域的领导者。我们提供丰富、安全、稳定的产品及服务，领导并支持客户的云，提供中英文控制面板， 安全组策略，CC/DDOS隔离，网站入侵自动化监测，人工7*24小时服务。</Typography>
         </CardContent>
          </Card>
         </Box>

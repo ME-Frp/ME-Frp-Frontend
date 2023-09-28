@@ -96,9 +96,9 @@ export default function UserProfileCard() {
           广告
         </Typography>
         <Typography variant="body1" gutterBottom>
-        阿金塔云 香港 CN2 GIA 2H2G 仅需要 24 元每月 测试 IP: <Link href="https://www.itdog.cn/ping/107.151.250.1"> 107.151.250.1</Link>  <Link href="https://cloud.aqinco.cn/cart?action=configureproduct&pid=139"> 立即购买</Link> <br />
-        美国 AS9929 高防云服务器 仅需 47.88 元每月 <Link href="https://cloud.aqinco.com/cart?action=configureproduct&pid=14"> 立即购买</Link> <br />
-        更多国内外云服务器 物理机 等，请访问 <Link href="https://cloud.aqinco.com"> 阿金塔云</Link> <br />
+        樱雨云 香港 CN2 GIA 2H2G 仅需要 24 元每月 测试 IP: <Link href="https://www.itdog.cn/ping/107.151.250.1"> 107.151.250.1</Link>  <Link href="https://cloud.aqinco.cn/cart?action=configureproduct&pid=139"> 立即购买</Link> <br />
+        美国 AS9929 高防云服务器 仅需 47.88 元每月 <Link href="https://console.cloud.aqinco.com/cart?action=configureproduct&pid=14"> 立即购买</Link> <br />
+        更多国内外云服务器 物理机 等，请访问 <Link href="https://console.cloud.aqinco.com"> 樱雨云</Link> <br />
         </Typography>
       </Paper>
       </Box>
