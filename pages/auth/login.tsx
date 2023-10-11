@@ -3,17 +3,14 @@ import {
   Avatar,
   Box,
   Button,
-  Checkbox,
   Container,
-  FormControlLabel,
   Grid,
   Link,
   TextField,
-  Typography,
+  Typography
 } from '@mui/material';
 import { useRouter } from "next/router";
 import * as React from 'react';
-import { useState } from 'react';
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
 import ProTip from '../../components/ProTip';
@@ -41,13 +38,17 @@ export default function About() {
     formData.append('password', password.value.toString());
 
     try {
-      const response = await http.post('/v1/auth/login', formData);
+      const response = await http.post('/v4/public/verify/login', formData);
       // console.log((JSON.parse(JSON.stringify(response.access_token))))
       localStorage.setItem("token", response.access_token)
       router.push('/console/home');
-      Message.success({ content: "登录成功,欢迎使用 ME Frp !", duration: 1000})
+      Message.success({ content: response.message, duration: 1000})
       } catch (err) {
-      Message.error({ content: "失败" + err , duration: 1000 })
+        if (err.response && err.response.status != 502) {
+      Message.error({ content: "登录失败，" + err.response.data.message , duration: 1000 })
+        } else{
+          Message.error({ content: "ME Frp API 状态异常，请联系管理员!" ,duration: 1000 })
+        }
     }
   };
 

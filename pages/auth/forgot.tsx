@@ -29,15 +29,15 @@ export default function SignUp() {
       formData.append('username', username.toString());
       try {
         // 发送请求
-        const res = await http.post('/v1/auth/forgot_password', formData);
-        Message.success({ content: '重置链接发送成功！', duration: 1000 });
+        const res = await http.post('/v4/public/verify/forgot_password', formData);
+        Message.success({ content: res.message, duration: 1000 });
       } catch (err) {
-        if (err.response) {
-          Message.error({ content: '发送失败，请检查信息是否正确！' + err.response.data.message, duration: 1000 });
+        if (err.response && err.response.status != 502) {
+          Message.error({ content: '发送失败，' + err.response.data.message, duration: 1000 });
         } else {
-          Message.error({ content: '发送失败，请检查信息是否正确！' + err, duration: 1000 });
-        }
+          Message.error({ content: "ME Frp API 状态异常，请联系管理员!" + err.response.data.message, duration: 1000 });
       }
+    }
     }
   };
 

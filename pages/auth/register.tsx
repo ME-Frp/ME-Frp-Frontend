@@ -40,15 +40,15 @@ const SignUp: NextPage = () => {
       formData.append('code', code.toString());
 
       // 发送注册请求
-      const res = await http.post('/v1/auth/register', formData);
-      Message.success({ content: '注册成功！', duration: 1000 });
-    } catch (error) {
+      const res = await http.post('/v4/public/verify/register', formData);
+      Message.success({ content: res.message, duration: 1000 });
+    } catch (err) {
       setSubmitDisabled(false);
-      if (error.response) {
-        Message.error({ content: '注册失败' + error.response.data.message, duration: 1000 });
-      } else {
-        Message.error({ content: '注册失败，请稍后再试！' + error, duration: 1000 });
-      }
+      if (err.response && err.response.status != 502) {
+        Message.error({ content: "注册失败，" + err.response.data.message , duration: 1000 })
+          } else{
+            Message.error({ content: "ME Frp API 状态异常，请联系管理员!" ,duration: 1000 })
+          }
     }
   };
 
@@ -70,17 +70,17 @@ const SignUp: NextPage = () => {
       formData.append('email', email.toString());
 
       // 发送验证码请求
-      const res = await http.post('/v1/auth/reg/email', formData);
+      const res = await http.post('/v4/verify/register/email', formData);
       setCoderes(res);
       setIsDisabled(true);
-      Message.success({ content: '验证码发送成功！', duration: 1000 });
-    } catch (error) {
+      Message.success({ content: res.message, duration: 1000 });
+    } catch (err) {
       setIsDisabled(false);
-      if (error.response) {
-        Message.error({ content: '验证码发送失败，' + error.response.data.message , duration: 1000 });
-      } else {
-        Message.error({ content: '验证码发送失败，请稍后再试！' + error, duration: 1000 });
-      }
+      if (err.response && err.response.status != 502) {
+        Message.error({ content: "发送失败，" + err.response.data.message , duration: 1000 })
+          } else{
+            Message.error({ content: "ME Frp API 状态异常，请联系管理员!" ,duration: 1000 })
+          }
     }
   };
 

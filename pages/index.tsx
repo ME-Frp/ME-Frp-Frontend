@@ -19,8 +19,8 @@ export default function Home() {
   useEffect(() => {
     const fetchStatistics = async () => {
       try {
-        const response = await apiClient.get('v1/info/statistics');
-        setStatistics(response);
+        const response = await apiClient.get('v4/public/info/statistics');
+        setStatistics(response.data);
       } catch (error) {
         console.log(error);
       }

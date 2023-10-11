@@ -47,14 +47,14 @@ export default function SignUp() {
       formData.append('password', password.toString());
   
       // 发送异步请求
-      const response = await http.post(`/v1/auth/reset_password/${token}`, formData);
-      Message.success({ content: '重置成功！', duration: 1000 });
-    } catch (error) {
-      if (error.response) {
-        Message.error({ content: '重置失败，请检查信息是否正确！' + error.response.data.message, duration: 1000 });
-      } else {
-        Message.error({ content: '重置失败，请稍后再试！' + error, duration: 1000 });
-      }
+      const res = await http.post(`/v4/public/verify/reset_password/${token}`, formData);
+      Message.success({ content: res.message, duration: 1000 });
+    } catch (err) {
+      if (err.response && err.response.status != 502) {
+        Message.error({ content: "重置失败，" + err.response.data.message , duration: 1000 })
+          } else{
+            Message.error({ content: "ME Frp API 状态异常，请联系管理员!" ,duration: 1000 })
+          }
     }
   };
   return (
