@@ -1,3 +1,11 @@
+/*
+ * @Author: Aehxy ahmrcxy@gmail.com
+ * @Date: 2023-09-28 12:36:20
+ * @LastEditors: Aehxy ahmrcxy@gmail.com
+ * @LastEditTime: 2023-10-15 15:16:03
+ * @FilePath: \ME-Frp-Frontend\pages\console\tunnel\config.tsx
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { FormControl, Grid, InputLabel, MenuItem, Paper, Select, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
@@ -13,7 +21,7 @@ const ConfigPage = () => {
     // 请求节点列表
     const fetchNodeList = async () => {
       try {
-        const response = await apiClient.get('/v2/node/list');
+        const response = await apiClient.get('/v4/auth/node/list');
         setNodeList(response.data);
       } catch (error) {
         console.error('Failed to fetch node list:', error);

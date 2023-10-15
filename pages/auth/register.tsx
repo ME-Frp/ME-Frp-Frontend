@@ -2,10 +2,12 @@ import { LockOutlined, Send } from '@mui/icons-material';
 import { Avatar, Box, Button, Container, CssBaseline, Grid, Link, TextField, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { NextPage } from 'next';
+import Head from "next/head";
 import { useState } from 'react';
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
 import ProTip from '../../components/ProTip';
+import config from '../../src/config/config';
 import http from '../../src/http/http';
 
 const theme = createTheme();
@@ -44,10 +46,8 @@ const SignUp: NextPage = () => {
       Message.success({ content: res.message, duration: 1000 });
     } catch (err) {
       setSubmitDisabled(false);
-      if (err.response && err.response.status != 502) {
+      if (err.response) {
         Message.error({ content: "注册失败，" + err.response.data.message , duration: 1000 })
-          } else{
-            Message.error({ content: "ME Frp API 状态异常，请联系管理员!" ,duration: 1000 })
           }
     }
   };
@@ -76,16 +76,17 @@ const SignUp: NextPage = () => {
       Message.success({ content: res.message, duration: 1000 });
     } catch (err) {
       setIsDisabled(false);
-      if (err.response && err.response.status != 502) {
+      if (err.response) {
         Message.error({ content: "发送失败，" + err.response.data.message , duration: 1000 })
-          } else{
-            Message.error({ content: "ME Frp API 状态异常，请联系管理员!" ,duration: 1000 })
           }
     }
   };
 
   return (
     <ThemeProvider theme={theme}>
+                  <Head>
+            <title>{config.title} + 注册</title>
+            </Head>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

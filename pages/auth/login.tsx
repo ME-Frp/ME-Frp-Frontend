@@ -9,11 +9,13 @@ import {
   TextField,
   Typography
 } from '@mui/material';
+import Head from 'next/head';
 import { useRouter } from "next/router";
 import * as React from 'react';
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
 import ProTip from '../../components/ProTip';
+import config from '../../src/config/config';
 import http from '../../src/http/http';
 
 export default function About() {
@@ -40,20 +42,22 @@ export default function About() {
     try {
       const response = await http.post('/v4/public/verify/login', formData);
       // console.log((JSON.parse(JSON.stringify(response.access_token))))
-      localStorage.setItem("token", response.access_token)
+      localStorage.setItem("token", response.data.access_token)
       router.push('/console/home');
       Message.success({ content: response.message, duration: 1000})
       } catch (err) {
-        if (err.response && err.response.status != 502) {
+        if (err.response) {
       Message.error({ content: "登录失败，" + err.response.data.message , duration: 1000 })
-        } else{
-          Message.error({ content: "ME Frp API 状态异常，请联系管理员!" ,duration: 1000 })
         }
     }
   };
 
   return (
+
     <React.Fragment>
+                  <Head>
+            <title>{config.title} + 登录</title>
+            </Head>
     <Container maxWidth="lg">
       <Box
         sx={{

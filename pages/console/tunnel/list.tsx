@@ -31,8 +31,8 @@ export default function MyComponent() {
 
   const fetchTunnels = async () => {
     try {
-      const response = await apiClient.get('/v2/tunnel/list');
-      setTunnels(response);
+      const response = await apiClient.get('/v4/auth/tunnel/list');
+      setTunnels(response.data);
     } catch (error) {
       setError(error);
     }
@@ -42,8 +42,8 @@ export default function MyComponent() {
     setSelectedTunnelId(id);
     try {
       setEasy_start("frpc -t " + localStorage.getItem("token") + " -i " + id)
-      const response = await apiClient.get('/v2/tunnel/info/' + id);
-      setInfo(response);
+      const response = await apiClient.get('/v4/auth/tunnel/info/' + id);
+      setInfo(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -72,8 +72,8 @@ export default function MyComponent() {
 
   const handleDeleteTunnel = async (id: number) => {
     try {
-      const response = await apiClient.post('/v2/tunnel/delete/' + id);
-      console.log(response);
+      const response = await apiClient.post('/v4/auth/tunnel/delete/' + id);
+      console.log(response.data);
       fetchTunnels();
     } catch (error) {
       console.log(error);

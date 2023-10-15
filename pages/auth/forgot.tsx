@@ -1,7 +1,9 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Avatar, Box, Button, Container, CssBaseline, Grid, Link, TextField, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Head from 'next/head';
 import React from 'react';
+import config from '../../src/config/config';
 
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
@@ -32,16 +34,18 @@ export default function SignUp() {
         const res = await http.post('/v4/public/verify/forgot_password', formData);
         Message.success({ content: res.message, duration: 1000 });
       } catch (err) {
-        if (err.response && err.response.status != 502) {
+        if (err.response) {
           Message.error({ content: '发送失败，' + err.response.data.message, duration: 1000 });
-        } else {
-          Message.error({ content: "ME Frp API 状态异常，请联系管理员!" + err.response.data.message, duration: 1000 });
-      }
+        }
     }
     }
   };
 
   return (
+    <React.Fragment>
+      <Head>
+    <title>{config.title} + 忘记密码</title>
+    </Head>
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -105,5 +109,6 @@ export default function SignUp() {
         <Copyright/>
       </Container>
     </ThemeProvider>
+    </React.Fragment>
   );
 }

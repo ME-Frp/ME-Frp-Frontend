@@ -1,3 +1,11 @@
+/*
+ * @Author: Aehxy ahmrcxy@gmail.com
+ * @Date: 2023-07-12 20:53:54
+ * @LastEditors: Aehxy ahmrcxy@gmail.com
+ * @LastEditTime: 2023-10-15 14:59:45
+ * @FilePath: \ME-Frp-Frontend\pages\_app.tsx
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
@@ -21,7 +29,6 @@ export default function MyApp(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-      <title>免费 公益 好用 低延迟 稳定的Frp内网穿透</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>

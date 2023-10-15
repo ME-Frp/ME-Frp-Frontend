@@ -12,7 +12,7 @@ export default function UserProfileCard() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await apiClient.get('/v2/user');
+        const response = await apiClient.get('/v4/auth/user');
         setUser(response);
       } catch (error) {
         setError(error);

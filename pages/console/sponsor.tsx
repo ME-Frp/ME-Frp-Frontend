@@ -2,7 +2,7 @@
  * @Author: Aehxy ahmrcxy@gmail.com
  * @Date: 2023-07-18 15:21:52
  * @LastEditors: Aehxy ahmrcxy@gmail.com
- * @LastEditTime: 2023-10-11 19:42:32
+ * @LastEditTime: 2023-10-15 14:59:27
  * @FilePath: \ME-Frp-Frontend\pages\Panel\sponsor.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -26,7 +26,7 @@ const SponsorPage = () => {
     const fetchSponsors = async () => {
       try {
         const response = await apiClient.get('/v4/public/info/sponsor');
-        setSponsors(response);
+        setSponsors(response.data);
       } catch (error) {
         console.error('Error fetching sponsors:', error);
       }

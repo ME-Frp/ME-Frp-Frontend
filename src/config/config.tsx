@@ -1,4 +1,4 @@
-import config from '../../api.json';
+import config from '../../config.json';
 let current = config.dev;
 
 if (process.env.NODE_ENV === 'production') {

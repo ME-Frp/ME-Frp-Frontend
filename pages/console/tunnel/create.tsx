@@ -1,4 +1,4 @@
-import { Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@mui/material';
+import { Button, Container, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import Message from '../../../components/Message';
@@ -15,18 +15,27 @@ const TunnelCreationPage = () => {
   const [proxyname, setProxyname] = useState('');
   const [allowPort, setAllowPort] = useState('');
   const [allowType, setAllowType] = useState('');
+  const [realname, setRealname] = useState(null);
 
   useEffect(() => {
     // 请求节点列表
     const fetchNodeList = async () => {
       try {
-        const response = await apiClient.get('/v2/node/list');
+        const response = await apiClient.get('/v4/auth/node/list');
         setNodeList(response.data);
       } catch (error) {
         console.error('Failed to fetch node list:', error);
       }
     };
-
+    const fetchrealname = async () => {
+      try {
+        const response = await apiClient.get('/v4/auth/user/realname/get');
+        setRealname(response.data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+    fetchrealname();
     fetchNodeList();
   }, []);
 
@@ -80,28 +89,42 @@ const TunnelCreationPage = () => {
 
     try {
       // 发送创建隧道请求
-      await apiClient.post('/v2/tunnel/create', requestData);
+      const res = await apiClient.post('/v4/auth/tunnel/create', requestData);
       console.log('Tunnel created successfully!');
-      Message.success({ content: '隧道创建成功！', duration: 1000 });
+      Message.success({ content: res.message , duration: 1000 });
       // 处理成功后的逻辑
     } catch (error) {
       if (error.response)
       console.error('Failed to create tunnel:', error.response.data.message);
-      Message.error({ content: '隧道创建失败！' + error.response.data.message, duration: 1000 });
+      Message.error({ content: '隧道创建失败，' + error.response.data.message, duration: 1000 });
       // 处理失败后的逻辑
     }
   };
-
+  if (!realname) {
+    // handle loading state here
+    return (
+      <Layout>
+        <Container maxWidth="lg">
+          <Typography>Loading…</Typography>
+        </Container>
+      </Layout>
+    );
+  }
+  const isAuthenticated = realname.view === 'default';
   return (
     <Layout>
       <Grid container justifyContent="center">
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 3 }}>
-            <Typography variant="h5" gutterBottom>
-              如果您还未实名认证，将只能使用境外节点
-              实名认证后，您将可以使用境内节点 且 带宽限制将提升至 30Mbps
-            </Typography>
-            <form onSubmit={handleSubmit}>
+          {isAuthenticated ? (
+                <Typography variant="h5" gutterBottom>
+                您还未实名认证，将只能使用境外节点
+                实名认证后，您将可以使用境内节点 且 带宽限制将提升至 30Mbps
+              </Typography>
+          ) : (
+            <></>
+          )}
+              <form onSubmit={handleSubmit}>
               <FormControl fullWidth sx={{ mb: 2 }}>
                 <InputLabel>选择节点</InputLabel>
                 <Select value={selectedNode} onChange={handleNodeChange}>

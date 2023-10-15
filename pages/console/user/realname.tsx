@@ -1,3 +1,11 @@
+/*
+ * @Author: Aehxy ahmrcxy@gmail.com
+ * @Date: 2023-09-28 12:36:20
+ * @LastEditors: Aehxy ahmrcxy@gmail.com
+ * @LastEditTime: 2023-10-15 15:04:19
+ * @FilePath: \ME-Frp-Frontend\pages\console\user\realname.tsx
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { Box, Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
@@ -11,8 +19,8 @@ export default function RealnamePage()  {
     useEffect(() => {
       const getRealnameInfo = async () => {
         try {
-          const response = await apiClient.get('/v2/realname/get');
-          setStatus(response);
+          const response = await apiClient.get('/v4/auth/user/realname/get');
+          setStatus(response.data);
         } catch (error) {
           console.error('Error:', error);
         }
@@ -40,7 +48,7 @@ export default function RealnamePage()  {
         formData.append('idcard', idcard.value.toString());
         formData.append('name', name.value.toString());
   
-        const response = await apiClient.post('/v2/realname/post', formData);
+        const response = await apiClient.post('/v4/auth/user/realname/post', formData);
         Message.success({ content: "实名认证成功，自动刷新页面…", duration: 1000 });
         // 刷新页面
         window.location.reload();
