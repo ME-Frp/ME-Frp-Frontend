@@ -16,6 +16,6 @@
     "jsxImportSource": "@emotion/react",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/Panel/home.js", "pages/Panel/home.js", "pages/Panel/home.js", "pages/Panel/home.js", "components/Snackbar.jsx", "components/Snackbar.jsx", "components/Dialog.jsx", "components/Dialog.jsx", "components/redirect.js", "components/redirect.js", "babel.config.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Snackbar.jsx", "components/Snackbar.jsx", "components/Dialog.jsx", "components/Dialog.jsx", "components/redirect.js", "components/redirect.js", "babel.config.js"],
   "exclude": ["node_modules"]
 }
