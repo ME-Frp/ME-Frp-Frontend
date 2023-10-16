@@ -90,7 +90,6 @@ const TunnelCreationPage = () => {
     try {
       // 发送创建隧道请求
       const res = await apiClient.post('/v4/auth/tunnel/create', requestData);
-      console.log('Tunnel created successfully!');
       Message.success({ content: res.message , duration: 1000 });
       // 处理成功后的逻辑
     } catch (error) {
