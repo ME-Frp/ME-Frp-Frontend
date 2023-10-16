@@ -7,7 +7,7 @@ export default function MEFrp() {
     return (
         <React.Fragment>
             <Head>
-            <title>{config.title} + 首页</title>
+            <title>{config.title}首页</title>
             </Head>
             <CssBaseline />
             <AppBar position="relative">

@@ -44,7 +44,7 @@ export default function SignUp() {
   return (
     <React.Fragment>
       <Head>
-    <title>{config.title} + 忘记密码</title>
+    <title>{config.title}忘记密码</title>
     </Head>
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">

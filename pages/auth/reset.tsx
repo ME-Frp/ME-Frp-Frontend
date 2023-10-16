@@ -60,7 +60,7 @@ export default function SignUp() {
   return (
     <ThemeProvider theme={defaultTheme}>
                   <Head>
-            <title>{config.title} + 重置密码</title>
+            <title>{config.title}重置密码</title>
             </Head>
       <Container component="main" maxWidth="xs">
         <CssBaseline />

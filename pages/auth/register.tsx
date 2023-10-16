@@ -85,7 +85,7 @@ const SignUp: NextPage = () => {
   return (
     <ThemeProvider theme={theme}>
                   <Head>
-            <title>{config.title} + 注册</title>
+            <title>{config.title} 注册</title>
             </Head>
       <Container component="main" maxWidth="xs">
         <CssBaseline />

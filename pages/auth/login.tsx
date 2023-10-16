@@ -56,7 +56,7 @@ export default function About() {
 
     <React.Fragment>
                   <Head>
-            <title>{config.title} + 登录</title>
+            <title>{config.title}登录</title>
             </Head>
     <Container maxWidth="lg">
       <Box
