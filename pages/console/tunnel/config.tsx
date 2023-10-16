@@ -2,7 +2,7 @@
  * @Author: Aehxy ahmrcxy@gmail.com
  * @Date: 2023-09-28 12:36:20
  * @LastEditors: Aehxy ahmrcxy@gmail.com
- * @LastEditTime: 2023-10-15 15:16:03
+ * @LastEditTime: 2023-10-16 12:28:39
  * @FilePath: \ME-Frp-Frontend\pages\console\tunnel\config.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -38,7 +38,7 @@ const ConfigPage = () => {
     if (selectedNodeId) {
       try {
         // 发送获取配置文件请求
-        const response = await apiClient.get(`/v2/tunnel/conf/node/${selectedNodeId}`);
+        const response = await apiClient.get(`/v4/auth/tunnel/conf/node/${selectedNodeId}`);
         setConfigData(response);
       } catch (error) {
         console.error('Failed to fetch config:', error);
