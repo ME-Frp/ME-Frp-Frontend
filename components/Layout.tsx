@@ -1,7 +1,7 @@
 // Material-UI
 import { ChevronLeft as ChevronLeftIcon, Logout, Menu as MenuIcon } from '@mui/icons-material';
 import { Box, Container, CssBaseline, Divider, Grid, IconButton, List, AppBar as MuiAppBar, AppBarProps as MuiAppBarProps, Drawer as MuiDrawer, Toolbar, Typography } from '@mui/material';
-import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 // React
 import * as React from 'react';
 import { ReactNode } from 'react';
@@ -61,7 +61,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     },
   }),
 );
-const mdTheme = createTheme();
 interface LayoutProps {
   children: ReactNode;
 }
@@ -75,7 +74,6 @@ const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
   const { path } = router.query;
   return (
-    <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
@@ -162,7 +160,6 @@ const Layout = ({ children }: LayoutProps) => {
           </Container>
         </Box>
       </Box>
-    </ThemeProvider>
   );
 }
 export default Layout;
