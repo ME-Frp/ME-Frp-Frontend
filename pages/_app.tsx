@@ -27,7 +27,7 @@ export default function MyApp(props: MyAppProps) {
     
     // 从data.json中根据路径获取对应的标题
 
-    let title = pathname === "/" ? data["home"] : data[pathname] || "未知页面";
+    let title = (pathname === "/") ? api.title + data["home"] : api.title + data[pathname.replace("/", "")];
     
     // 设置页面标题
     setPageTitle(title || "未知页面");

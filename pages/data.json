@@ -10,7 +10,7 @@
     "console/tunnel/config": "配置文件",
     "console/tunnel/create": "创建隧道",
     "console/tunnel/list": "隧道列表",
-    "user/realname": "实名认证",
-    "user/sign": "签到"
+    "console/user/realname": "实名认证",
+    "console/user/sign": "签到"
 }
   
