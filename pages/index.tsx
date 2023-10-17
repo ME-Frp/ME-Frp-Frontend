@@ -1,14 +1,9 @@
 import { AppBar, Box, Button, Card, CardContent, Container, CssBaseline, Grid, Link, Toolbar, Typography } from '@mui/material';
-import Head from 'next/head';
 import React from 'react';
 import Copyright from '../components/Copyright';
-import config from '../src/config/config';
 export default function MEFrp() {
     return (
         <React.Fragment>
-            <Head>
-            <title>{config.title}首页</title>
-            </Head>
             <CssBaseline />
             <AppBar position="relative">
                 <Toolbar>

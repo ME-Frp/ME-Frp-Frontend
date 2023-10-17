@@ -12,13 +12,11 @@ import {
   Typography,
   createTheme,
 } from '@mui/material';
-import Head from "next/head";
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { useState } from 'react';
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
-import config from '../../src/config/config';
 import http from '../../src/http/http';
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -59,9 +57,6 @@ export default function SignUp() {
   };
   return (
     <ThemeProvider theme={defaultTheme}>
-                  <Head>
-            <title>{config.title}重置密码</title>
-            </Head>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

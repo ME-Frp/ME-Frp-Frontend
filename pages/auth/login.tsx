@@ -9,13 +9,11 @@ import {
   TextField,
   Typography
 } from '@mui/material';
-import Head from 'next/head';
 import { useRouter } from "next/router";
 import * as React from 'react';
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
 import ProTip from '../../components/ProTip';
-import config from '../../src/config/config';
 import http from '../../src/http/http';
 
 export default function About() {
@@ -55,9 +53,6 @@ export default function About() {
   return (
 
     <React.Fragment>
-                  <Head>
-            <title>{config.title}登录</title>
-            </Head>
     <Container maxWidth="lg">
       <Box
         sx={{

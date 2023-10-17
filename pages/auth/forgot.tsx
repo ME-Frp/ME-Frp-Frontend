@@ -1,9 +1,7 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Avatar, Box, Button, Container, CssBaseline, Grid, Link, TextField, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Head from 'next/head';
 import React from 'react';
-import config from '../../src/config/config';
 
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
@@ -43,9 +41,6 @@ export default function SignUp() {
 
   return (
     <React.Fragment>
-      <Head>
-    <title>{config.title}忘记密码</title>
-    </Head>
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />

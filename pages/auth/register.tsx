@@ -2,12 +2,10 @@ import { LockOutlined, Send } from '@mui/icons-material';
 import { Avatar, Box, Button, Container, CssBaseline, Grid, Link, TextField, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { NextPage } from 'next';
-import Head from "next/head";
 import { useState } from 'react';
 import Copyright from '../../components/Copyright';
 import Message from '../../components/Message';
 import ProTip from '../../components/ProTip';
-import config from '../../src/config/config';
 import http from '../../src/http/http';
 
 const theme = createTheme();
@@ -84,9 +82,6 @@ const SignUp: NextPage = () => {
 
   return (
     <ThemeProvider theme={theme}>
-                  <Head>
-            <title>{config.title}注册</title>
-            </Head>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
