@@ -1,6 +1,6 @@
-import { Link, Paper, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { NoSsr } from '@mui/base';
+import { Card, CardContent, Link, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
 import Layout from '../../components/Layout';
-import NoSSR from '../../components/NoSSR';
 
 export default function DownloadPage() {
   const files = [
@@ -98,38 +98,39 @@ export default function DownloadPage() {
 
   return (
     <Layout>
-    <Paper>
-     <Table size="small">
-          <TableHead>
-            <TableRow>
-              <TableCell>文件名</TableCell>
-              <TableCell>系统架构</TableCell>
-              <TableCell>系统类型</TableCell>
-              <TableCell>操作</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <NoSSR>
-      {files.map((file, index) => (
-         <TableRow key={index}>
-           <TableCell>
-            {file.name}
-          </TableCell>
-          <TableCell>
-           {file.architecture}
-          </TableCell>
-          <TableCell>
-            {file.system}
-          </TableCell>
-          <Link href={file.link} download underline="hover">
-            点击这里下载
-          </Link>
-        </TableRow>
-      ))}
-      </NoSSR>
+      <Card>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            下载中心
+          </Typography>
+          <Table size="small">
+            <TableHead>
+              <TableRow>
+                <TableCell>文件名</TableCell>
+                <TableCell>系统架构</TableCell>
+                <TableCell>系统类型</TableCell>
+                <TableCell>操作</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <NoSsr>
+                {files.map((file, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{file.name}</TableCell>
+                    <TableCell>{file.architecture}</TableCell>
+                    <TableCell>{file.system}</TableCell>
+                    <TableCell>
+                      <Link href={file.link} download underline="hover">
+                        点击这里下载
+                      </Link>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </NoSsr>
             </TableBody>
-        </Table>
-      </Paper>
-      </Layout>
+          </Table>
+        </CardContent>
+      </Card>
+    </Layout>
   );
 };

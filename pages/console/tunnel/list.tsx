@@ -1,7 +1,7 @@
+import { NoSsr } from '@mui/base';
 import { Button, Dialog, DialogContent, DialogContentText, DialogTitle, Paper, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
-import NoSSR from '../../../components/NoSSR';
 import apiClient from '../../../src/http/http';
 
 type Tunnel = {
@@ -100,7 +100,7 @@ export default function MyComponent() {
               <TableCell>操作</TableCell>
             </TableRow>
           </TableHead>
-          <NoSSR>
+          <NoSsr>
             <TableBody>
               {tunnels ? tunnels.map((tunnel) => (
                 <TableRow key={tunnel.id}>
@@ -126,7 +126,7 @@ export default function MyComponent() {
                 </TableRow>
               )) : <p>Loading…</p>}
             </TableBody>
-          </NoSSR>
+          </NoSsr>
         </Table>
       </Paper>
       <Dialog open={open} onClose={handleClose}>
