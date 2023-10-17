@@ -2,11 +2,11 @@
  * @Author: Aehxy ahmrcxy@gmail.com
  * @Date: 2023-09-28 12:36:20
  * @LastEditors: Aehxy ahmrcxy@gmail.com
- * @LastEditTime: 2023-10-16 12:28:39
+ * @LastEditTime: 2023-10-18 00:42:25
  * @FilePath: \ME-Frp-Frontend\pages\console\tunnel\config.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import { FormControl, Grid, InputLabel, MenuItem, Paper, Select, Typography } from '@mui/material';
+import { Card, CardContent, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import apiClient from '../../../src/http/http';
@@ -52,7 +52,11 @@ const ConfigPage = () => {
     <Layout>
     <Grid container justifyContent="center">
       <Grid item xs={12} md={6}>
-        <Paper elevation={3} sx={{ p: 3 }}>
+        <Card elevation={3} sx={{ p: 3 }}>
+        <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+            配置文件
+          </Typography>
           <FormControl fullWidth sx={{ mb: 2 }}>
             <InputLabel>选择节点</InputLabel>
             <Select value={selectedNode} onChange={handleNodeChange}>
@@ -71,7 +75,8 @@ const ConfigPage = () => {
                   </Typography>
             </Paper>
           )}
-        </Paper>
+          </CardContent>
+        </Card>
       </Grid>
     </Grid>
     </Layout>
