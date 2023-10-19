@@ -68,7 +68,7 @@ const SignUp: NextPage = () => {
       formData.append('email', email.toString());
 
       // 发送验证码请求
-      const res = await http.post('/v4/verify/register/email', formData);
+      const res = await http.post('/v4/public/verify/register/email', formData);
       setCoderes(res);
       setIsDisabled(true);
       Message.success({ content: res.message, duration: 1000 });
