@@ -2,11 +2,11 @@
  * @Author: Aehxy ahmrcxy@gmail.com
  * @Date: 2023-09-28 12:36:20
  * @LastEditors: Aehxy ahmrcxy@gmail.com
- * @LastEditTime: 2023-10-15 15:04:19
+ * @LastEditTime: 2023-11-20 13:51:01
  * @FilePath: \ME-Frp-Frontend\pages\console\user\realname.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import { Box, Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Box, Button, Card, CardHeader, Container, Grid, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import Message from '../../../components/Message';
@@ -75,7 +75,13 @@ export default function RealnamePage()  {
 
   return (
     <Layout>
-    <Paper sx={{ padding: '1rem', maxWidth: '400px', margin: '0 auto' }}>
+       <Box display="flex">
+            <Box flex={1} ml={1} style={{ height: "100%" }}>
+      <Card style={{ padding: '20px', height: "100%", marginBottom: '20px' }}>
+        <CardHeader
+          color="text.secondary"
+          title="实名认证"
+        />
       {isAuthenticated ? (
         <Grid>
           <Typography variant="h6">您已实名认证</Typography>
@@ -83,13 +89,41 @@ export default function RealnamePage()  {
           </Grid>
       ) : (
         <Box onSubmit={handleRealnamePost} component="form">
-          <Typography variant="h6">未实名认证</Typography>
+          <Typography variant="h6">您还未实名认证</Typography>
           <TextField id="name" label="姓名" fullWidth />
           <TextField id="idcard" label="身份证号码" fullWidth />
+          <Typography variant='body1'>
+            点击提交即代表您同意了我们的《实名认证诚信收费及未成年人实名认证政策》
+          </Typography>
           <Button variant="contained" type="submit">提交</Button>
           </Box>
       )}
-    </Paper>
+      </Card>
+      </Box>
+      <Box flex={1} ml={1} style={{ height: "100%" }}>
+      <Card style={{ padding: '20px', height: "100%", marginBottom: '20px' }}>
+        <CardHeader
+          color="text.secondary"
+          title="《实名认证诚信收费及未成年人实名认证政策》"
+        />
+      <Typography variant='h6'>
+        此项没有硬性要求，您可以<strong>付费</strong>，也可以选择<strong>不付费</strong>，亦或是选择<strong>实名/不实名</strong>一切取决于您。<br /> 
+      </Typography>
+      <Typography variant='body1'>
+        我们提供的是完全免费的服务，在 Frp 业务上我们没有任何的盈利，成本开销不断增大，但我们只为了给您提供一个<strong>免费、好用的内网穿透服务</strong>。<br />
+        以此我们的实名认证决定收取 一次 0.5 元的认证费用（不强求，若确实没有能力可以不付款或少付），但是我们采用<strong>实名认证诚信收费政策</strong>，内容如下：<br /> 
+        如果您<strong>有能力付款</strong>，请以帮助我们走的更远的心态使用下方二维码给我们付款，我们将不胜感激。<br />
+        如果您<strong>确实没有能力付款</strong>, 您便可选择不付款，我们理解您的苦衷。<br />
+        但如果您是未成年人，并满怀热情想使用我们的服务，请确保您争取了您监护人的同意。<strong>如果您未争取监护人同意，则出现的一切问题我们将不负任何责任</strong><br />
+        以下是运营团队想给您说的几句话↓<br />
+        我们的运营团队中也有部分学生身份存在，我们深知学生使用部分服务时候的种种不便利，例如 云服务商实名认证18+ 、部分提供商的实名认证需要付款，但自己没有经济能力亦或是没有支付平台账号（当然这也可能正是您选择我们的原因）
+        出于您对我们的信赖，我们推出了该政策，即：<br />
+        1.确实没有能力，实名认证可以不收费。<br />
+        2.未成年人可以在家长同意的前提下进行实名认证<br />
+      </Typography>
+      </Card>
+    </Box>
+    </Box>
     </Layout>
   );
 };
