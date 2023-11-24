@@ -109,8 +109,8 @@ const TunnelCreationPage = () => {
       </Layout>
     );
   }
-  const isAuthenticated = 'default'
-  //const isAuthenticated = realname.view === 'default';
+  // const isAuthenticated = 'default'
+  const isAuthenticated = realname.view === 'default';
   return (
     <Layout>
       <Grid container justifyContent="center">
