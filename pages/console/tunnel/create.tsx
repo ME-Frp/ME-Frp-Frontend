@@ -1,4 +1,4 @@
-import { Button, Container, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@mui/material';
+import { Alert, AlertTitle, Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Stack, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import Message from '../../../components/Message';
@@ -109,20 +109,25 @@ const TunnelCreationPage = () => {
       </Layout>
     );
   }
-  const isAuthenticated = realname.view === 'default';
+  const isAuthenticated = 'default'
+  //const isAuthenticated = realname.view === 'default';
   return (
     <Layout>
       <Grid container justifyContent="center">
         <Grid item xs={12} md={6}>
-          <Paper elevation={3} sx={{ p: 3 }}>
+          <Paper elevation={3} sx={{ p: 3, mt: 2 }}>
           {isAuthenticated ? (
-                <Typography variant="h5" gutterBottom>
+            <Stack sx={{ width: '100%' }} spacing={2}>
+                <Alert severity="info">
+                <AlertTitle>提示</AlertTitle>
                 您还未实名认证，将只能使用境外节点
                 实名认证后，您将可以使用境内节点 且 带宽限制将提升至 30Mbps
-              </Typography>
+                </Alert>
+                </Stack>
           ) : (
             <></>
           )}
+          <Box mt={2}>
               <form onSubmit={handleSubmit}>
               <FormControl fullWidth sx={{ mb: 2 }}>
                 <InputLabel>选择节点</InputLabel>
@@ -212,6 +217,7 @@ const TunnelCreationPage = () => {
                 创建隧道
               </Button>
             </form>
+            </Box>
           </Paper>
         </Grid>
       </Grid>
