@@ -6,7 +6,7 @@
  * @FilePath: \ME-Frp-Frontend\pages\console\user\realname.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import { Box, Button, Card, CardHeader, Container, Grid, TextField, Typography } from '@mui/material';
+import { Box, Button, Card, CardHeader, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import Message from '../../../components/Message';
@@ -64,10 +64,12 @@ export default function RealnamePage()  {
     // handle loading state here
     return (
       <Layout>
-        <Container maxWidth="lg">
-          <Typography>Loading…</Typography>
-        </Container>
-      </Layout>
+      <Container maxWidth="lg">
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <CircularProgress />
+        </Box>
+      </Container>
+    </Layout>
     );
       }
       // 判断status.view是否为realname，如果是则给isAuthenticated赋值true，否则赋值false

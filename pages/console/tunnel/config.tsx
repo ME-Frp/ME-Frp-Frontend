@@ -62,7 +62,7 @@ const ConfigPage = () => {
             <Select value={selectedNode} onChange={handleNodeChange}>
               {nodeList ? nodeList.map((node) => (
                 <MenuItem key={node.id} value={node.id}>{node.name}</MenuItem>
-              )) : <p>Loading…</p>}
+              )) : <></>}
             </Select>
           </FormControl>
 

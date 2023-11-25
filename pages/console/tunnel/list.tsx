@@ -1,5 +1,5 @@
 import { NoSsr } from '@mui/base';
-import { Button, Dialog, DialogContent, DialogContentText, DialogTitle, Paper, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Box, Button, CircularProgress, Container, Dialog, DialogContent, DialogContentText, DialogTitle, Paper, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import apiClient from '../../../src/http/http';
@@ -87,7 +87,16 @@ export default function MyComponent() {
       </Layout>
     );
   }
-
+if (!tunnels) {
+  return (
+    <Layout>
+    <Container maxWidth="lg">
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <CircularProgress />
+      </Box>
+    </Container>
+  </Layout>)
+}
   return (
     <Layout>
       <Paper>

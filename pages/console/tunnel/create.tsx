@@ -1,4 +1,4 @@
-import { Alert, AlertTitle, Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Stack, TextField, Typography } from '@mui/material';
+import { Alert, AlertTitle, Box, Button, CircularProgress, Container, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Stack, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import Message from '../../../components/Message';
@@ -103,10 +103,12 @@ const TunnelCreationPage = () => {
     // handle loading state here
     return (
       <Layout>
-        <Container maxWidth="lg">
-          <Typography>Loading…</Typography>
-        </Container>
-      </Layout>
+      <Container maxWidth="lg">
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <CircularProgress />
+        </Box>
+      </Container>
+    </Layout>
     );
   }
   // const isAuthenticated = 'default'
