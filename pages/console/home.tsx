@@ -1,4 +1,4 @@
-import { Alert, AlertTitle, Avatar, Box, Button, Card, CardContent, CardHeader, CircularProgress, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Paper, Stack, Tooltip, Typography } from '@mui/material';
+import { Alert, CircularProgress, AlertTitle, Avatar, Box, Button, Card, CardContent, CardHeader, CircularProgress, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Paper, Stack, Tooltip, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import Message from '../../components/Message';
@@ -103,11 +103,13 @@ const handleCancelReset = () => {
   if (isLoading || !user) {
     // handle loading state here
     return (
-      <Layout>
-        <Container maxWidth="lg">
-          <Typography>Loading…</Typography>
-        </Container>
-      </Layout>
+<Layout>
+      <Container maxWidth="lg">
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <CircularProgress />
+        </Box>
+      </Container>
+    </Layout>
     );
   }
 
