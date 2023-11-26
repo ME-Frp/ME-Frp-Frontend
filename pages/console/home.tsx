@@ -1,4 +1,4 @@
-import { Alert, CircularProgress, AlertTitle, Avatar, Box, Button, Card, CircularProgress， CardContent, CardHeader, CircularProgress, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Paper, Stack, Tooltip, Typography } from '@mui/material';
+import { Alert, CircularProgress, AlertTitle, Avatar, Box, Button, Card, CircularProgress, CardContent, CardHeader, CircularProgress, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Paper, Stack, Tooltip, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import Message from '../../components/Message';
