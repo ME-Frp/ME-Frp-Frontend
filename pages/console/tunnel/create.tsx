@@ -1,4 +1,4 @@
-import { Alert, AlertTitle, Box, Button, CircularProgress, Container, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Stack, TextField, Typography } from '@mui/material';
+import { Alert, AlertTitle, Box, Button, CircularProgress, Container, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Stack, TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import Message from '../../../components/Message';
@@ -16,6 +16,7 @@ const TunnelCreationPage = () => {
   const [allowPort, setAllowPort] = useState('');
   const [allowType, setAllowType] = useState('');
   const [realname, setRealname] = useState(null);
+  const [nodeName, setNodeName] = useState('');
 
   useEffect(() => {
     // 请求节点列表
@@ -44,6 +45,7 @@ const TunnelCreationPage = () => {
     const selectedNodeData = nodeList.find((node) => node.id === event.target.value);
     setAllowPort(selectedNodeData.allow_port);
     setAllowType(selectedNodeData.allow_type);
+    setNodeName(selectedNodeData.name);
     setProtocol('');
   };
 
@@ -133,7 +135,11 @@ const TunnelCreationPage = () => {
               <form onSubmit={handleSubmit}>
               <FormControl fullWidth sx={{ mb: 2 }}>
                 <InputLabel>选择节点</InputLabel>
-                <Select value={selectedNode} onChange={handleNodeChange}>
+                <Select 
+                label="选择节点"
+                value={selectedNode} 
+                onChange={handleNodeChange}
+                >
                   {nodeList ? (
                     nodeList.map((node) => (
                       <MenuItem key={node.id} value={node.id}>
@@ -147,12 +153,23 @@ const TunnelCreationPage = () => {
               </FormControl>
 
               {allowPort && allowType && (
-               <Typography>该节点允许的端口：{allowPort}，协议类型：{allowType}</Typography>
+               <Stack sx={{ width: '100%' }} spacing={2}>
+               <Alert severity="success">
+               <AlertTitle># {selectedNode} - {nodeName} </AlertTitle>
+               该节点允许的端口：{allowPort}<br />
+               协议类型：{allowType}<br />
+               实时节点状态：正常（功能开发中，现均显示正常）
+               </Alert>
+               </Stack>
               )}
               <br />
                 <FormControl fullWidth sx={{ mb: 2 }}>
                   <InputLabel>选择协议</InputLabel>
-                  <Select value={protocol} onChange={handleProtocolChange}>
+                  <Select 
+                  label="选择协议"
+                  value={protocol} 
+                  onChange={handleProtocolChange}
+                  >
               {allowType.includes('tcp') && (
                     <MenuItem value="tcp">TCP</MenuItem>
               )}
@@ -170,19 +187,21 @@ const TunnelCreationPage = () => {
               )}
                 </Select>
                 </FormControl>
-
               <TextField
                 label="隧道名称"
                 value={proxyname}
                 onChange={handleProxynameChange}
                 fullWidth
                 sx={{ mb: 2 }}
+                helperText="来给你的隧道起一个名字吧！（支持英文/数字）"
               />
 
               <TextField
                 label="本地地址"
                 value={localAddress}
                 onChange={handleLocalAddressChange}
+                defaultValue="127.0.0.1"
+                helperText="本地地址，一般是 127.0.0.1 。"
                 fullWidth
                 sx={{ mb: 2 }}
               />
@@ -193,6 +212,7 @@ const TunnelCreationPage = () => {
                 onChange={handleLocalPortChange}
                 fullWidth
                 sx={{ mb: 2 }}
+                helperText="本地服务所在的端口。"
               />
 
               {(protocol === 'tcp' || protocol === 'udp') && (
@@ -201,6 +221,7 @@ const TunnelCreationPage = () => {
                   value={remotePort}
                   onChange={handleRemotePortChange}
                   fullWidth
+                  helperText="您希望使用的 Frp 服务器的端口。"
                   sx={{ mb: 2 }}
                 />
               )}
@@ -212,6 +233,7 @@ const TunnelCreationPage = () => {
                   onChange={handleDomainChange}
                   fullWidth
                   sx={{ mb: 2 }}
+                  helperText="您自己的域名。"
                 />
               )}
 
