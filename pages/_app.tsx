@@ -41,6 +41,7 @@ export default function MyApp(props: MyAppProps) {
           <title>{pageTitle}</title>
         ) : null
         }
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
