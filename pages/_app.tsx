@@ -27,7 +27,7 @@ export default function MyApp(props: MyAppProps) {
     
     // 从data.json中根据路径获取对应的标题
 
-    let title = (pathname === "/") ? api.title + data["home"] : api.title + data[pathname.replace("/", "")];
+    let title = (pathname === "/") ? null : api.title + data[pathname.replace("/", "")];
     
     // 设置页面标题
     setPageTitle(title || "未知页面");
@@ -37,8 +37,10 @@ export default function MyApp(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>{pageTitle}</title>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        {pageTitle !== null ? (
+          <title>{pageTitle}</title>
+        ) : null
+        }
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
