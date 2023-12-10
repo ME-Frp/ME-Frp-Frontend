@@ -72,7 +72,7 @@ const handleCancelReset = () => {
       try {
         const response = await apiClient.get('/v4/auth/user');
         const set = await apiClient.get('/v4/public/info/setting');
-        setUser(response);
+        setUser(response.data);
         setSetting(set.data);
       } catch (error) {
         setError(error);
