@@ -1,13 +1,6 @@
-/*
- * @Author: Aehxy ahmrcxy@gmail.com
- * @Date: 2023-07-18 15:21:52
- * @LastEditors: Aehxy ahmrcxy@gmail.com
- * @LastEditTime: 2023-10-15 14:59:27
- * @FilePath: \ME-Frp-Frontend\pages\Panel\sponsor.tsx
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
 import { Box, Button, Card, CardContent, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Layout from '../../components/Layout';
 import apiClient from '../../src/http/http';
 
@@ -43,8 +36,10 @@ const SponsorPage = () => {
         <Typography variant="h5" gutterBottom>
           赞助我们
         </Typography>
-        <img src="https://www.mcserverx.com/wp-content/uploads/2023/07/0c9df74d815c742123f419d96355983a.jpg"alt="支付宝" style={{ width: '200px', marginRight: '10px' }} />
-        <img src="https://www.mcserverx.com/wp-content/uploads/2023/07/6459b8278af85c6d2e12a4b8e9822a11.jpg" alt="微信支付" style={{ width: '200px' }} />
+        <Box display="flex" alignItems="center" marginBottom="10px">
+        <Image src="/assets/alipay.jpg" alt="支付宝" width={250} height={375} />
+        <Image src="/assets/wechat.jpg" alt="微信支付" width={250} height={375} />
+      </Box>
         <Typography variant="body1" gutterBottom> 你的支持是我们最大的动力！</Typography>
         <Typography variant="body1" gutterBottom> 不要忘记备注您的用户名、邮箱和留言哦！</Typography>
         <Button href="https://afdian.net/a/aehxy" variant="contained" >爱发电</Button>

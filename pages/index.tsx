@@ -1,9 +1,13 @@
 import { AppBar, Box, Button, Card, CardContent, Container, CssBaseline, Grid, Link, Toolbar, Typography } from '@mui/material';
 import React from 'react';
 import Copyright from '../components/Copyright';
+import Head from 'next/head';
 export default function MEFrp() {
     return (
         <React.Fragment>
+          <Head>
+            <title>ME Frp | 镜缘映射 - 免费内网穿透_公益_端口映射_Minecraft我的世界联机_泰拉瑞亚联机_远程桌面</title>
+          </Head>
             <CssBaseline />
             <AppBar position="relative">
                 <Toolbar>

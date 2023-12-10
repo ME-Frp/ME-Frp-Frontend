@@ -1,15 +1,8 @@
-/*
- * @Author: Aehxy ahmrcxy@gmail.com
- * @Date: 2023-09-28 12:36:20
- * @LastEditors: Aehxy ahmrcxy@gmail.com
- * @LastEditTime: 2023-11-20 13:55:53
- * @FilePath: \ME-Frp-Frontend\pages\console\user\realname.tsx
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
 import { Box, Button, Card, CardHeader, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import Message from '../../../components/Message';
+import Image from 'next/image';
 import apiClient from '../../../src/http/http';
 
 export default function RealnamePage()  {
@@ -123,8 +116,10 @@ export default function RealnamePage()  {
         1.确实没有能力，实名认证可以不收费。<br />
         2.未成年人可以在家长同意的前提下进行实名认证<br />
       </Typography>
-      <img src="https://www.mcserverx.com/wp-content/uploads/2023/07/0c9df74d815c742123f419d96355983a.jpg"alt="支付宝" style={{ width: '200px', marginRight: '10px' }} />
-        <img src="https://www.mcserverx.com/wp-content/uploads/2023/07/6459b8278af85c6d2e12a4b8e9822a11.jpg" alt="微信支付" style={{ width: '200px' }} />
+      <Box display="flex" alignItems="center" marginBottom="10px">
+        <Image src="/assets/alipay.jpg" alt="支付宝" width={250} height={375} />
+        <Image src="/assets/wechat.jpg" alt="微信支付" width={250} height={375} />
+      </Box>
       </Card>
     </Box>
     </Box>
