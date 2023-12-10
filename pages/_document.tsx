@@ -6,7 +6,7 @@ import theme, { roboto } from '../src/theme';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en" className={roboto.className}>
+      <Html lang="zh-CN" className={roboto.className}>
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
