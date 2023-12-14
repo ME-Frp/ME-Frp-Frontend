@@ -17,6 +17,13 @@ const TunnelCreationPage = () => {
   const [allowType, setAllowType] = useState('');
   const [realname, setRealname] = useState(null);
   const [nodeName, setNodeName] = useState('');
+  const [status, setStatus] = useState('');
+
+  const statusMap = {
+    200: '正常',
+    201: '无状态数据',
+    500: '服务器异常',
+  };
 
   useEffect(() => {
     // 请求节点列表
@@ -47,6 +54,11 @@ const TunnelCreationPage = () => {
     setAllowType(selectedNodeData.allow_type);
     setNodeName(selectedNodeData.name);
     setProtocol('');
+    // 根据 selectedNodeData.status 获取对应的状态文本
+    const statusText = statusMap[selectedNodeData.Status];
+    // 将状态文本存储到状态中
+    setStatus(statusText);
+    
   };
 
   const handleProtocolChange = (event) => {
@@ -158,7 +170,7 @@ const TunnelCreationPage = () => {
                <AlertTitle># {selectedNode} - {nodeName} </AlertTitle>
                该节点允许的端口：{allowPort}<br />
                协议类型：{allowType}<br />
-               实时节点状态：正常（功能开发中，现均显示正常）
+               实时节点状态：{status}
                </Alert>
                </Stack>
               )}
