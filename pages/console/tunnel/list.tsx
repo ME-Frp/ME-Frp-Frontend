@@ -1,5 +1,5 @@
 import { NoSsr } from '@mui/base';
-import { Box, Button, CircularProgress, Container, Dialog, DialogContent, DialogContentText, DialogTitle, Paper, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Box, Button, CircularProgress, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Paper, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import apiClient from '../../../src/http/http';
@@ -24,6 +24,8 @@ export default function MyComponent() {
   const [error, setError] = useState<Error | null>(null);
   const [info, setInfo] = useState(null);
   const [easy_start, setEasy_start] = useState(null);
+  const [OpenDialog, setOpenDialog] = useState(false);
+  const [DeleteTunnelID, setDeleteTunnelID] = useState<number | null>(null);
 
   useEffect(() => {
     fetchTunnels();
@@ -70,7 +72,13 @@ export default function MyComponent() {
     setOpen(false);
   };
 
-  const handleDeleteTunnel = async (id: number) => {
+  // 点击删除按钮时触发的函数
+const handleDeleteTunnel = async (id: number) => {
+  setOpenDialog(true); // 打开提示框
+  setDeleteTunnelID(id);
+};
+
+  const handleConfirmDelete = async (id: number) => {
     try {
       const response = await apiClient.post('/v4/auth/tunnel/delete/' + id);
       console.log(response.data);
@@ -97,6 +105,10 @@ if (!tunnels) {
     </Container>
   </Layout>)
 }
+  function handleCancelReset(event: {}): void {
+    setOpenDialog(false);
+  }
+
   return (
     <Layout>
       <Paper>
@@ -138,6 +150,22 @@ if (!tunnels) {
           </NoSsr>
         </Table>
       </Paper>
+      <Dialog open={OpenDialog} onClose={handleCancelReset}>
+      <DialogTitle>确认重置 Token？</DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          确认重置 Token 吗？这将使当前 Token 失效并生成新的 Token。
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleCancelReset} color="primary">
+          取消
+        </Button>
+        <Button onClick={() =>handleConfirmDelete(DeleteTunnelID)} color="primary" autoFocus>
+          确定
+        </Button>
+      </DialogActions>
+    </Dialog>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>详细信息</DialogTitle>
         <DialogContent>
