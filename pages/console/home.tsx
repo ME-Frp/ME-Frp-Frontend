@@ -54,9 +54,9 @@ async function handleRefresh() {
 }
 
 // 取消重置操作的函数
-const handleCancelReset = () => {
-  setOpenDialog(false); // 关闭提示框
-};
+function handleCancelReset(event: {}): void {
+  setOpenDialog(false);
+}
 
   const handleTokenCopy = () => {
     const el = document.createElement('textarea');
