@@ -50,6 +50,11 @@ const ConfigPage = () => {
 
   return (
     <Layout>
+      
+            <Typography variant="h4" component="div" style={{ margin: '10px' }}>
+            配置文件
+      </Typography>
+
     <Grid container justifyContent="center">
       <Grid item xs={12} md={6}>
         <Card elevation={3} sx={{ p: 3 }}>

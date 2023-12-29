@@ -1,4 +1,4 @@
-import { Alert, AlertTitle, Box, Button, CircularProgress, Container, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Stack, TextField } from '@mui/material';
+import { Alert, AlertColor, AlertTitle, Box, Button, CircularProgress, Container, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Stack, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Layout from '../../../components/Layout';
 import Message from '../../../components/Message';
@@ -18,13 +18,18 @@ const TunnelCreationPage = () => {
   const [realname, setRealname] = useState(null);
   const [nodeName, setNodeName] = useState('');
   const [status, setStatus] = useState('');
+  const [severity, setSeverity] = useState(null);
 
   const statusMap = {
     200: '正常',
     201: '无状态数据',
     500: '服务器异常',
   };
-
+  const severities = {
+    200: 'success',
+    201: 'info',
+    500: 'warning',
+  };
   useEffect(() => {
     // 请求节点列表
     const fetchNodeList = async () => {
@@ -54,10 +59,8 @@ const TunnelCreationPage = () => {
     setAllowType(selectedNodeData.allow_type);
     setNodeName(selectedNodeData.name);
     setProtocol('');
-    // 根据 selectedNodeData.status 获取对应的状态文本
-    const statusText = statusMap[selectedNodeData.Status];
-    // 将状态文本存储到状态中
-    setStatus(statusText);
+    setStatus(statusMap[selectedNodeData.Status]);
+    setSeverity(severities[selectedNodeData.Status] as AlertColor);
     
   };
 
@@ -129,6 +132,9 @@ const TunnelCreationPage = () => {
   const isAuthenticated = realname.view === 'default';
   return (
     <Layout>
+                  <Typography variant="h4" component="div" style={{ margin: '10px' }}>
+            创建隧道
+      </Typography>
       <Grid container justifyContent="center">
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 3, mt: 2 }}>
@@ -166,7 +172,7 @@ const TunnelCreationPage = () => {
 
               {allowPort && allowType && (
                <Stack sx={{ width: '100%' }} spacing={2}>
-               <Alert severity="success">
+               <Alert severity={severity}>
                <AlertTitle># {selectedNode} - {nodeName} </AlertTitle>
                该节点允许的端口：{allowPort}<br />
                协议类型：{allowType}<br />
