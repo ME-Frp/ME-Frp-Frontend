@@ -3,7 +3,7 @@ import { Card, CardContent, Link, Table, TableBody, TableCell, TableHead, TableR
 import Layout from '../../components/Layout';
 
 export default function DownloadPage() {
-  const url = 'https://download.mefrp.top/' 
+  const url = 'https://download.mefrp.com:8123/' 
   const files = [
     {
         name: 'MirrorEdgeFrp_0.51.3_windows_386.zip',
