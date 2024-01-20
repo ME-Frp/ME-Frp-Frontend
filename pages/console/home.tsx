@@ -123,7 +123,7 @@ function handleCancelReset(event: {}): void {
               <Card style={{ padding: '20px', height: "100%", marginBottom: '20px' }}>
                 <CardHeader
                   color="text.secondary"
-                  avatar={<Avatar src={`https://dn-qiniu-avatar.qbox.me/avatar/?email=${email_md5}`} />}
+                  avatar={<Avatar src={`https://dn-qiniu-avatar.qbox.me/avatar/${email_md5}`} />}
                   title={username}
                 />
                 <CardContent>
