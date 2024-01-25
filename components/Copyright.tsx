@@ -9,7 +9,7 @@ export default function Copyright() {
       </MuiLink>{' '}
       2021-{new Date().getFullYear()}.
     <br />
-    <MuiLink color="inherit" href="https://cfu.mefrp.com/">
+    <MuiLink color="inherit" href="https://内网穿透. 中国/">
     Frp 内网穿透联盟统一识别编码:AZWB66WB
       </MuiLink>
       <br />

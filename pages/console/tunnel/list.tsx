@@ -151,10 +151,10 @@ if (!tunnels) {
         </Table>
       </Paper>
       <Dialog open={OpenDialog} onClose={handleCancelReset}>
-      <DialogTitle>确认重置 Token？</DialogTitle>
+      <DialogTitle>确认删除隧道？</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          确认重置 Token 吗？这将使当前 Token 失效并生成新的 Token。
+          确认删除该隧道吗？这将使您不能继续使用该隧道并返回 API 404 错误。
         </DialogContentText>
       </DialogContent>
       <DialogActions>
