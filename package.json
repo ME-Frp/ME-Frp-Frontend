@@ -17,6 +17,7 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@mui/material-nextjs": "latest",
+    "@react-buddy/ide-toolbox-next": "^2.4.1",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
