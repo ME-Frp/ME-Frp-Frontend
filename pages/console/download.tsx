@@ -6,22 +6,10 @@ export default function DownloadPage() {
   const url = 'https://download.mefrp.com/n/axyxe0xdery7/b/mefrp-download/o/' 
   const files = [
     {
-        name: 'MirrorEdgeFrp_0.51.3_windows_386.zip',
-        architecture: '386',
-        system: 'windows',
-        link: 'MirrorEdgeFrp_0.51.3_windows_386.zip'
-    },
-    {
         name: 'MirrorEdgeFrp_0.51.3_windows_amd64.zip',
         architecture: 'amd64',
         system: 'windows',
         link: 'MirrorEdgeFrp_0.51.3_windows_amd64.zip'
-    },
-    {
-        name: 'MirrorEdgeFrp_0.51.3_linux_386.tar.gz',
-        architecture: '386',
-        system: 'linux',
-        link: 'MirrorEdgeFrp_0.51.3_linux_386.tar.gz'
     },
     {
         name: 'MirrorEdgeFrp_0.51.3_linux_amd64.tar.gz',
