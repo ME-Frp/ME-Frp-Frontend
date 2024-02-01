@@ -18,9 +18,11 @@
     "@mui/material": "latest",
     "@mui/material-nextjs": "latest",
     "@react-buddy/ide-toolbox-next": "^2.4.1",
+    "@types/react-dom": "^18.2.18",
+    "axios": "^1.6.7",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "latest",

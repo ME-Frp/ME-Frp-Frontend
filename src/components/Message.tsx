@@ -1,12 +1,19 @@
-import { Alert, Snackbar } from "@mui/material";
+import {Alert, Snackbar} from "@mui/material";
 import React from "react";
-import { createRoot } from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
+
+interface MessageProps {
+    content: string;
+    duration?: number; // duration 可能是可选的，取决于你的需求
+    type: 'success' | 'error' | 'warning' | 'info'; // 定义具体的类型值
+}
+
 function Message(props: any) {
     const { content, duration, type }:any = {...props};
     // 开关控制：默认true,调用时会直接打开
     const [open, setOpen] = React.useState(true);
     // 关闭消息提示
-    const handleClose = (event: any, reason: any) => {
+    const handleClose = () => {
         setOpen(false);
     };
     return <Snackbar
@@ -14,59 +21,38 @@ function Message(props: any) {
         autoHideDuration={duration}
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         onClose={handleClose}>
-            <Alert severity={type}>{content}</Alert>
+        <Alert variant="filled" severity={type}>{content}</Alert>
         </Snackbar>
 }
 
-const message = {
-    dom: null,
-    success({content, duration}) {
-        if (typeof window !== 'undefined') {
-        // 创建一个dom
-        this.dom = document.createElement('div');
-        // 定义组件， 
-        const JSXdom = (
-        <Message content={content} duration={duration} type='success'>
+interface MessageFunctionProps {
+    content: string;
+    duration?: number;
+}
 
-        </Message>
-        );
-        const root = createRoot(this.dom);
-        // 渲染DOM
-        root.render(JSXdom)
-        // 置入到body节点下
-        document.body.appendChild(this.dom);
+const message = {
+    dom: null as HTMLElement | null,
+    showMessage(type: MessageProps['type'], {content, duration}: MessageFunctionProps) {
+        if (typeof window !== 'undefined' && !this.dom) {
+            this.dom = document.createElement('div');
+            document.body.appendChild(this.dom);
+            const JSXDom = <Message content={content} duration={duration} type={type}/>;
+            const root = createRoot(this.dom);
+            root.render(JSXDom);
         }
     },
-    error({content, duration}) {
-        if (typeof window !== 'undefined') {
-        this.dom = document.createElement('div');
-        const JSXdom = (<Message content={content} duration={duration} type='error'></Message>);
-        const root = createRoot(this.dom);
-        // 渲染DOM
-        root.render(JSXdom)
-        document.body.appendChild(this.dom);
-        }
+    success(props: MessageFunctionProps) {
+        this.showMessage('success', props);
     },
-    warning({content, duration}) {
-        if (typeof window !== 'undefined') {
-        this.dom = document.createElement('div');
-        const JSXdom = (<Message content={content} duration={duration} type='warning'></Message>);
-        const root = createRoot(this.dom);
-        // 渲染DOM
-        root.render(JSXdom)
-        document.body.appendChild(this.dom);
-        }
+    error(props: MessageFunctionProps) {
+        this.showMessage('error', props);
     },
-    info({content, duration}) {
-        if (typeof window !== 'undefined') {
-        this.dom = document.createElement('div');
-        const JSXdom = (<Message content={content} duration={duration} type='warning'></Message>);
-        const root = createRoot(this.dom);
-        // 渲染DOM
-        root.render(JSXdom)
-        document.body.appendChild(this.dom);
-        }
-    }
+    warning(props: MessageFunctionProps) {
+        this.showMessage('warning', props);
+    },
+    info(props: MessageFunctionProps) {
+        this.showMessage('info', props);
+    },
 };
- 
+
 export default message;
