@@ -1,41 +1,43 @@
-import { AccountCircle, AddCircle, AssignmentTurnedIn, Download, HowToReg, List, TextSnippet, VolunteerActivism } from '@mui/icons-material';
-import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import {
+    AccountCircle,
+    AddCircle,
+    AssignmentTurnedIn,
+    Download,
+    HowToReg,
+    List,
+    TextSnippet,
+    VolunteerActivism
+} from '@mui/icons-material';
+import {ListItem, ListItemIcon, ListItemText} from '@mui/material';
 import * as React from 'react';
-import Profile from '../pages/console/home';
 
-const mainpages = [
+const FirstListItem = [
     {
       title: "用户信息",
       path: "/console/home",
       icon: <AccountCircle />,
-      component: Profile,
     },
     {
       title: " 每日签到",
       path: "/console/user/sign",
       icon: <AssignmentTurnedIn />,
-      component: Profile,
     },
     {
       title: "赞助我们",
       path: "/console/sponsor",
       icon: <VolunteerActivism />,
-      component: Profile,
     },
     {
       title: "实名认证",
       path: "/console/user/realname",
       icon: <HowToReg />,
-      component: Profile,
     },
   ];
-export default mainpages;
-const secondarypages = [
+const SecondListItem = [
     {
       title: "隧道列表",
       path: "/console/tunnel/list",
       icon: <List />,
-      component: Profile,
     },
     {
       title: "创建隧道",
@@ -54,10 +56,10 @@ const secondarypages = [
 
     }
   ];
-export const mainListItems = (
+export const FirstList = (
   <React.Fragment>
-                 {mainpages.map((page) => (
-                <ListItem button key={page.title} component="a" href={page.path}>
+      {FirstListItem.map((page) => (
+          <ListItem key={page.title} component="a" href={page.path}>
                   <ListItemIcon>{page.icon}</ListItemIcon>
                   <ListItemText primary={page.title} />
                 </ListItem>
@@ -67,8 +69,8 @@ export const mainListItems = (
 
 export const secondaryListItems = (
   <React.Fragment>
-                 {secondarypages.map((page) => (
-                <ListItem button key={page.title} component="a" href={page.path}>
+      {SecondListItem.map((page) => (
+          <ListItem key={page.title} component="a" href={page.path}>
                   <ListItemIcon>{page.icon}</ListItemIcon>
                   <ListItemText primary={page.title} />
                 </ListItem>

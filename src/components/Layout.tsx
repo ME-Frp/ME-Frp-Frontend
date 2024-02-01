@@ -1,15 +1,28 @@
 // Material-UI
-import { ChevronLeft as ChevronLeftIcon, Logout, Menu as MenuIcon } from '@mui/icons-material';
-import { Box, Container, CssBaseline, Divider, Grid, IconButton, List, AppBar as MuiAppBar, AppBarProps as MuiAppBarProps, Drawer as MuiDrawer, Toolbar, Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import {ChevronLeft as ChevronLeftIcon, Logout, Menu as MenuIcon} from '@mui/icons-material';
+import {
+    AppBar as MuiAppBar,
+    AppBarProps as MuiAppBarProps,
+    Box,
+    Container,
+    CssBaseline,
+    Divider,
+    Drawer as MuiDrawer,
+    Grid,
+    IconButton,
+    List,
+    Toolbar,
+    Typography
+} from '@mui/material';
+import {styled} from '@mui/material/styles';
 // React
 import * as React from 'react';
-import { ReactNode } from 'react';
+import {ReactNode} from 'react';
 // Next.js
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 // Components
 import Copyright from './Copyright';
-import { mainListItems, secondaryListItems } from "./ListItem";
+import {FirstList, secondaryListItems} from "./ListItem";
 
 
 const drawerWidth = 240;
@@ -130,7 +143,7 @@ const Layout = ({ children }: LayoutProps) => {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
+              {FirstList}
             <Divider sx={{ my: 1 }} />
             {secondaryListItems}
           </List>
