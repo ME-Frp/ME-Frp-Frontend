@@ -3,9 +3,9 @@ import {
     AddCircle,
     AssignmentTurnedIn,
     Download,
+    Home,
     HowToReg,
     List,
-    Settings,
     TextSnippet,
     VolunteerActivism
 } from '@mui/icons-material';
@@ -16,12 +16,12 @@ const FirstListItem = [
     {
         title: "首页",
       path: "/console/home",
-      icon: <AccountCircle />,
+        icon: <Home/>,
     },
     {
         title: "用户信息",
         path: "/console/user/info",
-        icon: <Settings/>
+        icon: <AccountCircle/>
     },
     {
       title: " 每日签到",
