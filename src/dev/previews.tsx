@@ -6,6 +6,7 @@ import Login from "../../pages/auth/login";
 import Forgot from "../../pages/auth/forgot";
 import SignUp from "../../pages/auth/register";
 import UserProfileCard from "../../pages/console/home";
+import SignPage from "../../pages/console/user/sign";
 
 const ComponentPreviews = () => {
     return (
@@ -27,6 +28,9 @@ const ComponentPreviews = () => {
             </ComponentPreview>
             <ComponentPreview path="/UserProfileCard">
                 <UserProfileCard/>
+            </ComponentPreview>
+            <ComponentPreview path="/SignPage">
+                <SignPage/>
             </ComponentPreview>
         </Previews>
     );

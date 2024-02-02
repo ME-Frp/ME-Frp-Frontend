@@ -162,6 +162,16 @@ const Layout = ({ children }: LayoutProps) => {
                     <main>
                         {children}
                     </main>
+                </Container>
+                <Container
+                    maxWidth="md"
+                    component="footer"
+                    sx={{
+                        borderTop: (theme) => `1px solid ${theme.palette.divider}`,
+                        mt: 8,
+                        py: [3, 6],
+                    }}
+                >
                     <Copyright/>
                 </Container>
             </Box>
