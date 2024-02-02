@@ -4,7 +4,6 @@ import {
     AssignmentTurnedIn,
     Download,
     Home,
-    HowToReg,
     List,
     TextSnippet,
     VolunteerActivism
@@ -32,11 +31,6 @@ const FirstListItem = [
       title: "赞助我们",
       path: "/console/sponsor",
       icon: <VolunteerActivism />,
-    },
-    {
-      title: "实名认证",
-      path: "/console/user/realname",
-      icon: <HowToReg />,
     },
   ];
 const SecondListItem = [

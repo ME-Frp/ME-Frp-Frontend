@@ -23,6 +23,7 @@ import {useEffect, useState} from 'react';
 import Layout from '../../src/components/Layout';
 import Message from '../../src/components/Message';
 import apiClient from '../../src/http/http';
+import Link from '../../src/components/Link';
 
 interface User {
     email_md5: string;
@@ -177,8 +178,10 @@ export default function UserProfileCard() {
                             <Box mt={2}>
                             <Alert severity="warning">
                                 <AlertTitle>提示</AlertTitle>
-                                您还未实名认证，将只能使用境外节点
-                                实名认证后，您将可以使用境内节点 且 带宽限制将提升至 30Mbps
+                                您还未实名认证，将只能使用境外节点。<br/>
+                                实名认证后，您将可以使用境内节点 且 带宽限制将提升至 30Mbps。
+                                <br/>
+                                <Link href="/console/user/info">点我</Link>来进行实名认证。
                             </Alert>
                             </Box>
 
