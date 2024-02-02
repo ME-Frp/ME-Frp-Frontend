@@ -8,7 +8,7 @@ import {
     TextSnippet,
     VolunteerActivism
 } from '@mui/icons-material';
-import {ListItem, ListItemIcon, ListItemText} from '@mui/material';
+import {ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 import * as React from 'react';
 
 const FirstListItem = [
@@ -59,10 +59,10 @@ const SecondListItem = [
 export const FirstList = (
   <React.Fragment>
       {FirstListItem.map((page) => (
-          <ListItem key={page.title} component="a" href={page.path}>
+          <ListItemButton color="inhert" key={page.title} component="a" href={page.path}>
                   <ListItemIcon>{page.icon}</ListItemIcon>
                   <ListItemText primary={page.title} />
-                </ListItem>
+          </ListItemButton>
               ))}
   </React.Fragment>
 );
@@ -70,10 +70,10 @@ export const FirstList = (
 export const secondaryListItems = (
   <React.Fragment>
       {SecondListItem.map((page) => (
-          <ListItem key={page.title} component="a" href={page.path}>
+          <ListItemButton key={page.title} component="a" href={page.path}>
                   <ListItemIcon>{page.icon}</ListItemIcon>
                   <ListItemText primary={page.title} />
-                </ListItem>
+          </ListItemButton>
               ))}
   </React.Fragment>
 );
