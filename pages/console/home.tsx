@@ -163,8 +163,8 @@ export default function UserProfileCard() {
                             if (setting.alert[key]?.title !== "null") {
                                 const severity = key === 'success' ? 'success' : key === 'info' ? 'info' : key === 'warning' ? 'warning' : 'error';
                                 return (
-                                    <Box mt={2}>
-                                    <Alert key={key} severity={severity}>
+                                    <Box key={key} mt={2}>
+                                        <Alert severity={severity}>
                                         <AlertTitle>{setting.alert[key].title}</AlertTitle>
                                         {setting.alert[key].content}
                                     </Alert>

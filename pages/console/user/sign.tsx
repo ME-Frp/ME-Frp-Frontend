@@ -61,11 +61,9 @@ function SignPage() {
                 const response = await apiClient.get<SignInfo>('/v4/auth/user/sign');
                 const responseSetting = await apiClient.get<Setting>('/v4/public/info/setting');
                 setSignInfo(response.data);
-                console.log(signInfo)
                 setSetting(responseSetting.data);
-            } catch (error) {
-                // 处理错误
-                // console.log(error);
+            } catch (error: any) {
+                console.log(error);
             }
         }
 
