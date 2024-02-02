@@ -199,7 +199,7 @@ export default function UserProfileCard() {
                                         出网带宽: {((outbound / 1024) * 8).toFixed(0)} Mbps<br/>
                                         剩余流量: {(traffic / 1024).toFixed(0)} GB<br/>
                                         邮箱: {email}<br/>
-                                        token: {showToken ? (
+                                        Token: {showToken ? (
                                         <Tooltip title="已复制！" arrow>
                                             <span onClick={handleTokenCopy} style={{
                                                 cursor: 'pointer',
