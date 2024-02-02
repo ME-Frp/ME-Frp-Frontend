@@ -5,6 +5,7 @@ import {
     Download,
     HowToReg,
     List,
+    Settings,
     TextSnippet,
     VolunteerActivism
 } from '@mui/icons-material';
@@ -13,9 +14,14 @@ import * as React from 'react';
 
 const FirstListItem = [
     {
-      title: "用户信息",
+        title: "首页",
       path: "/console/home",
       icon: <AccountCircle />,
+    },
+    {
+        title: "用户信息",
+        path: "/console/user/info",
+        icon: <Settings/>
     },
     {
       title: " 每日签到",

@@ -163,20 +163,24 @@ export default function UserProfileCard() {
                             if (setting.alert[key]?.title !== "null") {
                                 const severity = key === 'success' ? 'success' : key === 'info' ? 'info' : key === 'warning' ? 'warning' : 'error';
                                 return (
+                                    <Box mt={2}>
                                     <Alert key={key} severity={severity}>
                                         <AlertTitle>{setting.alert[key].title}</AlertTitle>
                                         {setting.alert[key].content}
                                     </Alert>
+                                    </Box>
                                 );
                             }
                             return null;
                         })}
                         {group === 'default' ? (
+                            <Box mt={2}>
                             <Alert severity="warning">
                                 <AlertTitle>提示</AlertTitle>
                                 您还未实名认证，将只能使用境外节点
                                 实名认证后，您将可以使用境内节点 且 带宽限制将提升至 30Mbps
                             </Alert>
+                            </Box>
 
                         ) : (
                             <></>
