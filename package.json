@@ -14,6 +14,8 @@
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
+    "@mdx-js/react": "^3.0.0",
+    "@mdx-js/runtime": "^1.6.22",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@mui/material-nextjs": "latest",
@@ -21,10 +23,12 @@
     "@types/react-dom": "^18.2.18",
     "axios": "^1.6.7",
     "next": "latest",
+    "next-mdx-remote": "^4.4.1",
     "react": "latest",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/mdx-js__react": "^1.5.8",
     "@types/node": "latest",
     "@types/react": "latest",
     "eslint": "latest",
