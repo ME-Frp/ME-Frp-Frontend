@@ -1,7 +1,7 @@
 import { Alert, AlertTitle, Avatar, Box, Button, Card, CardContent, CardHeader, CircularProgress, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Stack, Tooltip, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import Layout from '../../src/components/Layout';
-import Message from '../../src/components/Message';
+import Layout from '../../components/Layout';
+import Message from '../../components/Message';
 import apiClient from '../../src/http/http';
 
 interface User {
