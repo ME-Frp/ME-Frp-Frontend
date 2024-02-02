@@ -17,7 +17,7 @@ import {
 import {styled} from '@mui/material/styles';
 // React
 import * as React from 'react';
-import {ReactNode} from 'react';
+import {ReactNode, useEffect} from 'react';
 // Next.js
 import {useRouter} from 'next/router';
 // Components
@@ -79,7 +79,26 @@ interface LayoutProps {
 }
 const Layout = ({ children }: LayoutProps) => {
     // 修改这里将 open 的初始状态设置为 true
-    const [open, setOpen] = React.useState(true); // 默认打开
+    const [open, setOpen] = React.useState(false); // 默认关
+
+    useEffect(() => {
+        // 定义一个函数来检查屏幕宽度并设置open状态
+        const checkWidthAndUpdateOpen = () => {
+            const isDesktop = window.innerWidth >= 768; // 假设宽度大于等于768px为桌面设备
+            setOpen(isDesktop);
+        };
+
+        // 在组件挂载时执行一次检查
+        checkWidthAndUpdateOpen();
+
+        // （可选）如果你希望在用户调整浏览器大小时也更新状态，
+        // 可以监听resize事件
+        window.addEventListener('resize', checkWidthAndUpdateOpen);
+
+        // 组件卸载时移除事件监听
+        return () => window.removeEventListener('resize', checkWidthAndUpdateOpen);
+    }, []); // 空依赖数组确保effect只在挂载时运行
+
     const toggleDrawer = () => {
         setOpen(!open);
     };
