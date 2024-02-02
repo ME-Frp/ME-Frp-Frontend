@@ -231,7 +231,7 @@ export default function UserProfileCard() {
                             {Object.keys(setting.announce).map((key) => {
                                 if (setting.announce[key]?.title !== "null") {
                                     return (
-                                        <Grid>
+                                        <Grid key={key} >
                                             <Typography variant="h6">
                                                 {setting.announce[key].title}
                                             </Typography>
