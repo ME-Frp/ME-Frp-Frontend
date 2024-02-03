@@ -39,7 +39,7 @@ export default function MEFrp() {
                         </Grid>
                         <Grid item>
                             <Button variant="outlined" color="primary" href="https://docs.mefrp.com">
-                                使用文档
+                                文档
                             </Button>
                         </Grid>
                     </Grid>
