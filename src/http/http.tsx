@@ -8,6 +8,7 @@ const exemptPaths = [
   '/',
   '/auth/login',
     '/ServiceNotFound',
+  '/download'
 ];
 
 const BASE_URL = api.api;
@@ -47,12 +48,12 @@ class ApiClient {
       Message.error({content: "请求次数过多！", duration: 2000})
         } else if (error.status === 401) {
     if (!exemptPaths.includes(location.pathname)) {
+      Router.push("/auth/login")
       if (localStorage.getItem('token') !== null) {
         Message.error({content: "您的登录状态已失效，无权访问此页面，正在为您重新登录……", duration: 2000}); 
       } else {
         Message.error({content: "您还未登录，无权访问此页面，正在重新登录……", duration: 2000});
       }
-      Router.push("/auth/login");
     }
         } else if (error.status === 502) {
     Message.error({ content: "ME Frp API 状态异常，请联系管理员!" ,duration: 1000 })

@@ -51,7 +51,7 @@ const SecondListItem = [
     },
     {
       title: "文件下载",
-      path: "/console/download",
+        path: "/download",
       icon: <Download />,
 
     }

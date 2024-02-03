@@ -21,7 +21,7 @@ export const TitleData = {
     "auth/login": "登录",
     "auth/register": "注册",
     "console/home": "用户中心",
-    "console/download": "下载中心",
+    "download": "下载中心",
     "console/sponsor": "赞助我们",
     "console/tunnel/config": "配置文件",
     "console/tunnel/create": "创建隧道",
