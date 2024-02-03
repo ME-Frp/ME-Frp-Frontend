@@ -55,6 +55,9 @@ class ApiClient {
         Message.error({content: "您还未登录，无权访问此页面，正在重新登录……", duration: 2000});
       }
     }
+        } else if (error.status === 406) {
+          Router.push("/auth/login")
+          Message.error({content: "您的账号已被封禁,原因详见邮件", duration: 1000})
         } else if (error.status === 502) {
     Message.error({ content: "ME Frp API 状态异常，请联系管理员!" ,duration: 1000 })
   }

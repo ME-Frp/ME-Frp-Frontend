@@ -63,12 +63,6 @@ const ConfigPage = () => {
     return (
         <Layout>
             <Grid container spacing={2} alignItems="stretch">
-                <Grid item xs={12}>
-                    <Typography variant="h4" component="div" style={{margin: '10px'}}>
-                        配置文件
-                    </Typography>
-                </Grid>
-
                 <Grid item xs={12} md={6}>
                     <Card elevation={3} sx={{height: '100%', display: 'flex', flexDirection: 'column'}}>
                         <CardContent>
@@ -110,11 +104,11 @@ const ConfigPage = () => {
                                 </Alert>
                             </Box>
                             <Box mt={2}>
-                                <Typography variant="h6">1.如何获取真实 IP？</Typography>
+                                <Typography variant="h5">1.如何获取真实 IP？</Typography>
                                 首先，请在 Frpc 配置文件的中所需获取真实 IP 隧道配置中（即非[common]块）的最下部加入<br/>
                                 <strong>proxy_protocol_version = v2</strong><br/>
                                 然后，请在您的应用中接受 Proxy_Protocol 传递的 IP<br/>
-                                <Typography variant="h7">例如 Nginx</Typography>
+                                <Typography variant="h6">例如 Nginx</Typography>
                                 修改为<br/>
                                 listen 80 proxy_protocol;<br/>
                                 listen 443 ssl http2 proxy_protocol;<br/>
@@ -122,7 +116,7 @@ const ConfigPage = () => {
                                 real_ip_header proxy_protocol;<br/>
                                 real_ip_recursive on;<br/>
                                 set_real_ip_from 127.0.0.1;<br/>
-                                <Typography variant="h7">Minecraft</Typography>
+                                <Typography variant="h6">Minecraft</Typography>
                                 BungeeCord / Waterfall / Paper 请开启 proxy_protocol<br/>
                                 Velocity 开启 haproxy-protocol <br/>
                                 Spigot 及衍生可以尝试添加一层 BungeeCodrd / Waterfall / Velocity 代理或添加
