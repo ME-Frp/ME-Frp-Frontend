@@ -43,27 +43,32 @@ class ApiClient {
     return response.data;
   };
 
-    private handleErrorResponse = (error: AxiosError) => {
-        if (error.status === 429) {
-      Message.error({content: "请求次数过多！", duration: 2000})
-        } else if (error.status === 401) {
-    if (!exemptPaths.includes(location.pathname)) {
-      Router.push("/auth/login")
-      if (localStorage.getItem('token') !== null) {
-        Message.error({content: "您的登录状态已失效，无权访问此页面，正在为您重新登录……", duration: 2000}); 
-      } else {
-        Message.error({content: "您还未登录，无权访问此页面，正在重新登录……", duration: 2000});
-      }
+  private handleErrorResponse = (error: AxiosError) => {
+    // 注意这里使用 error.response?.status 来获取状态码
+    const statusCode = error.response?.status;
+    switch (statusCode) {
+      case 429:
+        Message.error({content: "请求次数过多！", duration: 2000});
+        break;
+      case 401:
+        if (!exemptPaths.includes(location.pathname)) {
+          Router.push("/auth/login");
+          localStorage.removeItem("token");
+        }
+        break;
+      case 406:
+        Router.push("/auth/login");
+        Message.error({content: "您的账号已被封禁,原因详见邮件", duration: 1000});
+        break;
+      case 502:
+        Message.error({content: "ME Frp API 状态异常，请联系管理员!", duration: 1000});
+        break;
+      default:
+        // 处理其他错误
+        break;
     }
-        } else if (error.status === 406) {
-          Router.push("/auth/login")
-          Message.error({content: "您的账号已被封禁,原因详见邮件", duration: 1000})
-        } else if (error.status === 502) {
-    Message.error({ content: "ME Frp API 状态异常，请联系管理员!" ,duration: 1000 })
-  }
-  return Promise.reject(error);
+    return Promise.reject(error);
   };
-
   get<T>(url: string, config?: AxiosRequestConfig): Promise<any> {
     return this.axios.get<T>(url, config);
   }
