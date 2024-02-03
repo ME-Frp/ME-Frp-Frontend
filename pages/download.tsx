@@ -217,7 +217,7 @@ export default function DownloadPage() {
                             </Typography>
                             <NoSsr>
                                 {filteredFiles.map((file, index) => (
-                                    <Card key={index} sx={{marginBottom: '1rem'}}>
+                                    <Card elevation={3} key={index} sx={{marginBottom: '1rem'}}>
                                         <CardContent>
                                             <Typography variant="subtitle1">{file.name}</Typography>
                                             <Typography variant="body2" color="text.secondary">

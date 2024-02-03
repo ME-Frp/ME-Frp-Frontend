@@ -9,15 +9,13 @@ export default function Forgot() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const {username, email} = event.currentTarget;
-
-
         // 设定为表单数据
-        if (email == '' || username == '') {
+        if (!username.value || !email.value) {
             Message.error({content: '请填写完整信息！', duration: 1000});
         } else {
             const formData = new FormData();
-            formData.append('email', email.toString());
-            formData.append('username', username.toString());
+            formData.append('email', email.value.toString());
+            formData.append('username', username.value.toString());
             try {
                 // 发送请求
                 const res = await http.post('/v4/public/verify/forgot_password', formData);
@@ -79,6 +77,7 @@ export default function Forgot() {
                             margin="normal"
                             required
                             fullWidth
+                            autoFocus
                             id="email"
                             label="邮箱地址"
                             name="email"

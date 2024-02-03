@@ -4,6 +4,8 @@ import {
     Box,
     Button,
     Card,
+    CardContent,
+    CardHeader,
     CircularProgress,
     Container,
     Dialog,
@@ -107,7 +109,11 @@ function SignPage() {
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6} lg={6}>
                         <Card style={{padding: '20px', height: '100%', marginBottom: '20px'}}>
-                            <Typography variant="h6">签到</Typography>
+                            <CardHeader
+                                color="text.secondary"
+                                title="签到"
+                            />
+                            <CardContent>
                             <Typography>总签到次数: {signInfo.totalsign}</Typography>
                             <Typography>总获得流量: {signInfo.totaltraffic}</Typography>
                             <Box mt={2}>
@@ -115,7 +121,7 @@ function SignPage() {
                                     签到
                                 </Button>
                             </Box>
-
+                            </CardContent>
                         </Card>
                     </Grid>
                     <Grid item xs={12} md={6} lg={6}>
