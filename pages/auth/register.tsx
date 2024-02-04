@@ -36,16 +36,6 @@ const SignUp: NextPage = () => {
 
         // 防止重复点击
         setIsDisabled(true); // 禁用按钮
-        let interval = setInterval(() => {
-            setCounter((prevCounter) => {
-                if (prevCounter <= 1) {
-                    clearInterval(interval);
-                    setIsDisabled(false); // 重新启用按钮
-                    return 60; // 重置倒计时
-                }
-                return prevCounter - 1;
-            });
-        }, 1000);
 
         try {
 

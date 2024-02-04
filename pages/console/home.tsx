@@ -33,6 +33,7 @@ interface User {
     outbound: number;
     traffic: number;
     email: string;
+    today_traffic: number;
 }
 
 interface Setting {
@@ -154,7 +155,7 @@ export default function UserProfileCard() {
         );
     }
 
-    const {email_md5, username, id, group, outbound, traffic, email} = user;
+    const {email_md5, username, id, group, outbound, traffic, email, today_traffic} = user;
     return (
         <Layout>
             <Grid container spacing={2}>
@@ -205,6 +206,7 @@ export default function UserProfileCard() {
                                         用户组: {group}<br/>
                                         出网带宽: {((outbound / 1024) * 8).toFixed(0)} Mbps<br/>
                                         剩余流量: {(traffic / 1024).toFixed(0)} GB<br/>
+                                        今日流量: {(today_traffic / 1024/ 1024 / 1024).toFixed(0)} MB<br/>
                                         邮箱: {email}<br/>
                                         Token: {showToken ? (
                                         <Tooltip title="已复制！" arrow>
