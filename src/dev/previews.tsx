@@ -8,6 +8,7 @@ import SignUp from "../../pages/auth/register";
 import UserProfileCard from "../../pages/console/home";
 import SignPage from "../../pages/console/user/sign";
 import DownloadPage from "../../pages/download";
+import ServerStatusPage from "../../pages/console/status";
 
 const ComponentPreviews = () => {
     return (
@@ -35,6 +36,9 @@ const ComponentPreviews = () => {
             </ComponentPreview>
             <ComponentPreview path="/DownloadPage">
                 <DownloadPage/>
+            </ComponentPreview>
+            <ComponentPreview path="/ServerStatusPage">
+                <ServerStatusPage/>
             </ComponentPreview>
         </Previews>
     );

@@ -6,7 +6,8 @@ import {
     Home,
     List,
     TextSnippet,
-    VolunteerActivism
+    VolunteerActivism,
+    Storage,
 } from '@mui/icons-material';
 import {ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 import * as React from 'react';
@@ -53,7 +54,11 @@ const SecondListItem = [
       title: "文件下载",
         path: "/download",
       icon: <Download />,
-
+    },
+    {
+        title: "节点状态",
+        path: "/console/status",
+        icon: <Storage />,
     }
   ];
 export const FirstList = (
