@@ -50,10 +50,10 @@ const SignUp: NextPage = () => {
         try {
 
             const formData = new FormData();
-            formData.append('email', email.toString());
-            formData.append('username', username.toString());
-            formData.append('password', password.toString());
-            formData.append('code', code.toString());
+            formData.append('email', email.value.toString());
+            formData.append('username', username.value.toString());
+            formData.append('password', password.value.toString());
+            formData.append('code', code.value.toString());
 
             // 发送注册请求
             const res = await http.post('/v4/public/verify/register', formData);
