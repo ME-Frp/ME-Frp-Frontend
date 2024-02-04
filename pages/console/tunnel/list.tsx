@@ -34,6 +34,12 @@ type Tunnel = {
     local_port: number;
     local_ip: string;
     status: number;
+    online: string;
+    today_traffic_in: number;
+    today_traffic_out: number;
+    cur_conns: number;
+    last_start_time : string;
+    last_close_time : string;
 }
 
 export default function MyComponent() {
@@ -211,6 +217,12 @@ export default function MyComponent() {
                                         <Typography color="text.secondary">
                                             链接地址: {tunnel.link}
                                         </Typography>
+                                        <Typography color="text.secondary">
+                                            在线状态: {tunnel.online == "online" ? '在线' : '离线'}
+                                        </Typography>
+                                        <Typography color="text.secondary">
+                                            流量使用（入网/出网）: {(tunnel.today_traffic_in /1024/1024/1024).toFixed(2)} / {(tunnel.today_traffic_out /1024/1024/1024).toFixed(2)}GB
+                                        </Typography>
                                     </CardContent>
                                     <CardActions style={{flexWrap: 'wrap', justifyContent: 'space-between'}}>
                                         <Switch
@@ -305,6 +317,11 @@ export default function MyComponent() {
                         <Typography>本地IP：{selectedTunnel.local_ip}</Typography>
                         <Typography>节点主机名：{selectedTunnel.node_hostname}</Typography>
                         <Typography>简单启动命令: ./{selectedTunnel.easy_start}</Typography>
+                        <Typography>当前连接数: {selectedTunnel.cur_conns}</Typography>
+                        <Typography>今日流量使用（入网/出网）: {(selectedTunnel.today_traffic_in /1024/1024/1024).toFixed(2)} / {(selectedTunnel.today_traffic_out /1024/1024/1024).toFixed(2)}GB</Typography>
+                        <Typography>上次启动时间: {selectedTunnel.last_start_time ? selectedTunnel.last_start_time : "从未启动"}</Typography>
+                        <Typography>上次关闭时间: {selectedTunnel.last_close_time ? selectedTunnel.last_close_time : "从未关闭"}</Typography>
+
                         <Typography>Windows 用户请使用: .\{selectedTunnel.easy_start}</Typography>
                     </DialogContent>
                 </Dialog>
