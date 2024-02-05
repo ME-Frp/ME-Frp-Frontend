@@ -1,6 +1,6 @@
-import {Alert, Snackbar} from "@mui/material";
+import { Alert, Snackbar } from "@mui/material";
 import React from "react";
-import {createRoot} from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 
 interface MessageProps {
     content: string;
@@ -8,21 +8,22 @@ interface MessageProps {
     type: 'success' | 'error' | 'warning' | 'info'; // 定义具体的类型值
 }
 
-function Message(props: any) {
-    const { content, duration, type }:any = {...props};
-    // 开关控制：默认true,调用时会直接打开
+function Message({ content, duration, type }: MessageProps) {
     const [open, setOpen] = React.useState(true);
-    // 关闭消息提示
+
     const handleClose = () => {
         setOpen(false);
     };
-    return <Snackbar
-        open={open}
-        autoHideDuration={duration}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-        onClose={handleClose}>
-        <Alert variant="filled" severity={type}>{content}</Alert>
+
+    return (
+        <Snackbar
+            open={open}
+            autoHideDuration={duration || 6000}
+            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+            onClose={handleClose}>
+            <Alert variant="filled" severity={type}>{content}</Alert>
         </Snackbar>
+    );
 }
 
 interface MessageFunctionProps {
@@ -31,13 +32,23 @@ interface MessageFunctionProps {
 }
 
 const message = {
-    dom: null as HTMLElement | null,
-    showMessage(type: MessageProps['type'], {content, duration}: MessageFunctionProps) {
-        if (typeof window !== 'undefined' && !this.dom) {
-            this.dom = document.createElement('div');
-            document.body.appendChild(this.dom);
-            const JSXDom = <Message content={content} duration={duration} type={type}/>;
-            const root = createRoot(this.dom);
+    showMessage(type: MessageProps['type'], { content, duration }: MessageFunctionProps) {
+        if (typeof window !== 'undefined') {
+            // 移除旧的DOM元素和React组件树（如果存在）
+            let dom = document.getElementById('message-root');
+            if (dom) {
+                // 如果存在，先移除
+                document.body.removeChild(dom);
+            }
+
+            // 创建新的DOM元素
+            dom = document.createElement('div');
+            dom.id = 'message-root';
+            document.body.appendChild(dom);
+
+            // 渲染新的消息组件
+            const JSXDom = <Message content={content} duration={duration} type={type} />;
+            const root = createRoot(dom);
             root.render(JSXDom);
         }
     },

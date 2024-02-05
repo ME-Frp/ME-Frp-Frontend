@@ -71,6 +71,7 @@ export default function UserProfileCard() {
 
     const handleTokenClick = () => {
         setShowToken(true);
+        handleTokenCopy();
     };
 
     // 在组件中添加状态用于控制提示框的显示与隐藏
