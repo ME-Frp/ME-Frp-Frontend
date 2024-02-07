@@ -13,10 +13,6 @@ export default function DownloadPage() {
         {
             link: 'https://file.mcsl.com.cn/d/alistfile/MEFrp/',
             name: 'ZCloud File/MCSL2'
-        },
-        {
-            link: 'https://github.com/ME-Frp/ME-Frp-Core/releases/download/ME-Frp-0.51.3/',
-            name: 'Releases/Github'
         }
     ];
 
