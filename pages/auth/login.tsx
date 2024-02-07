@@ -37,8 +37,9 @@ export default function Login() {
         } catch (error: any) {
             if (error.response) {
                 Message.error({content: `登录失败，${error.response.data.message}`, duration: 1000})
+            } else {
+                Message.error({content: `登录失败，API 故障！${error}`, duration: 1000})
             }
-            Message.error({content: `登录失败，API 故障！${error}`, duration: 1000})
         }
     };
 
