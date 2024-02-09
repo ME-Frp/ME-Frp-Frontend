@@ -26,6 +26,14 @@ export default function DownloadPage() {
             link: 'MirrorEdgeFrp_0.51.3_windows_amd64.zip'
         },
         {
+            name: 'MEFrp-Launcher_v1.0.0_Setup.exe',
+            architecture: 'amd64',
+            system: 'windows',
+            type: '图形化',
+            description: 'Windows 图形化 启动器',
+            link: 'MEFrp-Launcher_v1.0.0_Setup.exe'
+        },
+        {
             name: 'MirrorEdgeFrp_0.51.3_linux_amd64.tar.gz',
             architecture: 'amd64',
             system: 'linux',
