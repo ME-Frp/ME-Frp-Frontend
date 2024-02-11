@@ -7,7 +7,7 @@ import Message from "../src/components/Message";
 export default function DownloadPage() {
     const sourceUrls = [
         {
-            link: 'https://axyxe0xdery7.objectstorage.sa-santiago-1.oci.customer-oci.com/n/axyxe0xdery7/b/mefrp-download/o/',
+            link: 'https://download.mefrp.com/',
             name: 'Oracle OSS/PH'
         },
         {
