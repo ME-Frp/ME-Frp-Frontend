@@ -21,6 +21,8 @@ import {useEffect, useState} from 'react';
 import Layout from '../../../src/components/Layout';
 import apiClient from '../../../src/http/http';
 import Message from '../../../src/components/Message';
+import remarkGfm from "remark-gfm";
+import Markdown from "react-markdown";
 
 interface SignInfo {
     id: string;
@@ -145,7 +147,7 @@ function SignPage() {
                     <Grid item xs={12} md={6}>
                         <Card style={{padding: '20px', height: '100%', marginBottom: '20px'}}>
                             <Typography variant="h6">{setting.ads.ad2.title}</Typography>
-                            <Typography>{setting.ads.ad2.content}</Typography>
+                            <Markdown remarkPlugins={[remarkGfm]}>{setting.ads.ad2.content}</Markdown>
                         </Card>
                     </Grid>
                     <Grid item xs={12} md={6}>

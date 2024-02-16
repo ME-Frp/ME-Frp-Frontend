@@ -19,6 +19,8 @@ import {useEffect, useState} from 'react';
 import Image from 'next/image';
 import Layout from '../../src/components/Layout';
 import apiClient from '../../src/http/http';
+import remarkGfm from "remark-gfm";
+import Markdown from "react-markdown";
 
 type Sponsor = {
     id: number;
@@ -99,7 +101,7 @@ const SponsorPage = () => {
                         <CardContent>
                             <Typography variant="h5" component="div">{setting.ads.ad4.title}</Typography>
                             <br/>
-                            <Typography variant="body1">{setting.ads.ad4.content}</Typography>
+                            <Markdown remarkPlugins={[remarkGfm]}>{setting.ads.ad4.content}</Markdown>
                         </CardContent>
                     </Card>
                 </Grid>

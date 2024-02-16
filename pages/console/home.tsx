@@ -23,7 +23,9 @@ import {useEffect, useState} from 'react';
 import Layout from '../../src/components/Layout';
 import Message from '../../src/components/Message';
 import apiClient from '../../src/http/http';
+import Markdown from 'react-markdown'
 import Link from '../../src/components/Link';
+import remarkGfm from "remark-gfm";
 
 interface User {
     email_md5: string;
@@ -168,7 +170,7 @@ export default function UserProfileCard() {
                                     <Box key={key} mt={2}>
                                         <Alert severity={severity}>
                                         <AlertTitle>{setting.alert[key].title}</AlertTitle>
-                                        {setting.alert[key].content}
+                                        <Markdown remarkPlugins={[remarkGfm]}>{setting.alert[key].content}</Markdown>
                                     </Alert>
                                     </Box>
                                 );
@@ -250,9 +252,9 @@ export default function UserProfileCard() {
                                     color="text.secondary"
                                     title={setting.ads.ad1.title}
                                 />
-                                <CardContent>
+                                <Markdown remarkPlugins={[remarkGfm]}>
                                     {setting.ads.ad1.content}
-                                </CardContent>
+                                </Markdown>
                             </Card>
                         </Grid>
                     </Grid>
@@ -271,9 +273,9 @@ export default function UserProfileCard() {
                                             <Typography variant="h6">
                                                 {setting.announce[key].title}
                                             </Typography>
-                                            <Typography>
+                                            <Markdown remarkPlugins={[remarkGfm]}>
                                                 {setting.announce[key].content}
-                                            </Typography>
+                                            </Markdown>
                                         </Grid>
                                     );
                                 }

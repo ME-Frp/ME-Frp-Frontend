@@ -1,9 +1,9 @@
 const config = {
-    "dev": {
+    "prod": {
         "api": "http://127.0.0.1:8080/api/",
         "title": "镜缘映射|Dev|"
     },
-    "prod": {
+    "dev": {
         "api": "https://api.mefrp.com/api/",
         "title": "镜缘映射|"
     }
