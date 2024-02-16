@@ -7,7 +7,7 @@ import Message from "../src/components/Message";
 export default function DownloadPage() {
     const sourceUrls = [
         {
-            link: 'https://download.mefrp.com/n/axyxe0xdery7/b/mefrp-download/o/',
+            link: 'https://download.mefrp.com/',
             name: 'Oracle OSS/PH'
         },
         {
@@ -24,6 +24,14 @@ export default function DownloadPage() {
             type: 'PureCli',
             description: 'Windows CLI 启动器',
             link: 'MirrorEdgeFrp_0.51.3_windows_amd64.zip'
+        },
+        {
+            name: 'MEFrp-Launcher_v1.0.0_Setup.exe',
+            architecture: 'amd64',
+            system: 'windows',
+            type: '图形化',
+            description: 'Windows 图形化 启动器',
+            link: 'MEFrp-Launcher_v1.0.0_Setup.exe'
         },
         {
             name: 'MirrorEdgeFrp_0.51.3_linux_amd64.tar.gz',
