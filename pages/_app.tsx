@@ -21,8 +21,12 @@ const TitleDataStr: TitleDataMap = TitleData
 export default function MyApp(props: AppProps) {
     const { Component, pageProps } = props;
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+    // 设置theme 如果 prefersDarkMode 为空则返回null
+    const theme = prefersDarkMode ? darkTheme : lightTheme;
     const router = useRouter();
     const [pageTitle, setPageTitle] = useState("");
+
+
 
     useEffect(() => {
         // 获取当前路由路径
@@ -41,6 +45,10 @@ export default function MyApp(props: AppProps) {
     useEffect(() => {
         TagManager.initialize({ gtmId: 'GTM-WBW467SJ' });
     }, []);
+    // 如果theme不存在 且pathname不是"/" 则返回null
+    if (!prefersDarkMode && router.pathname !== "/") {
+        return null;
+    }
     return (
         <AppCacheProvider {...props}>
             <Head>
@@ -50,7 +58,7 @@ export default function MyApp(props: AppProps) {
                 }
                 <meta name="viewport" content="initial-scale=1, width=device-width"/>
             </Head>
-            <ThemeProvider theme={prefersDarkMode ? darkTheme : lightTheme}>
+            <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                 <CssBaseline/>
                 <DevSupport ComponentPreviews={ComponentPreviews}
