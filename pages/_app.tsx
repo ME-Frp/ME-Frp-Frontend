@@ -10,6 +10,7 @@ import {DevSupport} from "@react-buddy/ide-toolbox-next";
 import {ComponentPreviews, useInitial} from "../src/dev";
 import {useMediaQuery} from "@mui/material";
 import {useRouter} from "next/router";
+import TagManager from 'react-gtm-module'
 import current, {TitleData} from "../src/config/config";
 
 interface TitleDataMap {
@@ -37,6 +38,9 @@ export default function MyApp(props: AppProps) {
     useEffect(() => {
         console.log("API endpoint " + current.api)
     })
+    useEffect(() => {
+        TagManager.initialize({ gtmId: 'GTM-WBW467SJ' });
+    }, []);
     return (
         <AppCacheProvider {...props}>
             <Head>

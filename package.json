@@ -21,11 +21,13 @@
     "@mui/material-nextjs": "latest",
     "@react-buddy/ide-toolbox-next": "^2.4.1",
     "@types/react-dom": "^18.2.18",
+    "@types/react-gtm-module": "^2.0.3",
     "axios": "^1.6.7",
     "next": "latest",
     "next-mdx-remote": "^4.4.1",
     "react": "latest",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-gtm-module": "^2.0.11"
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.8",
