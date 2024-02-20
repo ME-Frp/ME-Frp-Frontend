@@ -20,13 +20,12 @@ import {
     Tooltip,
     Typography
 } from '@mui/material';
-import * as React from 'react';
-import {useEffect, useState} from 'react';
 import Image from 'next/image';
+import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../../../src/components/Layout';
 import Message from '../../../src/components/Message';
-import apiClient from '../../../src/http/http';
-import http from '../../../src/http/http';
+import { default as apiClient, default as http } from '../../../src/http/http';
 
 interface User {
     email_md5: string;
@@ -389,10 +388,10 @@ export default function UserProfileCard() {
                         </Typography>
                         <Box display="flex" alignItems="center" marginBottom="10px">
                             <Grid item>
-                                <Image src="/assets/alipay.jpg" alt="支付宝" width={250} height={375}/>
+                                <Image src="/assets/alipay_qiye.png" alt="支付宝" width={250} height={375}/>
                             </Grid>
                             <Grid>
-                                <Image src="/assets/wechat.jpg" alt="微信支付" width={250} height={375}/>
+                                <Image src="/assets/wechat_qiye.png" alt="微信支付" width={250} height={375}/>
                             </Grid>
                         </Box>
                     </Card>
