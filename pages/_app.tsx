@@ -12,6 +12,7 @@ import {useMediaQuery} from "@mui/material";
 import {useRouter} from "next/router";
 import TagManager from 'react-gtm-module'
 import current, {TitleData} from "../src/config/config";
+import {GoogleAdSense} from "nextjs-google-adsense";
 
 interface TitleDataMap {
     [key: string]: string; // 索引签名
@@ -69,6 +70,7 @@ export default function MyApp(props: AppProps) {
             <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                 <CssBaseline/>
+                <GoogleAdSense publisherId="pub-9935177840178210" />
                 <DevSupport ComponentPreviews={ComponentPreviews}
                             useInitialHook={useInitial}
                 >

@@ -19,7 +19,6 @@ export default function MyDocument(props: DocumentProps & DocumentHeadTagsProps)
               <meta name="emotion-insertion-point" content=""/>
               <meta name="description"
                     content="ME Frp 镜缘映射是一个免费内网穿透服务，可以通过 ME Frp 进行 联机、开发、调试等工作，是中国内网穿透联盟成员。"/>
-              <meta name="google-adsense-account" content="ca-pub-9935177840178210"/>
               <meta name="keywords"
                     content="控制面板,Frp,我的世界开服,内网穿透,端口映射,免费frp,镜缘映射,MEFrp,CFU,中国内网穿透联盟"/>
               <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
