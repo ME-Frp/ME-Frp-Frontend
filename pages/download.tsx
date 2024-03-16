@@ -7,12 +7,16 @@ import Message from "../src/components/Message";
 export default function DownloadPage() {
     const sourceUrls = [
         {
-            link: 'https://download.mefrp.com/',
-            name: 'Oracle OSS/PH'
+            link: 'https://mecdn.mcserverx.com/mefrp/',
+            name: '[境内]FiveCDN/镜缘网络'
         },
         {
-            link: 'https://file.mcsl.com.cn/d/alistfile/MEFrp/',
-            name: 'ZCloud File/MCSL2'
+            link: 'https://download.mefrp.top/',
+            name: '[境外]Cloudflare R2/ME Frp 官方'
+        },
+        {
+            link: 'https://github.com/ME-Frp/ME-Frp-Core/releases/download/ME-Frp-0.51.3/',
+            name: '[境外]Github Release'
         }
     ];
 
