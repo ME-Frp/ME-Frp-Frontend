@@ -22,14 +22,6 @@ export default function MyApp(props: AppProps) {
     const router = useRouter();
     const [pageTitle, setPageTitle] = useState("");
 
-    // 首页则加载完成 否则未加载完成
-    const [pageLoaded, setPageLoaded] = useState(router.pathname === "/");
-
-    useEffect(() => {
-        // 页面加载完成
-        setPageLoaded(true);
-    }, []);
-
 
 
     useEffect(() => {
@@ -49,10 +41,6 @@ export default function MyApp(props: AppProps) {
     useEffect(() => {
         TagManager.initialize({ gtmId: 'GTM-WBW467SJ' });
     }, []);
-    // 如果页面未加载完成 且不是首页 则返回null
-    if (!pageLoaded && router.pathname !== "/") {
-        return null;
-    }
     return (
         <AppCacheProvider {...props}>
             <Head>
