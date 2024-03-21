@@ -30,7 +30,7 @@ interface Node {
     description: string;
     allow_port: string;
     allow_type: string;
-    Status: number;
+    status: number;
 }
 
 interface FreePortData {
@@ -105,8 +105,8 @@ const TunnelCreationPage = () => {
         if (selectedNodeData) {
             setNode(selectedNodeData)
             setProtocol('');
-            setStatus(statusMap[selectedNodeData.Status]);
-            setSeverity(severities[selectedNodeData.Status]);
+            setStatus(statusMap[selectedNodeData.status]);
+            setSeverity(severities[selectedNodeData.status]);
         }
     };
 

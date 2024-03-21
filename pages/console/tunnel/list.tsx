@@ -218,7 +218,7 @@ export default function MyComponent() {
                                             链接地址: {tunnel.link}
                                         </Typography>
                                         <Typography color="text.secondary">
-                                            在线状态: {tunnel.online == "online" ? '在线' : '离线'}
+                                            在线状态（存在延迟）: {tunnel.online == "online" ? '在线' : '离线'}
                                         </Typography>
                                         <Typography color="text.secondary">
                                             流量使用（入网/出网）: {(tunnel.today_traffic_in /1024/1024/1024).toFixed(2)} / {(tunnel.today_traffic_out /1024/1024/1024).toFixed(2)}GB
