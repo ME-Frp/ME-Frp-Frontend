@@ -1,20 +1,21 @@
-import { useEffect, useState } from 'react';
 import {
+    Box,
+    Card, CardContent,
+    CircularProgress,
+    Container,
+    Grid,
+    Paper,
     Table,
     TableBody,
     TableCell,
     TableContainer,
     TableHead,
     TableRow,
-    Paper,
-    Container,
-    Box,
-    CircularProgress,
-    Card, CardContent, Grid,
 } from '@mui/material';
-import http from '../../src/http/http';
-import Layout from "../../src/components/Layout";
 import Typography from "@mui/material/Typography";
+import { useEffect, useState } from 'react';
+import Layout from "../../src/components/Layout";
+import http from '../../src/http/http';
 
 interface ServerData {
     id: number;
@@ -118,7 +119,9 @@ const ServerStatusPage = () => {
                                 <TableCell>{(server.total_traffic_in / 1024 / 1024 / 1024).toFixed(2) } GB</TableCell>
                                 <TableCell>{(server.total_traffic_out / 1024 / 1024 / 1024).toFixed(2)} GB</TableCell>
                                 <TableCell>{server.online_count}</TableCell>
-                                <TableCell>{server.status === 200 ? '正常' : '异常'}</TableCell>
+                                <TableCell style={{ color: server.status === 200 ? 'green' : 'red' }}>
+                                    {server.status === 200 ? '正常' : '异常'}
+                                </TableCell>
                             </TableRow>
                         ))
                     ) : (
