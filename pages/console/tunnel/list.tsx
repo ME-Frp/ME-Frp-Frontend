@@ -50,6 +50,7 @@ export default function MyComponent() {
     const [openDialog, setOpenDialog] = useState(false);
     const [deleteTunnelID, setDeleteTunnelID] = useState<number | null>(null);
     const [openEditDialog, setOpenEditDialog] = useState(false);
+    const [TunnelLoaded, setTunnelLoaded] = useState(false);
     const [editFormData, setEditFormData] = useState({
         tunnelName: '',
         localPort: '',
@@ -70,6 +71,7 @@ export default function MyComponent() {
                     : `${tunnel.node_hostname}:${tunnel.remote_port}`
             }));
             setTunnels(updatedTunnels);
+            setTunnelLoaded(true);
         } catch (error) {
             setError('Failed to fetch tunnels.');
         }
@@ -199,7 +201,8 @@ export default function MyComponent() {
         );
     }
 
-    if (!tunnels) {
+    // 如果隧道列表还未加载完成，则显示加载中的状态
+    if (!TunnelLoaded) {
         return (
             <Layout>
                 <Container maxWidth="lg">
