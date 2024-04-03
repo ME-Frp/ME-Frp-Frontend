@@ -79,17 +79,30 @@ interface LayoutProps {
 }
 const Layout = ({ children }: LayoutProps) => {
     // 修改这里将 open 的初始状态设置为 true
-    const [open, setOpen] = React.useState(window.innerWidth >= 768); // 默认
+    const [open, setOpen] = React.useState(() => {
+        const savedState = sessionStorage.getItem('drawerOpen');
+        if (savedState) {
+            return savedState === 'true';
+        } else {
+            const isDesktop = window.innerWidth >= 768; // 假设宽度大于等于768px为桌面设备
+            return isDesktop;
+        }
+    }); // 默认
 
     useEffect(() => {
         // 定义一个函数来检查屏幕宽度并设置open状态
         const checkWidthAndUpdateOpen = () => {
-            const isDesktop = window.innerWidth >= 768; // 假设宽度大于等于768px为桌面设备
-            setOpen(isDesktop);
-        };
 
-        // 在组件挂载时执行一次检查
-        checkWidthAndUpdateOpen();
+        const savedState = sessionStorage.getItem('drawerOpen');
+        if (savedState) {
+        // 如果有保存的状态，则根据保存的状态设置open状态
+        setOpen(savedState === 'true');
+        } else {
+        // 如果没有保存的状态，则根据屏幕宽度设置open状态
+        const isDesktop = window.innerWidth >= 768; // 假设宽度大于等于768px为桌面设备
+        setOpen(isDesktop);
+        }
+    };
 
         // 可以监听resize事件
         window.addEventListener('resize', checkWidthAndUpdateOpen);
@@ -100,6 +113,7 @@ const Layout = ({ children }: LayoutProps) => {
 
     const toggleDrawer = () => {
         setOpen(!open);
+        sessionStorage.setItem('drawerOpen', open ? 'true' : 'false');
     };
     const router = useRouter();
     return (
