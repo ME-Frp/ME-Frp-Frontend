@@ -230,7 +230,7 @@ export default function UserProfileCard() {
                                 </CardContent>
                             </Card>
                         </Grid>
-                        <Dialog open={openDialog} onClose={handleCancelReset}>
+                                              <Dialog open={openDialog} onClose={handleCancelReset}>
                             <DialogTitle>确认重置 Token？</DialogTitle>
                             <DialogContent>
                                 <DialogContentText>
@@ -245,9 +245,15 @@ export default function UserProfileCard() {
                                     确定
                                 </Button>
                             </DialogActions>
-                        </Dialog>
-                </Grid>
 
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} md={6} lg={6}>
+                    <Card style={{padding: '20px', height: "100%", marginBottom: '20px'}}>
+                        <CardHeader
+                            color="text.secondary"
+                            title="公告"
+                        />
                         <CardContent>
                             {Object.keys(setting.announce).map((key) => {
                                 if (setting.announce[key]?.title !== "null") {
@@ -266,8 +272,7 @@ export default function UserProfileCard() {
                             })}
                         </CardContent>
                     </Card>
+                </Grid>
             </Grid>
-
-        </Layout>
     );
 }
