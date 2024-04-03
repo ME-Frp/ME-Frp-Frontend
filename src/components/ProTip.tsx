@@ -11,9 +11,5 @@ function LightBulbIcon(props: SvgIconProps) {
 
 export default function ProTip() {
   return (
-    <Typography sx={{ mt: 6, mb: 3 }} color="text.secondary">
-      <LightBulbIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
-      注意: 2022 年 8 月以前注册过 ME Frp 的用户，可以直接登录哦
-    </Typography>
   );
 }
