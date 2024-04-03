@@ -240,7 +240,17 @@ export default function UserProfileCard() {
                                 </Button>
                             </DialogActions>
                         </Dialog>
-
+                        <Grid item xs={12}>
+                            <Card style={{padding: '20px'}}>
+                                <CardHeader
+                                    color="text.secondary"
+                                    title={setting.ads.ad1.title}
+                                />
+                                <Markdown remarkPlugins={[remarkGfm]}>
+                                    {setting.ads.ad1.content}
+                                </Markdown>
+                            </Card>
+                        </Grid>
                     </Grid>
                 </Grid>
                 <Grid item xs={12} md={6} lg={6}>
