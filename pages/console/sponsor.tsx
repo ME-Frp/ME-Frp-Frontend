@@ -15,12 +15,11 @@ import {
     TableRow,
     Typography
 } from '@mui/material';
-import {useEffect, useState} from 'react';
 import Image from 'next/image';
-import Layout from '../../src/components/Layout';
-import apiClient from '../../src/http/http';
-import remarkGfm from "remark-gfm";
+import { useEffect, useState } from 'react';
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import apiClient from '../../src/http/http';
 
 type Sponsor = {
     id: number;
@@ -60,17 +59,14 @@ const SponsorPage = () => {
     if (!sponsors || !setting) {
         // handle loading state here
         return (
-            <Layout>
                 <Container maxWidth="lg">
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                         <CircularProgress/>
                     </Box>
                 </Container>
-            </Layout>
         );
     }
     return (
-        <Layout>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <Card elevation={3} style={{padding: '20px', height: '100%', marginBottom: '20px'}}>
@@ -135,7 +131,6 @@ const SponsorPage = () => {
                     </Card>
                 </Grid>
             </Grid>
-        </Layout>
     );
 };
 

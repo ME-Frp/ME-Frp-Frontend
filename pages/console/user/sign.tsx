@@ -17,12 +17,11 @@ import {
     Stack,
     Typography
 } from '@mui/material';
-import {useEffect, useState} from 'react';
-import Layout from '../../../src/components/Layout';
-import apiClient from '../../../src/http/http';
-import Message from '../../../src/components/Message';
-import remarkGfm from "remark-gfm";
+import { useEffect, useState } from 'react';
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import Message from '../../../src/components/Message';
+import apiClient from '../../../src/http/http';
 
 interface SignInfo {
     id: string;
@@ -91,13 +90,11 @@ function SignPage() {
     if (!signInfo || !setting) {
         // handle loading state here
         return (
-            <Layout>
                 <Container maxWidth="lg">
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                         <CircularProgress/>
                     </Box>
                 </Container>
-            </Layout>
         );
     }
 
@@ -106,7 +103,7 @@ function SignPage() {
     const canSign = currentTime - lastSignTime >= 24 * 60 * 60;
 
     return (
-        <Layout>
+        <Grid>
             <Container maxWidth="lg">
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6} lg={6}>
@@ -171,7 +168,7 @@ function SignPage() {
                     </Button>
                 </DialogActions>
             </Dialog>
-        </Layout>
+            </Grid>
     );
 
 }

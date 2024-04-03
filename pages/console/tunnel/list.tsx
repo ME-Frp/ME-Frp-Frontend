@@ -17,7 +17,6 @@ import {
     Typography
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import Layout from '../../../src/components/Layout';
 import Message from '../../../src/components/Message';
 import apiClient from '../../../src/http/http';
 
@@ -195,27 +194,23 @@ export default function MyComponent() {
 
     if (error) {
         return (
-            <Layout>
                 <p>{error}</p>
-            </Layout>
         );
     }
 
     // 如果隧道列表还未加载完成，则显示加载中的状态
     if (!TunnelLoaded) {
         return (
-            <Layout>
                 <Container maxWidth="lg">
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                         <CircularProgress/>
                     </Box>
                 </Container>
-            </Layout>
         );
     }
 
     return (
-        <Layout>
+        <Grid>
             <Container maxWidth="lg">
                 {tunnels.length > 0 ? (
                     <Grid container spacing={3}>
@@ -340,7 +335,7 @@ export default function MyComponent() {
                         <Typography>Windows 用户请使用: .\{selectedTunnel.easy_start}</Typography>
                     </DialogContent>
                 </Dialog>
-            )}
-        </Layout>
+                )}
+            </Grid>
     );
 }

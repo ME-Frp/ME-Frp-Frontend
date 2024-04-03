@@ -1,28 +1,32 @@
-import * as React from 'react';
-import {useEffect, useState} from 'react';
+import { AppCacheProvider } from '@mui/material-nextjs/v14-pagesRouter';
+import { DevSupport } from "@react-buddy/ide-toolbox-next";
+import { ThemeProvider } from 'next-themes';
+import { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import {AppProps} from 'next/app';
-import {AppCacheProvider} from '@mui/material-nextjs/v14-pagesRouter';
-import {ThemeProvider} from 'next-themes';
+import { useRouter } from "next/router";
+import { GoogleAdSense } from "nextjs-google-adsense";
+import { ReactNode, useEffect, useState } from 'react';
+import TagManager from 'react-gtm-module';
 import ThemeProviderMui from "../src/components/ThemeProxiderMui";
-import {DevSupport} from "@react-buddy/ide-toolbox-next";
-import {ComponentPreviews, useInitial} from "../src/dev";
-import {useRouter} from "next/router";
-import TagManager from 'react-gtm-module'
-import current, {TitleData} from "../src/config/config";
-import {GoogleAdSense} from "nextjs-google-adsense";
+import current, { TitleData } from "../src/config/config";
+import { ComponentPreviews, useInitial } from "../src/dev";
 
 interface TitleDataMap {
     [key: string]: string; // 索引签名
 }
-
+interface LayoutProps {
+    children: ReactNode;
+}
 const TitleDataStr: TitleDataMap = TitleData
 export default function MyApp(props: AppProps) {
     const { Component, pageProps } = props;
     const router = useRouter();
     const [pageTitle, setPageTitle] = useState("");
 
-
+    const Layout = router.pathname.startsWith('/console')
+    ? dynamic(() => import('../src/components/Layout'))
+    : ({ children }: LayoutProps) => <>{children}</>;
 
     useEffect(() => {
         // 获取当前路由路径
@@ -56,7 +60,9 @@ export default function MyApp(props: AppProps) {
                 <DevSupport ComponentPreviews={ComponentPreviews}
                             useInitialHook={useInitial}
                 >
+                    <Layout>
                     <Component {...pageProps} />
+                    </Layout>
                 </DevSupport>
                 </ThemeProviderMui>
             </ThemeProvider>

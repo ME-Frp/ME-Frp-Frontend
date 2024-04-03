@@ -19,13 +19,12 @@ import {
     Tooltip,
     Typography
 } from '@mui/material';
-import {useEffect, useState} from 'react';
-import Layout from '../../src/components/Layout';
+import { useEffect, useState } from 'react';
+import Markdown from 'react-markdown';
+import remarkGfm from "remark-gfm";
+import Link from '../../src/components/Link';
 import Message from '../../src/components/Message';
 import apiClient from '../../src/http/http';
-import Markdown from 'react-markdown'
-import Link from '../../src/components/Link';
-import remarkGfm from "remark-gfm";
 
 interface User {
     email_md5: string;
@@ -135,31 +134,26 @@ export default function UserProfileCard() {
     if (error) {
         console.log(error);
         return (
-            <Layout>
                 <Container maxWidth="lg">
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                         <CircularProgress/>
                     </Box>
                 </Container>
-            </Layout>
         );
     }
 
     if (isLoading || !user || !setting) {
         return (
-            <Layout>
                 <Container maxWidth="lg">
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                         <CircularProgress/>
                     </Box>
                 </Container>
-            </Layout>
         );
     }
 
     const {email_md5, username, id, group, outbound, traffic, email} = user;
     return (
-        <Layout>
             <Grid container spacing={2}>
                 <Grid item xs={24}>
                     <Stack>
@@ -285,7 +279,5 @@ export default function UserProfileCard() {
                     </Card>
                 </Grid>
             </Grid>
-
-        </Layout>
     );
 }

@@ -18,11 +18,9 @@ import {
     Stack,
     TextField
 } from '@mui/material';
-import {ChangeEvent, FormEvent, useEffect, useState} from 'react';
-import Layout from '../../../src/components/Layout';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import Message from '../../../src/components/Message';
-import apiClient from '../../../src/http/http';
-import http from '../../../src/http/http';
+import { default as apiClient, default as http } from '../../../src/http/http';
 
 interface Node {
     id: string;
@@ -172,20 +170,17 @@ const TunnelCreationPage = () => {
 
     if (!realname) {
         return (
-            <Layout>
                 <Container maxWidth="lg">
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                         <CircularProgress/>
                     </Box>
                 </Container>
-            </Layout>
         );
     }
 
     const isAuthenticated = realname.view === 'default';
 
     return (
-        <Layout>
             <Grid container justifyContent="center">
                 <Grid item xs={12}>
                     {/* 使用Card组件替换Paper组件 */}
@@ -321,7 +316,6 @@ const TunnelCreationPage = () => {
                     </Card>
                 </Grid>
             </Grid>
-        </Layout>
     );
 };
 

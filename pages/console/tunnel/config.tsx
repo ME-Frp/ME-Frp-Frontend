@@ -14,8 +14,7 @@ import {
     SelectChangeEvent,
     Typography
 } from '@mui/material';
-import {useEffect, useState} from 'react';
-import Layout from '../../../src/components/Layout';
+import { useEffect, useState } from 'react';
 import apiClient from '../../../src/http/http';
 
 interface Node {
@@ -61,7 +60,6 @@ const ConfigPage = () => {
     };
 
     return (
-        <Layout>
             <Grid container spacing={2} alignItems="stretch">
                 <Grid item xs={12} md={6}>
                     <Card elevation={3} sx={{height: '100%', display: 'flex', flexDirection: 'column'}}>
@@ -126,7 +124,6 @@ const ConfigPage = () => {
                     </Card>
                 </Grid>
             </Grid>
-        </Layout>
     );
 };
 

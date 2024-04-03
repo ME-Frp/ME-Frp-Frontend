@@ -14,7 +14,6 @@ import {
 } from '@mui/material';
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from 'react';
-import Layout from "../../src/components/Layout";
 import http from '../../src/http/http';
 
 interface ServerData {
@@ -60,13 +59,11 @@ const ServerStatusPage = () => {
 
     if (isLoading) { // 使用isLoading来决定是否显示加载指示器
         return (
-            <Layout>
                 <Container maxWidth="lg">
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                         <CircularProgress/>
                     </Box>
                 </Container>
-            </Layout>
         );
     }
     // 计算总入网、总出网和在线隧道数
@@ -75,7 +72,6 @@ const ServerStatusPage = () => {
     const totalTunnels = servers.reduce((acc, server) => acc + server.online_count, 0); // 根据online_count累加
 
     return (
-        <Layout>
             <Grid container spacing={3}> {/* 使用 Grid 容器 */}
                 <Grid item xs={12}> {/* Card 占据全部宽度 */}
                     <Card sx={{ mb: 4 }}>
@@ -135,7 +131,6 @@ const ServerStatusPage = () => {
         </TableContainer>
     </Grid>
 </Grid>
-        </Layout>
     );
 };
 

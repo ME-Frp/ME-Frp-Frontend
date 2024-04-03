@@ -1,28 +1,28 @@
 // Material-UI
-import {ChevronLeft as ChevronLeftIcon, Logout, Menu as MenuIcon} from '@mui/icons-material';
+import { ChevronLeft as ChevronLeftIcon, Logout, Menu as MenuIcon } from '@mui/icons-material';
 import {
-    AppBar as MuiAppBar,
-    AppBarProps as MuiAppBarProps,
     Box,
     Container,
     CssBaseline,
     Divider,
-    Drawer as MuiDrawer,
     Grid,
     IconButton,
     List,
+    AppBar as MuiAppBar,
+    AppBarProps as MuiAppBarProps,
+    Drawer as MuiDrawer,
     Toolbar,
     Typography
 } from '@mui/material';
-import {styled} from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 // React
 import * as React from 'react';
-import {ReactNode, useEffect} from 'react';
+import { ReactNode, useEffect } from 'react';
 // Next.js
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 // Components
 import Copyright from './Copyright';
-import {FirstList, secondaryListItems} from "./ListItem";
+import { FirstList, secondaryListItems } from "./ListItem";
 
 
 const drawerWidth = 240;
@@ -79,7 +79,7 @@ interface LayoutProps {
 }
 const Layout = ({ children }: LayoutProps) => {
     // 修改这里将 open 的初始状态设置为 true
-    const [open, setOpen] = React.useState(false); // 默认关
+    const [open, setOpen] = React.useState(window.innerWidth >= 768); // 默认
 
     useEffect(() => {
         // 定义一个函数来检查屏幕宽度并设置open状态
@@ -91,7 +91,6 @@ const Layout = ({ children }: LayoutProps) => {
         // 在组件挂载时执行一次检查
         checkWidthAndUpdateOpen();
 
-        // （可选）如果你希望在用户调整浏览器大小时也更新状态，
         // 可以监听resize事件
         window.addEventListener('resize', checkWidthAndUpdateOpen);
 

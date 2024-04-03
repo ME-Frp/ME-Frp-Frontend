@@ -23,7 +23,6 @@ import {
 import Image from 'next/image';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import Layout from '../../../src/components/Layout';
 import Message from '../../../src/components/Message';
 import { default as apiClient, default as http } from '../../../src/http/http';
 
@@ -176,31 +175,26 @@ export default function UserProfileCard() {
     if (error) {
         console.log(error);
         return (
-            <Layout>
                 <Container maxWidth="lg">
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                         <CircularProgress/>
                     </Box>
                 </Container>
-            </Layout>
         );
     }
 
     if (isLoading || !user || !status) {
         return (
-            <Layout>
                 <Container maxWidth="lg">
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                         <CircularProgress/>
                     </Box>
                 </Container>
-            </Layout>
         );
     }
     const isAuthenticated = status.view === 'realname';
     const {email_md5, username, id, group, outbound, traffic, email} = user;
     return (
-        <Layout>
             <Grid container spacing={2}>
                 <Grid item xs={24}>
                     <Stack>
@@ -397,7 +391,5 @@ export default function UserProfileCard() {
                     </Card>
                 </Grid>
             </Grid>
-
-        </Layout>
     );
 }
