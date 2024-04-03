@@ -240,5 +240,34 @@ export default function UserProfileCard() {
                                 </Button>
                             </DialogActions>
                         </Dialog>
+
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} md={6} lg={6}>
+                    <Card style={{padding: '20px', height: "100%", marginBottom: '20px'}}>
+                        <CardHeader
+                            color="text.secondary"
+                            title="公告"
+                        />
+                        <CardContent>
+                            {Object.keys(setting.announce).map((key) => {
+                                if (setting.announce[key]?.title !== "null") {
+                                    return (
+                                        <Grid key={key}>
+                                            <Typography variant="h6">
+                                                {setting.announce[key].title}
+                                            </Typography>
+                                            <Markdown remarkPlugins={[remarkGfm]}>
+                                                {setting.announce[key].content}
+                                            </Markdown>
+                                        </Grid>
+                                    );
+                                }
+                                return null;
+                            })}
+                        </CardContent>
+                    </Card>
+                </Grid>
+            </Grid>
     );
 }
