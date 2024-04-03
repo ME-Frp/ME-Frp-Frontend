@@ -125,7 +125,7 @@ const SignUp: NextPage = () => {
                         <LockOutlined/>
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        注册 ME Frp 账号
+                        注册 KL Frp 账号
                     </Typography>
                     <Box component="form" id="form" noValidate sx={{mt: 1}} onSubmit={handleSubmit}>
                         <TextField
