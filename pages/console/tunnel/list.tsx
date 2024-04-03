@@ -1,4 +1,3 @@
-import React, {useEffect, useState} from 'react';
 import {
     Box,
     Button,
@@ -17,9 +16,10 @@ import {
     TextField,
     Typography
 } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import Layout from '../../../src/components/Layout';
-import apiClient from '../../../src/http/http';
 import Message from '../../../src/components/Message';
+import apiClient from '../../../src/http/http';
 
 type Tunnel = {
     easy_start: string;
@@ -50,6 +50,7 @@ export default function MyComponent() {
     const [openDialog, setOpenDialog] = useState(false);
     const [deleteTunnelID, setDeleteTunnelID] = useState<number | null>(null);
     const [openEditDialog, setOpenEditDialog] = useState(false);
+    const [TunnelLoaded, setTunnelLoaded] = useState(false);
     const [editFormData, setEditFormData] = useState({
         tunnelName: '',
         localPort: '',
@@ -70,6 +71,7 @@ export default function MyComponent() {
                     : `${tunnel.node_hostname}:${tunnel.remote_port}`
             }));
             setTunnels(updatedTunnels);
+            setTunnelLoaded(true);
         } catch (error) {
             setError('Failed to fetch tunnels.');
         }
@@ -199,6 +201,19 @@ export default function MyComponent() {
         );
     }
 
+    // 如果隧道列表还未加载完成，则显示加载中的状态
+    if (!TunnelLoaded) {
+        return (
+            <Layout>
+                <Container maxWidth="lg">
+                    <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
+                        <CircularProgress/>
+                    </Box>
+                </Container>
+            </Layout>
+        );
+    }
+
     return (
         <Layout>
             <Container maxWidth="lg">
@@ -242,7 +257,7 @@ export default function MyComponent() {
                     </Grid>
                 ) : (
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
-                        <CircularProgress/>
+                        <Typography variant="h4">您还没有创建隧道</Typography>
                     </Box>
                 )}
             </Container>
