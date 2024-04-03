@@ -1,3 +1,5 @@
+import CircularProgress from '@components/CircularProgress';
+import Message from '@components/Message';
 import {
     Alert,
     AlertTitle,
@@ -6,7 +8,6 @@ import {
     Card,
     CardContent,
     CardHeader,
-    CircularProgress,
     Container,
     Dialog,
     DialogActions,
@@ -17,11 +18,10 @@ import {
     Stack,
     Typography
 } from '@mui/material';
+import apiClient from '@src/http/http';
 import { useEffect, useState } from 'react';
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import Message from '../../../src/components/Message';
-import apiClient from '../../../src/http/http';
 
 interface SignInfo {
     id: string;

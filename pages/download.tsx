@@ -1,8 +1,8 @@
-import {useState} from 'react';
-import {NoSsr} from '@mui/base';
-import {Button, ButtonGroup, Card, CardContent, Grid, MenuItem, TextField, Typography} from '@mui/material';
-import Layout from '../src/components/Layout';
-import Message from "../src/components/Message";
+import Layout from '@components/Layout';
+import Message from "@components/Message";
+import { NoSsr } from '@mui/base';
+import { Button, ButtonGroup, Card, CardContent, Grid, MenuItem, TextField, Typography } from '@mui/material';
+import { useState } from 'react';
 
 export default function DownloadPage() {
     const sourceUrls = [

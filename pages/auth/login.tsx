@@ -1,11 +1,11 @@
+import Copyright from '@components/Copyright';
+import Message from '@components/Message';
+import ProTip from '@components/ProTip';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import {Avatar, Box, Button, Container, CssBaseline, Grid, Link, Paper, TextField, Typography} from '@mui/material';
-import {useRouter} from "next/router";
+import { Avatar, Box, Button, Container, CssBaseline, Grid, Link, Paper, TextField, Typography } from '@mui/material';
+import http from '@src/http/http';
+import { useRouter } from "next/router";
 import * as React from 'react';
-import Copyright from '../../src/components/Copyright';
-import Message from '../../src/components/Message';
-import ProTip from '../../src/components/ProTip';
-import http from '../../src/http/http';
 
 export default function Login() {
     const router = useRouter();

@@ -1,3 +1,7 @@
+import Copyright from '@components/Copyright';
+import Message from '@components/Message';
+import ProTip from '@components/ProTip';
+import { LockOutlined } from "@mui/icons-material";
 import {
     Avatar,
     Box,
@@ -11,14 +15,10 @@ import {
     TextField,
     Typography
 } from '@mui/material';
+import http from '@src/http/http';
+import { NextPage } from "next";
 import * as React from 'react';
-import {useState} from 'react';
-import Copyright from '../../src/components/Copyright';
-import Message from '../../src/components/Message';
-import ProTip from '../../src/components/ProTip';
-import http from '../../src/http/http';
-import {NextPage} from "next";
-import {LockOutlined} from "@mui/icons-material";
+import { useState } from 'react';
 
 const SignUp: NextPage = () => {
     const [isDisabled, setIsDisabled] = useState(false);

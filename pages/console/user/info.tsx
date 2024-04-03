@@ -1,3 +1,5 @@
+import CircularProgress from '@components/CircularProgress';
+import Message from '@components/Message';
 import {
     Alert,
     AlertTitle,
@@ -7,7 +9,6 @@ import {
     Card,
     CardContent,
     CardHeader,
-    CircularProgress,
     Container,
     Dialog,
     DialogActions,
@@ -20,11 +21,10 @@ import {
     Tooltip,
     Typography
 } from '@mui/material';
+import { default as apiClient, default as http } from '@src/http/http';
 import Image from 'next/image';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import Message from '../../../src/components/Message';
-import { default as apiClient, default as http } from '../../../src/http/http';
 
 interface User {
     email_md5: string;

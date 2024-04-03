@@ -1,8 +1,7 @@
-import * as React from 'react';
-import {DocumentContext, DocumentProps, Head, Html, Main, NextScript} from 'next/document';
-import {documentGetInitialProps, DocumentHeadTags, DocumentHeadTagsProps,} from '@mui/material-nextjs/v14-pagesRouter';
-import {darkTheme, lightTheme, roboto} from '../src/theme';
-import {useMediaQuery} from '@mui/material';
+import { useMediaQuery } from '@mui/material';
+import { documentGetInitialProps, DocumentHeadTags, DocumentHeadTagsProps, } from '@mui/material-nextjs/v14-pagesRouter';
+import { darkTheme, lightTheme, roboto } from '@src/theme';
+import { DocumentContext, DocumentProps, Head, Html, Main, NextScript } from 'next/document';
 
 export default function MyDocument(props: DocumentProps & DocumentHeadTagsProps) {
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');

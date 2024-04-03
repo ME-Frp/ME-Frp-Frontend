@@ -1,7 +1,7 @@
+import CircularProgress from '@components/CircularProgress';
 import {
     Box,
     Card, CardContent,
-    CircularProgress,
     Container,
     Grid,
     Paper,
@@ -13,8 +13,8 @@ import {
     TableRow,
 } from '@mui/material';
 import Typography from "@mui/material/Typography";
+import http from '@src/http/http';
 import { useEffect, useState } from 'react';
-import http from '../../src/http/http';
 
 interface ServerData {
     id: number;

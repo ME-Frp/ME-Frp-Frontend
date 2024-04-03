@@ -1,3 +1,6 @@
+import CircularProgress from '@components/CircularProgress';
+import Link from '@components/Link';
+import Message from '@components/Message';
 import {
     Alert,
     AlertTitle,
@@ -7,7 +10,6 @@ import {
     Card,
     CardContent,
     CardHeader,
-    CircularProgress,
     Container,
     Dialog,
     DialogActions,
@@ -19,12 +21,10 @@ import {
     Tooltip,
     Typography
 } from '@mui/material';
+import apiClient from '@src/http/http';
 import { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
-import Link from '../../src/components/Link';
-import Message from '../../src/components/Message';
-import apiClient from '../../src/http/http';
 
 interface User {
     email_md5: string;

@@ -1,3 +1,5 @@
+import Copyright from '@components/Copyright';
+import Message from '@components/Message';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import {
     Avatar,
@@ -7,15 +9,13 @@ import {
     CssBaseline,
     Grid,
     Link,
+    Paper,
     TextField,
     Typography,
-    Paper,
 } from '@mui/material';
+import http from '@src/http/http';
 import { useRouter } from 'next/router';
 import * as React from 'react';
-import Copyright from '../../src/components/Copyright';
-import Message from '../../src/components/Message';
-import http from '../../src/http/http';
 
 
 export default function SignUp() {

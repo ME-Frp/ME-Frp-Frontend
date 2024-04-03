@@ -1,7 +1,7 @@
+import Copyright from '@components/Copyright';
 import { AppBar, Box, Button, Card, CardContent, Container, CssBaseline, Grid, Link, Toolbar, Typography } from '@mui/material';
-import React from 'react';
-import Copyright from '../src/components/Copyright';
 import Head from 'next/head';
+import React from 'react';
 export default function MEFrp() {
     return (
         <React.Fragment>

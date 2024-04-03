@@ -1,10 +1,10 @@
+import CircularProgress from '@components/CircularProgress';
 import {
     Box,
     Button,
     ButtonGroup,
     Card,
     CardContent,
-    CircularProgress,
     Container,
     Grid,
     Table,
@@ -15,11 +15,11 @@ import {
     TableRow,
     Typography
 } from '@mui/material';
+import apiClient from '@src/http/http';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import apiClient from '../../src/http/http';
 
 type Sponsor = {
     id: number;

@@ -1,10 +1,11 @@
+import CircularProgress from '@components/CircularProgress';
+import Message from '@components/Message';
 import {
     Box,
     Button,
     Card,
     CardActions,
     CardContent,
-    CircularProgress,
     Container,
     Dialog,
     DialogActions,
@@ -16,9 +17,8 @@ import {
     TextField,
     Typography
 } from '@mui/material';
+import apiClient from '@src/http/http';
 import React, { useEffect, useState } from 'react';
-import Message from '../../../src/components/Message';
-import apiClient from '../../../src/http/http';
 
 type Tunnel = {
     easy_start: string;

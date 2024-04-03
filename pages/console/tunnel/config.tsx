@@ -14,8 +14,8 @@ import {
     SelectChangeEvent,
     Typography
 } from '@mui/material';
+import apiClient from '@src/http/http';
 import { useEffect, useState } from 'react';
-import apiClient from '../../../src/http/http';
 
 interface Node {
     id: string;

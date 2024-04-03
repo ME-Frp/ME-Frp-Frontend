@@ -1,5 +1,5 @@
+import Copyright from '@components/Copyright';
 import { Box, Container, Typography } from '@mui/material';
-import Copyright from '../src/components/Copyright';
 import React from "react";
 
 export default function ServiceNotFoundPage() {

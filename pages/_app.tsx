@@ -1,5 +1,8 @@
+import ThemeProviderMui from "@components/ThemeProxiderMui";
 import { AppCacheProvider } from '@mui/material-nextjs/v14-pagesRouter';
 import { DevSupport } from "@react-buddy/ide-toolbox-next";
+import current, { TitleData } from "@src/config/config";
+import { ComponentPreviews, useInitial } from "@src/dev";
 import { ThemeProvider } from 'next-themes';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
@@ -8,9 +11,6 @@ import { useRouter } from "next/router";
 import { GoogleAdSense } from "nextjs-google-adsense";
 import { ReactNode, useEffect, useState } from 'react';
 import TagManager from 'react-gtm-module';
-import ThemeProviderMui from "../src/components/ThemeProxiderMui";
-import current, { TitleData } from "../src/config/config";
-import { ComponentPreviews, useInitial } from "../src/dev";
 
 interface TitleDataMap {
     [key: string]: string; // 索引签名
@@ -25,7 +25,7 @@ export default function MyApp(props: AppProps) {
     const [pageTitle, setPageTitle] = useState("");
 
     const Layout = router.pathname.startsWith('/console')
-    ? dynamic(() => import('../src/components/Layout'))
+    ? dynamic(() => import('@components/Layout'))
     : ({ children }: LayoutProps) => <>{children}</>;
 
     useEffect(() => {

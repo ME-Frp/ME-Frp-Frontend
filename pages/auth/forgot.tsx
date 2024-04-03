@@ -1,9 +1,9 @@
+import Copyright from '@components/Copyright';
+import Message from '@components/Message';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import {Avatar, Box, Button, Container, CssBaseline, Grid, Link, Paper, TextField, Typography} from '@mui/material';
+import { Avatar, Box, Button, Container, CssBaseline, Grid, Link, Paper, TextField, Typography } from '@mui/material';
+import http from '@src/http/http';
 import * as React from 'react';
-import Copyright from '../../src/components/Copyright';
-import Message from '../../src/components/Message';
-import http from '../../src/http/http';
 
 export default function Forgot() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
