@@ -1,16 +1,16 @@
-import { useMediaQuery } from '@mui/material';
 import { documentGetInitialProps, DocumentHeadTags, DocumentHeadTagsProps, } from '@mui/material-nextjs/v14-pagesRouter';
-import { darkTheme, lightTheme, roboto } from '@src/theme';
+import { roboto } from '@src/theme';
+import { useTheme } from "next-themes";
 import { DocumentContext, DocumentProps, Head, Html, Main, NextScript } from 'next/document';
 
 export default function MyDocument(props: DocumentProps & DocumentHeadTagsProps) {
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-    const theme = prefersDarkMode ? darkTheme : lightTheme
+    const {resolvedTheme} = useTheme();
+    const theme = resolvedTheme == "dark" ? "dark" : "light";
   return (
       <Html lang="zh-CN" className={roboto.className}>
           <Head>
               {/* PWA primary color */}
-              <meta name="theme-color" content={theme.palette.primary.main}/>
+              <meta name="theme-color" content={theme}/>
               <link rel="shortcut icon"
                     href="https://www.mefrp.com/favicon.ico"
                     type="image/x-icon"/>

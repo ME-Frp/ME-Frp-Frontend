@@ -1,11 +1,11 @@
-import { FC, ReactNode, useEffect, useState } from "react";
-import { darkTheme, lightTheme } from "../theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { useTheme } from "next-themes";
+import { FC, ReactNode, useEffect, useState } from "react";
+import { darkTheme, lightTheme } from "../theme";
 
 const ThemeProviderMui: FC<{ children: ReactNode }> = ({ children }) => {
     const [mounted, setMounted] = useState(false);
-    const { resolvedTheme} = useTheme();
+    const {resolvedTheme} = useTheme();
 
     useEffect(() => setMounted(true), []);
 
