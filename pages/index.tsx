@@ -15,7 +15,6 @@ export default function MEFrp() {
                         KL Frp 快连映射
                     </Typography>
                     <Box flexGrow={1} />
-                    <Link href="https://qm.qq.com/q/rWsYtraZ1e" color="inherit" sx={{ my: 1, mx: 1.5 }}>QQ 群</Link>
                     <Link href="console/home" color="inherit" sx={{ my: 1, mx: 1.5 }}>控制面板</Link>
                     <Button href="auth/register" color="inherit" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                         注册
@@ -35,11 +34,6 @@ export default function MEFrp() {
                         <Grid item>
                             <Button variant="contained" color="primary" href="auth/login">
                                 开始使用
-                            </Button>
-                        </Grid>
-                        <Grid item>
-                            <Button variant="outlined" color="primary" href="https://docs.mefrp.com">
-                                文档
                             </Button>
                         </Grid>
                     </Grid>
