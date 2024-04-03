@@ -74,7 +74,7 @@ export default function Login() {
                         <LockOutlinedIcon/>
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        登录到 ME Frp
+                        登录到 KL Frp
                     </Typography>
                     <Box component="form" onSubmit={handleLogin} noValidate sx={{mt: 1}}>
                         <TextField
