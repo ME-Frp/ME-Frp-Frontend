@@ -6,13 +6,13 @@ export default function MEFrp() {
     return (
         <React.Fragment>
           <Head>
-            <title>ME Frp | 镜缘映射 - 免费内网穿透_公益_端口映射_Minecraft我的世界联机_泰拉瑞亚联机_远程桌面</title>
+            <title>KL Frp | 快连映射 - 免费内网穿透_公益_端口映射_Minecraft我的世界联机_泰拉瑞亚联机_远程桌面</title>
           </Head>
             <CssBaseline />
             <AppBar position="relative">
                 <Toolbar>
                     <Typography variant="h6" color="inherit" noWrap>
-                        ME Frp 镜缘映射
+                        KL Frp 快连映射
                     </Typography>
                     <Box flexGrow={1} />
                     <Link href="https://qm.qq.com/q/rWsYtraZ1e" color="inherit" sx={{ my: 1, mx: 1.5 }}>QQ 群</Link>
