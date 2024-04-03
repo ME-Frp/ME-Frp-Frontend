@@ -1,10 +1,10 @@
 const config = {
     "dev": {
-        "api": "http://107.148.236.222:8080/api/",
+        "api": "https://klfrp.api.ximuc.top/api/",
         "title": "镜缘映射|Dev|"
     },
     "prod": {
-        "api": "http://107.148.236.222:8080/api/",
+        "api": "https://klfrp.api.ximuc.top/api/",
         "title": "镜缘映射|"
     }
 }
