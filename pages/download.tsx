@@ -7,127 +7,103 @@ import Message from "../src/components/Message";
 export default function DownloadPage() {
     const sourceUrls = [
         {
-            link: 'https://mecdn.mcserverx.com/mefrp/',
-            name: '[境内]FiveCDN/镜缘网络'
-        },
-        {
-            link: 'https://download.mefrp.top/',
-            name: '[境外]Cloudflare R2/ME Frp 官方'
-        },
-        {
-            link: 'https://github.com/ME-Frp/ME-Frp-Core/releases/download/ME-Frp-0.51.3/',
-            name: '[境外]Github Release'
+            link: 'https://download.klfrp.e3g.icu/',
+            name: '[境外]Cloudflare R2/KL Frp 官方'
         }
     ];
 
     const files = [
         {
-            name: 'MirrorEdgeFrp_0.51.3_windows_amd64.zip',
+            name: 'KLFrp_0.51.3_windows_amd64.zip',
             architecture: 'amd64',
             system: 'windows',
             type: 'PureCli',
             description: 'Windows CLI 启动器',
-            link: 'MirrorEdgeFrp_0.51.3_windows_amd64.zip'
+            link: 'KLFrp_0.51.3_windows_amd64.zip'
         },
         {
-            name: 'MEFrp-Launcher_x64_Setup.exe',
-            architecture: 'amd64',
-            system: 'windows',
-            type: '图形化',
-            description: 'Windows 图形化 启动器',
-            link: 'MEFrp-Launcher_x64_Setup.exe'
-        },
-        {
-            name: 'MEFrp-Launcher_x86_Setup.exe',
-            architecture: '386',
-            system: 'windows',
-            type: '图形化',
-            description: 'Windows 图形化 启动器',
-            link: 'MEFrp-Launcher_x86_Setup.exe'
-        },
-        {
-            name: 'MirrorEdgeFrp_0.51.3_linux_amd64.tar.gz',
+            name: 'KLFrp_0.51.3_linux_amd64.tar.gz',
             architecture: 'amd64',
             system: 'linux',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_linux_amd64.tar.gz'
+            link: 'KLFrp_0.51.3_linux_amd64.tar.gz'
         },
         {
-            name: 'MirrorEdgeFrp_0.51.3_darwin_amd64.tar.gz',
+            name: 'KLFrp_0.51.3_darwin_amd64.tar.gz',
             architecture: 'amd64',
             system: 'darwin',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_darwin_amd64.tar.gz'
+            link: 'KLFrp_0.51.3_darwin_amd64.tar.gz'
         },
         {
-            name: 'MirrorEdgeFrp_0.51.3_linux_arm.tar.gz',
+            name: 'KLFrp_0.51.3_linux_arm.tar.gz',
             architecture: 'arm',
             system: 'linux',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_linux_arm.tar.gz'
+            link: 'KLFrp_0.51.3_linux_arm.tar.gz'
         },
         {
-            name: 'MirrorEdgeFrp_0.51.3_linux_arm64.tar.gz',
+            name: 'KLFrp_0.51.3_linux_arm64.tar.gz',
             architecture: 'arm64',
             system: 'linux',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_linux_arm64.tar.gz'
+            link: 'KLFrp_0.51.3_linux_arm64.tar.gz'
         },
         {
-            name: 'MirrorEdgeFrp_0.51.3_linux_mips64.tar.gz',
+            name: 'KLFrp_0.51.3_linux_mips64.tar.gz',
             architecture: 'mips64',
             system: 'linux',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_linux_mips64.tar.gz'
+            link: 'KLFrp_0.51.3_linux_mips64.tar.gz'
         },
         {
-            name: 'MirrorEdgeFrp_0.51.3_linux_mips64le.tar.gz',
+            name: 'KLFrp_0.51.3_linux_mips64le.tar.gz',
             architecture: 'mips64le',
             system: 'linux',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_linux_mips64le.tar.gz'
+            link: 'KLFrp_0.51.3_linux_mips64le.tar.gz'
         },
         {
-            name: 'MirrorEdgeFrp_0.51.3_linux_mips.tar.gz',
+            name: 'KLFrp_0.51.3_linux_mips.tar.gz',
             architecture: 'mips',
             system: 'linux',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_linux_mips.tar.gz'
+            link: 'KLFrp_0.51.3_linux_mips.tar.gz'
         },
         {
-            name: 'MirrorEdgeFrp_0.51.3_linux_mipsle.tar.gz',
+            name: 'KLFrp_0.51.3_linux_mipsle.tar.gz',
             architecture: 'mipsle',
             system: 'linux',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_linux_mipsle.tar.gz'
+            link: 'KLFrp_0.51.3_linux_mipsle.tar.gz'
         },
         {
-            name: 'MirrorEdgeFrp_0.51.3_darwin_arm64.tar.gz',
+            name: 'KLFrp_0.51.3_darwin_arm64.tar.gz',
             architecture: 'arm64',
             system: 'darwin',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_darwin_arm64.tar.gz'
+            link: 'KLFrp_0.51.3_darwin_arm64.tar.gz'
         },
         {
-            name: 'MirrorEdgeFrp_0.51.3_freebsd_386.tar.gz',
+            name: 'KLFrp_0.51.3_freebsd_386.tar.gz',
             architecture: '386',
             system: 'freebsd',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_freebsd_386.tar.gz'
+            link: 'KLFrp_0.51.3_freebsd_386.tar.gz'
         },
         {
-            name: 'MirrorEdgeFrp_0.51.3_freebsd_amd64.tar.gz',
+            name: 'KLFrp_0.51.3_freebsd_amd64.tar.gz',
             architecture: 'amd64',
             system: 'freebsd',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_freebsd_amd64.tar.gz'
+            link: 'KLFrp_0.51.3_freebsd_amd64.tar.gz'
         },
         {
-            name: 'MirrorEdgeFrp_0.51.3_linux_riscv64.tar.gz',
+            name: 'KLFrp_0.51.3_linux_riscv64.tar.gz',
             architecture: 'riscv64',
             system: 'linux',
             type: 'PureCli',
-            link: 'MirrorEdgeFrp_0.51.3_linux_riscv64.tar.gz'
+            link: 'KLFrp_0.51.3_linux_riscv64.tar.gz'
         },
     ];
     const [selectedSource, setSelectedSource] = useState(sourceUrls[0].link);
@@ -180,18 +156,6 @@ export default function DownloadPage() {
                             </TextField>
                             <TextField
                                 select
-                                label="启动器类型"
-                                value={selectedLauncher}
-                                onChange={(e) => setSelectedLauncher(e.target.value)}
-                                fullWidth
-                                sx={{marginBottom: '1rem'}}
-                            >
-                                <MenuItem value="图形化">图形化</MenuItem>
-                                <MenuItem value="PureCli">CLI</MenuItem>
-                                {/* 其他启动器类型选项 */}
-                            </TextField>
-                            <TextField
-                                select
                                 label="系统"
                                 value={selectedSystem}
                                 onChange={(e) => setSelectedSystem(e.target.value)}
@@ -214,7 +178,6 @@ export default function DownloadPage() {
                                 <MenuItem value="amd64">amd64</MenuItem>
                                 <MenuItem value="arm">arm</MenuItem>
                                 <MenuItem value="arm64">arm64</MenuItem>
-                                <MenuItem value="386">386</MenuItem>
                                 <MenuItem value="mips">mips</MenuItem>
                                 <MenuItem value="mipsle">mipsle</MenuItem>
                                 <MenuItem value="mips64">mips64</MenuItem>
