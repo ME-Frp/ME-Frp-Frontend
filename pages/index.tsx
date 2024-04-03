@@ -26,7 +26,7 @@ export default function MEFrp() {
                 {/* Hero unit */}
                 <Container disableGutters component="main" sx={{ pt: 8, pb: 6 }}>
                     <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                        ME Frp 镜缘映射
+                        KL Frp 镜缘映射
                     </Typography>
                     <Typography variant="h5" align="center" color="textSecondary" paragraph>
                         免费 公益 好用 低延迟 稳定的Frp内网穿透
