@@ -8,8 +8,3 @@ function LightBulbIcon(props: SvgIconProps) {
     </SvgIcon>
   );
 }
-
-export default function ProTip() {
-  return (
-  );
-}
