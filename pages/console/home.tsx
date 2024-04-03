@@ -1,3 +1,6 @@
+import CircularProgress from '@components/CircularProgress';
+import Link from '@components/Link';
+import Message from '@components/Message';
 import {
     Alert,
     AlertTitle,
@@ -7,7 +10,6 @@ import {
     Card,
     CardContent,
     CardHeader,
-    CircularProgress,
     Container,
     Dialog,
     DialogActions,
@@ -19,12 +21,9 @@ import {
     Tooltip,
     Typography
 } from '@mui/material';
-import {useEffect, useState} from 'react';
-import Layout from '../../src/components/Layout';
-import Message from '../../src/components/Message';
-import apiClient from '../../src/http/http';
-import Markdown from 'react-markdown'
-import Link from '../../src/components/Link';
+import apiClient from '@src/http/http';
+import { useEffect, useState } from 'react';
+import Markdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
 
 interface User {
@@ -135,31 +134,26 @@ export default function UserProfileCard() {
     if (error) {
         console.log(error);
         return (
-            <Layout>
                 <Container maxWidth="lg">
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                         <CircularProgress/>
                     </Box>
                 </Container>
-            </Layout>
         );
     }
 
     if (isLoading || !user || !setting) {
         return (
-            <Layout>
                 <Container maxWidth="lg">
                     <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                         <CircularProgress/>
                     </Box>
                 </Container>
-            </Layout>
         );
     }
 
     const {email_md5, username, id, group, outbound, traffic, email} = user;
     return (
-        <Layout>
             <Grid container spacing={2}>
                 <Grid item xs={24}>
                     <Stack>
@@ -230,7 +224,7 @@ export default function UserProfileCard() {
                                 </CardContent>
                             </Card>
                         </Grid>
-                                              <Dialog open={openDialog} onClose={handleCancelReset}>
+                        <Dialog open={openDialog} onClose={handleCancelReset}>
                             <DialogTitle>确认重置 Token？</DialogTitle>
                             <DialogContent>
                                 <DialogContentText>
@@ -245,34 +239,6 @@ export default function UserProfileCard() {
                                     确定
                                 </Button>
                             </DialogActions>
-
-                    </Grid>
-                </Grid>
-                <Grid item xs={12} md={6} lg={6}>
-                    <Card style={{padding: '20px', height: "100%", marginBottom: '20px'}}>
-                        <CardHeader
-                            color="text.secondary"
-                            title="公告"
-                        />
-                        <CardContent>
-                            {Object.keys(setting.announce).map((key) => {
-                                if (setting.announce[key]?.title !== "null") {
-                                    return (
-                                        <Grid key={key}>
-                                            <Typography variant="h6">
-                                                {setting.announce[key].title}
-                                            </Typography>
-                                            <Markdown remarkPlugins={[remarkGfm]}>
-                                                {setting.announce[key].content}
-                                            </Markdown>
-                                        </Grid>
-                                    );
-                                }
-                                return null;
-                            })}
-                        </CardContent>
-                    </Card>
-                </Grid>
-            </Grid>
+                        </Dialog>
     );
 }
