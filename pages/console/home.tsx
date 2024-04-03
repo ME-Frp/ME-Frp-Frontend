@@ -266,7 +266,6 @@ export default function UserProfileCard() {
                             })}
                         </CardContent>
                     </Card>
-                </Grid>
             </Grid>
 
         </Layout>
