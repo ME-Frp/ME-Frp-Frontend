@@ -8,3 +8,12 @@ function LightBulbIcon(props: SvgIconProps) {
     </SvgIcon>
   );
 }
+
+export default function ProTip() {
+  return (
+    <Typography sx={{ mt: 6, mb: 3 }} color="text.secondary">
+      <LightBulbIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
+      注意 : 使用过程中请遵循中华人民共和国相关法律，谢谢！
+    </Typography>
+  );
+}
