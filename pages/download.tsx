@@ -7,8 +7,8 @@ import { useState } from 'react';
 export default function DownloadPage() {
     const sourceUrls = [
         {
-            link: 'https://mecdn.mcserverx.com/mefrp/',
-            name: '[境内]FiveCDN/镜缘网络'
+            link: 'https://download.mefrp.com/static/',
+            name: '[境外]ME Frp 下载站/镜缘网络'
         },
         {
             link: 'https://download.mefrp.top/',
