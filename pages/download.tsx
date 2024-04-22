@@ -7,7 +7,7 @@ import { useState } from 'react';
 export default function DownloadPage() {
     const sourceUrls = [
         {
-            link: 'https://download.mefrp.com/static/',
+            link: 'https://download.mefrp.com/',
             name: '[境外]ME Frp 下载站/镜缘网络'
         },
         {
