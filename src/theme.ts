@@ -43,3 +43,6 @@ export const darkTheme = createTheme({
     fontFamily: roboto.style.fontFamily
   }
 })
+
+export default lightTheme;
+//                         </DevSupport>
