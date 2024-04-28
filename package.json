@@ -21,6 +21,7 @@
     "@types/react-dom": "^18.2.18",
     "@types/react-gtm-module": "^2.0.3",
     "axios": "^1.6.7",
+    "framer-motion": "^11.1.7",
     "next": "latest",
     "next-themes": "^0.3.0",
     "nextjs-google-adsense": "^1.0.0",
