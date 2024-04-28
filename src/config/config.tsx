@@ -1,6 +1,6 @@
 const config = {
     "dev": {
-        "api": "https://api.mefrp.com/api/",
+        "api": "http://127.0.0.1:8080/api/",
         "title": "镜缘映射|Dev|"
     },
     "prod": {
