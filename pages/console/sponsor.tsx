@@ -76,10 +76,10 @@ const SponsorPage = () => {
                             </Typography>
                             <Grid container alignItems="center" marginBottom="10px">
                                 <Grid item xs={12} sm={6}>
-                                    <Image src="/assets/alipay.jpg" alt="支付宝" width={250} height={375}/>
+                                    <Image src="/assets/alipay_qiye.jpg" alt="支付宝" width={250} height={375}/>
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
-                                    <Image src="/assets/wechat.jpg" alt="微信支付" width={250} height={375}/>
+                                    <Image src="/assets/wechat_qiye.jpg" alt="微信支付" width={250} height={375}/>
                                 </Grid>
                             </Grid>
                             <Typography variant="body1" gutterBottom>你的支持是我们最大的动力！</Typography>
