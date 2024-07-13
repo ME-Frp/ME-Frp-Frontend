@@ -7,12 +7,8 @@ import { useState } from 'react';
 export default function DownloadPage() {
     const sourceUrls = [
         {
-            link: 'https://i.aqinco.com/mefrp/',
-            name: '[境内]ME Frp 下载站/樱雨云'
-        },
-        {
-            link: 'https://github.com/ME-Frp/ME-Frp-Core/releases/download/ME-Frp-0.51.3/',
-            name: '[境外]Github Release'
+            link: 'https://download.mefrp.com/',
+            name: '[境内]ME Frp 下载站'
         }
     ];
 
