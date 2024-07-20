@@ -382,10 +382,10 @@ export default function UserProfileCard() {
                         </Typography>
                         <Box display="flex" alignItems="center" marginBottom="10px">
                             <Grid item>
-                                <Image src="/assets/alipay_qiye.png" alt="支付宝" width={250} height={375}/>
+                                <Image src="/assets/alipay_qiye.jpg" alt="支付宝" width={250} height={375}/>
                             </Grid>
                             <Grid>
-                                <Image src="/assets/wechat_qiye.png" alt="微信支付" width={250} height={375}/>
+                                <Image src="/assets/wechat_qiye.jpg" alt="微信支付" width={250} height={375}/>
                             </Grid>
                         </Box>
                     </Card>
