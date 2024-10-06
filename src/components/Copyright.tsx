@@ -15,8 +15,7 @@ export default function Copyright() {
       <br />
               <MuiLink color="inherit" href="https://beian.miit.gov.cn">蜀ICP备2023020251号</MuiLink>
               <br />
-              <MuiLink color="inherit" href="https://beian.miit.gov.cn">增值电信业务许可证号: A2B1.B2-20223095号 </MuiLink>
-              由中远咨询(辽宁)有限公司授权 
+              <MuiLink color="inherit" href="https://beian.miit.gov.cn">增值电信业务许可证号: B1-20242579 </MuiLink>
     </Typography>
   );
 }
