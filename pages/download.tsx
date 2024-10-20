@@ -7,8 +7,8 @@ import { useState } from 'react';
 export default function DownloadPage() {
     const sourceUrls = [
         {
-            link: 'https://download.mefrp.com/',
-            name: '[境内]ME Frp 下载站'
+            link: 'https://ap-cn-cd.mos.mcserverx.com/packages/',
+            name: '[境内]镜缘网络 MOS 对象存储'
         }
     ];
 
