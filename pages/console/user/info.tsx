@@ -375,19 +375,11 @@ export default function UserProfileCard() {
                             但如果您是未成年人，并满怀热情想使用我们的服务，请确保您争取了您监护人的同意。<strong>如果您未争取监护人同意，则出现的一切问题我们将不负任何责任</strong><br/>
                             以下是运营团队想给您说的几句话↓<br/>
                             我们的运营团队中也有部分学生身份存在，我们深知学生使用部分服务时候的种种不便利，例如
-                            云服务商实名认证18+ 、部分提供商的实名认证需要付款，但自己没有经济能力亦或是没有支付平台账号（当然这也可能正是您选择我们的原因）
+                            云服务商实名认证 18+、部分提供商的实名认证需要付款，但自己没有经济能力亦或是没有支付平台账号（当然这也可能正是您选择我们的原因）
                             出于您对我们的信赖，我们推出了该政策，即：<br/>
                             1.确实没有能力，实名认证可以不收费。<br/>
                             2.未成年人可以在家长同意的前提下进行实名认证<br/>
                         </Typography>
-                        <Box display="flex" alignItems="center" marginBottom="10px">
-                            <Grid item>
-                                <Image src="/assets/alipay_qiye.jpg" alt="支付宝" width={250} height={375}/>
-                            </Grid>
-                            <Grid>
-                                <Image src="/assets/wechat_qiye.jpg" alt="微信支付" width={250} height={375}/>
-                            </Grid>
-                        </Box>
                     </Card>
                 </Grid>
             </Grid>

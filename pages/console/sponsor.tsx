@@ -74,20 +74,12 @@ const SponsorPage = () => {
                             <Typography variant="h5" gutterBottom>
                                 赞助我们
                             </Typography>
-                            <Grid container alignItems="center" marginBottom="10px">
-                                <Grid item xs={12} sm={6}>
-                                    <Image src="/assets/alipay_qiye.jpg" alt="支付宝" width={250} height={375}/>
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
-                                    <Image src="/assets/wechat_qiye.jpg" alt="微信支付" width={250} height={375}/>
-                                </Grid>
-                            </Grid>
                             <Typography variant="body1" gutterBottom>你的支持是我们最大的动力！</Typography>
                             <Typography variant="body1" gutterBottom>不要忘记备注您的用户名、邮箱和留言哦！</Typography>
                             <ButtonGroup variant="contained" aria-label="outlined primary button group">
                                 <Button href="https://afdian.net/a/aehxy" variant="contained">爱发电</Button>
-                                <Button href="https://qm.qq.com/q/Ob3I1Gu52y"
-                                        variant="contained">QQ(节点赞助/合作需求)</Button>
+                                <Button href="https://qm.qq.com/q/NLocfAECw8"
+                                        variant="contained">QQ (节点赞助/合作需求)</Button>
                             </ButtonGroup>
                         </CardContent>
                     </Card>

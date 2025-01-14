@@ -15,7 +15,7 @@ export default function MEFrp() {
                         ME Frp 镜缘映射
                     </Typography>
                     <Box flexGrow={1} />
-                    <Link href="https://qm.qq.com/q/rWsYtraZ1e" color="inherit" sx={{ my: 1, mx: 1.5 }}>QQ 群</Link>
+                    <Link href="https://qm.qq.com/q/pZaRHwiowi" color="inherit" sx={{ my: 1, mx: 1.5 }}>QQ 群</Link>
                     <Link href="console/home" color="inherit" sx={{ my: 1, mx: 1.5 }}>控制面板</Link>
                     <Button href="auth/register" color="inherit" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                         注册
